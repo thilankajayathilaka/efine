@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="./css/ps/policeStationAdminDashboard.css">
+    <link rel="stylesheet" href="../css/ps/policeStationAdminDashboard.css">
 </head>
 
 <body>

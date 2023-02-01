@@ -112,7 +112,7 @@
                 <span class="link_name">Logout</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="../includes/logout.php">Logout</a></li>
+                <li><a class="link_name" href="../../include/logout.php">Logout</a></li>
             </ul>
 
         </li>

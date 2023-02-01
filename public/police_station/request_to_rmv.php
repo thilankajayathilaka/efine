@@ -8,7 +8,7 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/ps/dashboard.css">
+    <link rel="stylesheet" href="../css/ps/dashboard.css">
 
 </head>
 
@@ -73,7 +73,7 @@
             </div>
         </div>
     </section>
-    <script src="./js/script.js"></script>
+    <script src="../js/script.js"></script>
 
 </body>
 
