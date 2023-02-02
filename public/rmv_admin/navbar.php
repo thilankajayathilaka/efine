@@ -1,4 +1,5 @@
-    <!DOCTYPE html>
+
+<!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -12,10 +13,11 @@
 
     <body>
         <div class="home-content">
-                       <div class="right-side-items">
+            <i class='bx bx-menu'></i>
+            <div class="right-side-items">
                 <i class='bx bx-bell'></i>
                 <div class="profile">
-                    <img src="../images/profile.png" alt="">
+                    <img src="../Images/profile.png" alt="">
                 </div>
             </div>
         </div>
