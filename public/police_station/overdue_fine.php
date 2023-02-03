@@ -54,9 +54,9 @@
 
                     <?php
                     //read data from table
-                    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+                    //$sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
 
-                    if ($result = mysqli_query($con, $sql)) {
+                    if ($result = mysqli_query($con, readOverdueFineDetails())) {
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
 

@@ -36,3 +36,8 @@ function readOngoinFineDetails()
     $sql = "SELECT * FROM `driverpayments` where Payment_status='unpaid'";
     return $sql;
 }
+function readOverdueFineDetails()
+{
+    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+    return $sql;
+}
