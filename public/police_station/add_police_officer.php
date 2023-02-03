@@ -23,7 +23,6 @@
             Add Police Officers
         </h3>
         <div class="add_po_board">
-            <?php include '../../include/police_station/add_police_officer.php' ?>
             <?php
             $_GET['success'] = '';
             if (($_GET['success'] === 'true')) {
@@ -38,7 +37,7 @@
                 </script>";
             }
             ?>
-            <form method="POST" action="../includes/ps/add_police_officer.php">
+            <form method="POST" action="../../include/police_station/add_police_officer.php">
                 <div class="input-group">
                     <label>Police Officer Id<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="police_officer_id" id="id">

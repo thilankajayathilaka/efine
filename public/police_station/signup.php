@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include './require.php';
 
 if (isset($_POST['login'])) {
