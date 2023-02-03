@@ -31,3 +31,8 @@ function readTotalFineDetails()
     $sql = "SELECT * FROM driverpayments";
     return $sql;
 }
+function readOngoinFineDetails()
+{
+    $sql = "SELECT * FROM `driverpayments` where Payment_status='unpaid'";
+    return $sql;
+}
