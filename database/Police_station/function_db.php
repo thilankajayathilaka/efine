@@ -41,3 +41,9 @@ function readOverdueFineDetails()
     $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
     return $sql;
 }
+function requestRmv($con, $fileName)
+{
+    $stmt = $con->prepare("INSERT INTO request_rmv(filename) VALUES (?)");
+    $stmt->bind_param("s", $fileName);
+    return $stmt->execute();
+}

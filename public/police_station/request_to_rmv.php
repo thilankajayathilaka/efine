@@ -21,7 +21,6 @@
         <h3 class="i-name">
             Request to RMV to take a decision</h3>
         <div class="board">
-            <?php include '../../include/police_station/request_rmv.php' ?>
             <div class="contactform">
                 <h3>Send Your Request</h3>
                 <form action="../../include/police_station/request_rmv.php" method="POST" enctype="multipart/form-data">
