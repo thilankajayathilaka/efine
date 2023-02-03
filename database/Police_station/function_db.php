@@ -21,3 +21,8 @@ function readPoliceOfficerDetails()
     $sql = "SELECT * FROM policeofficer";
     return $sql;
 }
+function readDriverPaymentDetails()
+{
+    $sql = "SELECT * FROM driverpayments where Payment_status='paid'";
+    return $sql;
+}
