@@ -47,3 +47,11 @@ function requestRmv($con, $fileName)
     $stmt->bind_param("s", $fileName);
     return $stmt->execute();
 }
+
+function addReportProblem($con, $name, $licence_no, $email, $mobile_no, $message)
+{
+    $stmt = $con->prepare("INSERT INTO report (name, licence_no, email, mobile, description, role) 
+VALUES(?, ?, ?, ?, ?, 'Police Station')");
+    $stmt->bind_param("sssss", $name, $licence_no, $email, $mobile_no, $message);
+    return $stmt->execute();
+}

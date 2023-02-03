@@ -22,11 +22,10 @@
             Report a Problem
         </h3>
         <div class="board">
-            <?php include '../../include/police_station/add_report_problem.php' ?>
             <?php include('../../include/police_station/error.php'); ?>
             <div class="contactform">
                 <h3>Send Your Request</h3>
-                <form action="../includes/ps/add_report_problem.php" method="POST">
+                <form action="../../include/police_station/add_report_problem.php" method="POST">
                     <div class="input-row">
                         <div class="input-requestform">
                             <label for="">Name<span class="required" style="color: red;">*</span></label>
