@@ -26,3 +26,8 @@ function readDriverPaymentDetails()
     $sql = "SELECT * FROM driverpayments where Payment_status='paid'";
     return $sql;
 }
+function readTotalFineDetails()
+{
+    $sql = "SELECT * FROM driverpayments";
+    return $sql;
+}

@@ -51,9 +51,9 @@
                 <tbody>
                     <?php
                     //read data from table
-                    $sql = "SELECT * FROM driverpayments";
+                    //$sql = "SELECT * FROM driverpayments";
 
-                    if ($result = mysqli_query($con, $sql)) {
+                    if ($result = mysqli_query($con, readTotalFineDetails())) {
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
