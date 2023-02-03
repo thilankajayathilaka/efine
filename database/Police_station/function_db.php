@@ -16,3 +16,8 @@ function insertPoliceOfficer($con, $po_id, $name, $po_station, $address, $phone_
     $stmt->bind_param("sssssss", $po_id, $name, $po_station, $address, $phone_no, $password, $email);
     return $stmt->execute();
 }
+function readPoliceOfficerDetails()
+{
+    $sql = "SELECT * FROM policeofficer";
+    return $sql;
+}

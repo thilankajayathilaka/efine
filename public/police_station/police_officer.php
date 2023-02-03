@@ -1,4 +1,5 @@
-<?php include './require.php' ?>
+<?php include './require.php';
+include '../../database/Police_station/function_db.php' ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -55,9 +56,10 @@
                 <tbody>
                     <?php
                     //read data from table
-                    $sql = "SELECT * FROM policeofficer";
+                    //$sql = "SELECT * FROM policeofficer";
 
-                    if ($result = mysqli_query($con, $sql)) {
+
+                    if ($result = mysqli_query($con, readPoliceOfficerDetails())) {
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
