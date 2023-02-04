@@ -30,13 +30,14 @@
         
           
                 
-                    <table class="rmv-tables">
+                    <table class="rmv-table">
                         <thead>
                             <tr>
                                 <th >Request Id</th>
                                 <th>Licence No</th>
                                 <th>Police Station</th>
                                 <th>Suspended Date and Time</th>
+                                <th>Status</th>
                                 <th></th>
                                 
                                 
@@ -48,7 +49,8 @@
                                 <th>B453632</th>
                                 <th>Gampaha</th>
                                 <th>12/01/2022- 13.00</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <td class="t-status t-active">Reinstated</td>
+                                <th><th><button>View</button></th></th>
                                 <th></th>
                                 
                             </tr>
@@ -58,7 +60,8 @@
                                 <th>B453672</th>
                                 <th>Colombo</th>
                                 <th>12/01/2022- 13.05</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <td class="t-status t-inactive">Suspended</td>
+                                <th><th><button>View</button></th></th>
                                 <th></th>
                                 
                             </tr>
@@ -68,7 +71,8 @@
                                 <th>B457872</th>
                                 <th>Jaffna</th>
                                 <th>12/01/2022- 13.10</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <td class="t-status t-inactive">Suspended</td>
+                                <th><th><button>View</button></th></th>
                                 <th></th>
                                 
                             </tr>

@@ -24,7 +24,7 @@
     <h3 class="i-name">
       Overview
     </h3>
-    <div class="values">
+    <div class="rmv-values">
       <div class="val-box">
         <span class="material-symbols-outlined">
           <i class='bx bx-mail-send'></i>
@@ -32,12 +32,13 @@
         <div>
           <h3>Requests for Suspend</h3>
           <p type="text" class="val-field">6</p>
-          
+
         </div>
-   
-       <button class="view"> <a href="request_for_suspend.php"> View</a></button>
+
+
       </div>
-       
+
+
 
       <div class="val-box">
         <span class="material-symbols-outlined">
@@ -51,7 +52,7 @@
 
 
         </div>
-        <button class="view"> <a href="request_for_reinstate.php"> View</a></button></button>
+
       </div>
 
 
@@ -65,27 +66,49 @@
           <p type="text" class="val-field">12</p>
 
         </div>
-        <button class="view"> <a href="request_for_edit.php"> View</a></button></button>
+
       </div>
 
-      
+
 
     </div>
 
-    
- 
+
+    <div class="rmv-values">
+      <button class="view"> <a href="request_for_suspend.php"> View</a></button>
+
+      <button class="view"> <a href="request_for_reinstate.php"> View</a></button>
+
+      <button class="view"> <a href="request_for_edit.php"> View</a></button>
+
+
+    </div>
+
+    <div class="rmv-values2">
+      <div class="rmv-val-box">
+      </div>
+
+      <div class="rmv-val-box">
+
+
+      </div>
+
+      <div class="rmv-val-box">
+
+
+      </div>
 
 
 
+    </div>
 
 
 
-
-
-    
   </section>
 
   <script src="../js/script.js"></script>
+
+
 
 
 

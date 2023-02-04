@@ -31,13 +31,14 @@
         
           
                 
-                    <table class="rmv-tables">
+                    <table class="rmv-table">
                         <thead>
                             <tr>
                                 <th >Request Id</th>
                                 <th>Licence No</th>
                                 <th>Name</th>
                                 <th>Date and Time</th>
+                               
                                 <th></th>
                                 
                                 
@@ -49,7 +50,8 @@
                                 <th>B453632</th>
                                 <th>G.K.Kumara</th>
                                 <th>12/01/2022- 13.00</th>
-                                <th><th><button class="view"><a href="licence_data_edit.php"View</button></th></th>
+                                
+                                <th><button><a href="licence_data_edit.php">View</a></button></th>
                                 <th></th>
                                 
                             </tr>
@@ -58,7 +60,7 @@
                                 <th >1005</th>
                                 <th>B453672</th>
                                 <th>Colombo</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <th><th><button>View</button></th></th>
                                 <th></th>
                                 
                             </tr>
@@ -67,7 +69,7 @@
                                 <th >1006</th>
                                 <th>B457872</th>
                                 <th>Jaffna</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <th><th><button>View</button></th></th>
                                 <th></th>
                                 
                             </tr>

@@ -34,7 +34,7 @@
             <h1 class="i-name">Licence Details</h1>
         </div>
 
-        <table class="rmv-tables">
+        <table class="rmv-table">
 
             <thead>
                 <tr>

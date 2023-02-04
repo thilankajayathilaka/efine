@@ -31,33 +31,26 @@
         
           
                 
-                    <table class="rmv-tables">
+                    <table class=rmv-table>
                         <thead>
                             <tr>
-                                <th >Request Id</th>
-                                <th>Licence No</th>
-                                <th>Police Station</th>
-                                <th>Date and Time</th>
+                                <th class="t-medium">Request Id</th>
+                                <th class="t-medium">Licence No</th>
+                                <th class="t-medium">Police Station</th>
+                                <th class="t-medium">Date and Time</th>
                                 
-                                <th>  </th>
+                                <th class="t-medium"> View Details </th>
                                 
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                                <th >1004</th>
-                                <th>B453632</th>
-                                <th>Gampaha</th>
-                                <th><th><button class="view">View</button></th></th>
-                                <th></th>
-                                
-                            </tr>
+                       
 
                             <tr>
-                                <th >1005</th>
+                                <th>1005</th>
                                 <th>B453672</th>
                                 <th>Colombo</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <th><th><button class="">View</button></th></th>
                                 <th></th>
                                 
                             </tr>
@@ -66,10 +59,30 @@
                                 <th >1006</th>
                                 <th>B457872</th>
                                 <th>Jaffna</th>
-                                <th><th><button class="view">View</button></th></th>
+                                <th><th><button class="">View</button></th></th>
                                 <th></th>
                                 
                             </tr>
+
+                            <tr>
+                                <th >1006</th>
+                                <th>B457872</th>
+                                <th>Jaffna</th>
+                                <th><th><button class="">View</button></th></th>
+                                <th></th>
+                                
+                            </tr>
+                            
+                            <tr>
+                                <th >1006</th>
+                                <th>B457872</th>
+                                <th>Jaffna</th>
+                                <th><th><button class="">View</button></th></th>
+                                <th></th>
+                                
+                            </tr>
+
+                            
                             
                             
                         </tbody>
