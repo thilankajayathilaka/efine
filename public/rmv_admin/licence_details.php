@@ -1,3 +1,6 @@
+<?php
+include("../../include/rmv_admin/db_conn2.php");
+?>
 
 
 <!DOCTYPE html>
@@ -19,20 +22,28 @@
     <?php include 'rmv_sidebar.php' ?>
 
     <section class="home-section">
-    <?php include 'navbar.php' ?>
-        <div class="content">
-            <div class="title-bar">
+        <?php include 'navbar.php' ?>
 
-            </div>
-            <div class="searchbar">
-                <input type="input" placeholder="Search the Licence Number" class="searchfield" name="id">
-                <input type="submit" class="searchbt" name="search" value="search">
-            </div>
+        <h1 class="i-name">Licence Details</h1>
 
-
-
-            <h1 class="i-name">Licence Details</h1>
+        <div class="searchBox">
+            <form action="/search?">
+                <input class="searchInput" type="search" name="q" placeholder="Search">
+                <button class="searchButton" type="submit">
+                    <i class="material-icons">
+                        search
+                    </i>
+                </button>
+            </form>
         </div>
+
+
+
+        <?php
+        $query_rmv = "SELECT * FROM licencedetails";
+        $result_rmv = mysqli_query($conn2, $query_rmv);
+        ?>
+
 
         <table class="rmv-table">
 
@@ -45,38 +56,48 @@
                     <th>Name</th>
                     <th>NIC</th>
                     <th>Address</th>
-                    <th></th>
-
-
-
 
                 </tr>
+
+                <?php
+
+                while ($row = mysqli_fetch_array($result_rmv)) {
+                    $LicenceNo = $row['LicenceNo'];
+                    $NIC = $row['NIC'];
+                    $vehicleTypes = $row['vehicleTypes'];
+                    $Issuing_Date = $row['Issuing Date'];
+                    $name    = $row['name'];
+                    $address = $row['address'];
+
+
+                ?>
             </thead>
+
             <tbody class="ltable">
                 <tr>
 
-                    <th>B357808</th>
-                    <th>05/02/2020-05/02/2025</th>
-                    <th>B</th>
-                    <th>Subash Thilakarathne</th>
-                    <th>986754345V</th>
-                    <th>No 45, 2<sup>nd </sup>lane,Kelaniya</sup></th>
-
-
-
-
+                    <th><?php echo $LicenceNo; ?></th>
+                    <th><?php echo $NIC; ?></th>
+                    <th><?php echo $vehicleTypes; ?></th>
+                    <th><?php echo $Issuing_Date; ?></th>
+                    <th><?php echo $name; ?></th>
+                    <th><?php echo $address; ?></th>
 
                 </tr>
-
+            <?php } ?>
 
 
             </tbody>
 
         </table>
 
-        
+
+
+
 
     </section>
+
+
 
     <script src="../js/script.js"></script>
 

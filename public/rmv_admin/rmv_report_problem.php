@@ -7,12 +7,12 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style3.css">
+    <link rel="stylesheet" href="./CSS/style3.css">
 
 </head>
 
 <body>
-    <?php include 'rmv_sidebar.php' ?>
+    <?php include 'po_sidebar.php' ?>
 
     <section class="home-section">
 
@@ -31,9 +31,7 @@
                             <label for="">Name</label>
                             <input type="text" placeholder="Full Name" name="name">
                         </div>
-                        <div class="input-requestform">
-                            
-                        </div>
+                        
                     </div>
 
                     <div class="input-row">
@@ -41,10 +39,7 @@
                             <label for="">Email</label>
                             <input type="email" placeholder="email" name="email">
                         </div>
-                        <div class="input-requestform">
-                            <label for="">Mobile No</label>
-                            <input type="text" placeholder="Mobile No" name="mobile_no">
-                        </div>
+                        
                     </div>
                     <label for="">Message</label>
                     <textarea rows="10" placeholder="Write your problem" name="message"></textarea>

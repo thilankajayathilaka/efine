@@ -24,7 +24,7 @@
   <?php include 'navbar.php' ?>
 
     <h3 class="i-name">
-      Requests for Licence Reinstate.
+      Requests for Licence Edit.
     </h3>
     
 
@@ -52,25 +52,28 @@
                                 <th>12/01/2022- 13.00</th>
                                 
                                 <th><button><a href="licence_data_edit.php">View</a></button></th>
-                                <th></th>
+                                
                                 
                             </tr>
 
                             <tr>
                                 <th >1005</th>
                                 <th>B453672</th>
-                                <th>Colombo</th>
-                                <th><th><button>View</button></th></th>
-                                <th></th>
+                                <th>Tharindu</th>
+                                <th>12/01/2022- 13.00</th>
+                                <th><button><a href="licence_data_edit.php">View</a></button></th>
+                                
+                                
                                 
                             </tr>
 
                             <tr>
                                 <th >1006</th>
                                 <th>B457872</th>
-                                <th>Jaffna</th>
-                                <th><th><button>View</button></th></th>
-                                <th></th>
+                                <th>Bandara</th>
+                                <th>12/01/2022- 13.00</th>
+                                <th><button><a href="licence_data_edit.php">View</a></button></th>
+                               
                                 
                             </tr>
                             

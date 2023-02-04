@@ -37,8 +37,6 @@
                                 <th class="t-medium">Request Id</th>
                                 <th class="t-medium">Licence No</th>
                                 <th class="t-medium">Police Station</th>
-                                <th class="t-medium">Date and Time</th>
-                                
                                 <th class="t-medium"> View Details </th>
                                 
                             </tr>
@@ -50,8 +48,8 @@
                                 <th>1005</th>
                                 <th>B453672</th>
                                 <th>Colombo</th>
-                                <th><th><button class="">View</button></th></th>
-                                <th></th>
+                                <th><button class="">View</button></th>
+                                
                                 
                             </tr>
 
@@ -59,8 +57,9 @@
                                 <th >1006</th>
                                 <th>B457872</th>
                                 <th>Jaffna</th>
-                                <th><th><button class="">View</button></th></th>
-                                <th></th>
+                            
+                                <th><button class="">View</button></th>
+                               
                                 
                             </tr>
 
@@ -68,8 +67,7 @@
                                 <th >1006</th>
                                 <th>B457872</th>
                                 <th>Jaffna</th>
-                                <th><th><button class="">View</button></th></th>
-                                <th></th>
+                                <th><button class="">View</button></th>
                                 
                             </tr>
                             
@@ -77,8 +75,8 @@
                                 <th >1006</th>
                                 <th>B457872</th>
                                 <th>Jaffna</th>
-                                <th><th><button class="">View</button></th></th>
-                                <th></th>
+                                <th><button class="">View</button></th>
+                                
                                 
                             </tr>
 

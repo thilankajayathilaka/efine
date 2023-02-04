@@ -38,44 +38,46 @@
                                 <th>Police Station</th>
                                 <th>Suspended Date and Time</th>
                                 <th>Status</th>
-                                <th></th>
+                                <th>View Details</th>
                                 
                                 
                             </tr>
                         </thead>
                         <tbody>
                         <tr>
-                                <th >1004</th>
-                                <th>B453632</th>
-                                <th>Gampaha</th>
-                                <th>12/01/2022- 13.00</th>
+                                <td >1004</td>
+                                <td>B453632</td>
+                                <th>Gampaha</td>
+                                <td>12/01/2022- 13.00</td>
                                 <td class="t-status t-active">Reinstated</td>
-                                <th><th><button>View</button></th></th>
-                                <th></th>
+                                <td><button>View</button></td>
+                                
                                 
                             </tr>
 
                             <tr>
-                                <th >1005</th>
-                                <th>B453672</th>
-                                <th>Colombo</th>
-                                <th>12/01/2022- 13.05</th>
+                                <td>1005</td>
+                                <td>B453672</td>
+                                <td>Colombo</td>
+                                <td>12/01/2022- 13.05</td>
                                 <td class="t-status t-inactive">Suspended</td>
-                                <th><th><button>View</button></th></th>
-                                <th></th>
+                                <td><button>View</button></td>
+                                
                                 
                             </tr>
 
                             <tr>
-                                <th >1006</th>
-                                <th>B457872</th>
-                                <th>Jaffna</th>
-                                <th>12/01/2022- 13.10</th>
+                                <td>1005</td>
+                                <td>B453672</td>
+                                <td>Colombo</td>
+                                <td>12/01/2022- 13.05</td>
                                 <td class="t-status t-inactive">Suspended</td>
-                                <th><th><button>View</button></th></th>
-                                <th></th>
+                                <td><button>View</button></td>
+                                
                                 
                             </tr>
+
+                            
                             
                             
                         </tbody>
