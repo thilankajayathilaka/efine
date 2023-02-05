@@ -24,13 +24,15 @@ include("../../include/rmv_admin/db_conn2.php");
     <section class="home-section">
         <?php include 'navbar.php' ?>
 
-        <h1 class="i-name">Licence Details</h1>
+
 
 
 
 
         <?php
         if (!isset($_POST['search'])) { ?>
+
+            <h1 class="i-name">Licence Details</h1>
 
             <form action="licence_details.php" method="POST">
                 <div class="searchbar-rmv">
@@ -116,39 +118,70 @@ include("../../include/rmv_admin/db_conn2.php");
 
         ?>
 
-            <div class="input-row">
 
-                <label for="">Licence Number</label>
-                <div><?php echo $LicenceNo ?></div>
+            <div class="contactform-rmv">
+            <h1 class="i-name">Licence Details</h1>
 
-                <label for="">Issuing Date</label>
-                <div><?php echo $Issuing_Date ?> </div>
+                <form action="" method="POST">
+                    <div class="input-row">
+                        <div class="input-requestform">
+                            <label for="">Licence Number</label>
+                            <div><?php echo $LicenceNo ?></div>
+                        </div>
+                        <div class="input-requestform">
 
-                <label for="">Veheicle Type</label>
-                <div><?php echo  $vehicleTypes ?></div>
+                        </div>
+                    </div>
 
-                <label for="">Name</label>
-                <div><?php echo  $name ?></div>
+                    <div class="input-row">
+                        <div class="input-requestform">
+                            <label for="">Issuing Date</label>
+                            <div><?php echo $Issuing_Date ?> </div>
+                        </div>
+                        <div class="input-requestform">
+                            <label for="">Veheicle Type</label>
+                            <div><?php echo  $vehicleTypes ?></div>
 
-                <label for="">NIC</label>
-                <div><?php echo $NIC ?></div>
-
-                <label for="">Address</label>
-                <div><?php echo $address ?></div>
+                        </div>
+                    </div>
 
 
+                    <div class="input-row">
+                        <div class="input-requestform">
+                            <label for="">Name</label>
+                            <div><?php echo  $name ?></div>
+                        </div>
+                        <div class="input-requestform">
+                            <label for="">NIC</label>
+                            <div><?php echo $NIC ?></div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-requestform">
+                            <label for="">Address</label>
+                            <div><?php echo $address ?></div>
+                        </div>
+
+                    </div>
+
+
+                </form>
+                <button type="submit" name="submit_btn">Edit</button>
+
+
+            </div>
             </div>
         <?php
         }
         ?>
 
 
+
+
     </section>
-
-
-
+    <?php include 'footer.php' ?>
     <script src=" ../js/script.js"></script>
-
 </body>
 
 </html>

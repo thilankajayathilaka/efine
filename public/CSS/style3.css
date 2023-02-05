@@ -403,67 +403,8 @@
     }
   }
 
-  .contactform {
-    width: 60%;
-    background: #ffffff;
-    margin: 20px auto;
-  
-  }
-  
-  .input-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  
-  }
-  
-  .input-row .input-requestform {
-    flex-basis: 45%;
-  }
-  
-  .input-row .input-requestform input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    outline: none;
-    padding-bottom: 5px;
-  }
-  
-  .contactform textarea {
-    width: 100%;
-    border: 1px solid #ccc;
-    outline: none;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  
-  .contactform label {
-    margin-bottom: 6px;
-    display: block;
-    color: #1c00b5;
-  
-  }
-  
-  .contactform button {
-    background: #1c00b5;
-    width: 100px;
-    border: none;
-    outline: none;
-    color: #fff;
-    height: 35px;
-    border-radius: 30px;
-    margin-top: 20px;
-    box-shadow: 0px 5px 15px 0px rgba(28, 0, 181, 0.3);
-    cursor: pointer;
   
   
-  }
-  
-  .contactform h3 {
-    color: #1c00b5;
-    font-weight: 600;
-    margin-bottom: 30px;
-  }
 
 
   /*rmv values*/
@@ -683,11 +624,11 @@
   color: #FFFFFF;
 }
 
-
-.contactform {
-  width: 60%;
+.contactform-rmv {
+  width: 70%;
   background: #ffffff;
-  margin: 20px auto;
+  margin: 40px auto;
+  margin-top: 60px;
 
 }
 
@@ -710,7 +651,8 @@
   padding-bottom: 5px;
 }
 
-.contactform textarea {
+
+.contactform-rmv textarea {
   width: 100%;
   border: 1px solid #ccc;
   outline: none;
@@ -718,21 +660,21 @@
   box-sizing: border-box;
 }
 
-.contactform label {
+.contactform-rmv label {
   margin-bottom: 6px;
   display: block;
   color: #1c00b5;
 
 }
 
-.contactform button {
-  background: #1c00b5;
+.contactform-rmv button {
+  background: #161242;
   width: 100px;
   border: none;
   outline: none;
   color: #fff;
   height: 35px;
-  border-radius: 30px;
+  border-radius: 10px;
   margin-top: 20px;
   box-shadow: 0px 5px 15px 0px rgba(28, 0, 181, 0.3);
   cursor: pointer;
@@ -740,11 +682,19 @@
 
 }
 
-.contactform h3 {
-  color: #1c00b5;
+.contactform-rmv h3 {
+  color: #10327a;
   font-weight: 600;
   margin-bottom: 30px;
 }
+
+.contactform-rmv select{
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
 
 .board {
   width: 80%;
