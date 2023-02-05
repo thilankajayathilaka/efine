@@ -26,80 +26,128 @@ include("../../include/rmv_admin/db_conn2.php");
 
         <h1 class="i-name">Licence Details</h1>
 
-        <div class="searchBox">
-            <form action="/search?">
-                <input class="searchInput" type="search" name="q" placeholder="Search">
-                <button class="searchButton" type="submit">
-                    <i class="material-icons">
-                        search
-                    </i>
-                </button>
-            </form>
-        </div>
 
 
 
         <?php
-        $query_rmv = "SELECT * FROM licencedetails";
-        $result_rmv = mysqli_query($conn2, $query_rmv);
+        if (!isset($_POST['search'])) { ?>
+
+            <form action="licence_details.php" method="POST">
+                <div class="searchbar-rmv">
+                    <input type="input" placeholder="Search the Licence Number" class="searchfield-rmv" name="id">
+                    <input type="submit" class="searchbt-rmv" name="search" value="search">
+                </div>
+            </form>
+
+
+
+            <?php
+            $query_rmv = "SELECT * FROM licencedetails";
+            $result_rmv = mysqli_query($conn2, $query_rmv);
+            ?>
+
+
+            <table class="rmv-table">
+
+                <thead>
+                    <tr>
+
+                        <th>Licence Number</th>
+                        <th>Licence Validity</th>
+                        <th>Vehicle Type </th>
+                        <th>Name</th>
+                        <th>NIC</th>
+                        <th>Address</th>
+
+                    </tr>
+
+                    <?php
+
+                    while ($row = mysqli_fetch_array($result_rmv)) {
+                        $LicenceNo = $row['LicenceNo'];
+                        $NIC = $row['NIC'];
+                        $vehicleTypes = $row['vehicleTypes'];
+                        $Issuing_Date = $row['Issuing Date'];
+                        $name    = $row['name'];
+                        $address = $row['address'];
+
+
+                    ?>
+                </thead>
+
+                <tbody class="ltable">
+                    <tr>
+
+                        <th><?php echo $LicenceNo; ?></th>
+                        <th><?php echo $NIC; ?></th>
+                        <th><?php echo $vehicleTypes; ?></th>
+                        <th><?php echo $Issuing_Date; ?></th>
+                        <th><?php echo $name; ?></th>
+                        <th><?php echo $address; ?></th>
+
+                    </tr>
+                <?php } ?>
+
+
+                </tbody>
+
+            </table>
+        <?php
+        }
         ?>
 
+        <?php
+        if (isset($_POST['search'])) {
+            $id = $_POST['id'];
 
-        <table class="rmv-table">
+            $query_search = "SELECT* FROM licencedetails where LicenceNo= '$id'";
+            $query_run = mysqli_query($conn2, $query_search);
 
-            <thead>
-                <tr>
+            while ($row = mysqli_fetch_array($query_run)) {
 
-                    <th>Licence Number</th>
-                    <th>Licence Validity</th>
-                    <th>Vehicle Type </th>
-                    <th>Name</th>
-                    <th>NIC</th>
-                    <th>Address</th>
-
-                </tr>
-
-                <?php
-
-                while ($row = mysqli_fetch_array($result_rmv)) {
-                    $LicenceNo = $row['LicenceNo'];
-                    $NIC = $row['NIC'];
-                    $vehicleTypes = $row['vehicleTypes'];
-                    $Issuing_Date = $row['Issuing Date'];
-                    $name    = $row['name'];
-                    $address = $row['address'];
+                $LicenceNo = $row['LicenceNo'];
+                $NIC = $row['NIC'];
+                $vehicleTypes = $row['vehicleTypes'];
+                $Issuing_Date = $row['Issuing Date'];
+                $name    = $row['name'];
+                $address = $row['address'];
+            }
 
 
-                ?>
-            </thead>
+        ?>
 
-            <tbody class="ltable">
-                <tr>
+            <div class="input-row">
 
-                    <th><?php echo $LicenceNo; ?></th>
-                    <th><?php echo $NIC; ?></th>
-                    <th><?php echo $vehicleTypes; ?></th>
-                    <th><?php echo $Issuing_Date; ?></th>
-                    <th><?php echo $name; ?></th>
-                    <th><?php echo $address; ?></th>
+                <label for="">Licence Number</label>
+                <div><?php echo $LicenceNo ?></div>
 
-                </tr>
-            <?php } ?>
+                <label for="">Issuing Date</label>
+                <div><?php echo $Issuing_Date ?> </div>
+
+                <label for="">Veheicle Type</label>
+                <div><?php echo  $vehicleTypes ?></div>
+
+                <label for="">Name</label>
+                <div><?php echo  $name ?></div>
+
+                <label for="">NIC</label>
+                <div><?php echo $NIC ?></div>
+
+                <label for="">Address</label>
+                <div><?php echo $address ?></div>
 
 
-            </tbody>
-
-        </table>
-
-
-
+            </div>
+        <?php
+        }
+        ?>
 
 
     </section>
 
 
 
-    <script src="../js/script.js"></script>
+    <script src=" ../js/script.js"></script>
 
 </body>
 

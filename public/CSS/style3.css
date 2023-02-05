@@ -253,7 +253,7 @@
   }
   
   .home-section {
-    position: relative;
+    position: fixed;
     background: #E4E9F7;
     height: 100vh;
     left: 260px;
@@ -538,7 +538,7 @@
   .view{
     
     
-      background-color: #55c2da;
+      background-color: #1d1b31;
       color: #E4E9F7;
       border-radius: 5px;
       border-style: none;
@@ -557,8 +557,11 @@
 
     .view a:link{
       text-decoration: none;
-      text-decoration-color: #E4E9F7;
+      color: #E4E9F7;
       
+    }
+    .view-link{
+      color: white;
     }
 
     .rmv-values{
@@ -750,6 +753,60 @@
   background: #fff;
   border-radius: 8px;
   margin-left: 30px;
+}
+
+
+.searchbt-rmv{
+  width: 100px;
+border: none;
+outline: none;
+background-color: #161242;
+color: rgb(255, 255, 255);
+height: 35px;
+cursor: pointer;
+border-radius: 5px;
+margin-top: 10px;
+}
+
+.searchfield-rmv {
+  font-family:sans-serif;
+  background: #ffff;
+  width: 400px;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  border-radius: 5px;
+  border-color: beige;
+  margin-top:10px;
+  margin-bottom: 25px;
+
+}
+
+.searchbar-rmv{
+  display:inline-flex;
+  margin-top:10px;
+  margin-left:30%;
+  
+}
+
+/**footer**/
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #113788;
+  color: white;
+}
+
+footer .links{
+color:  #ffffff;
+margin: 0 0 10px;
+padding: 0;
+}
+
+footer .links a{
+display:inline-block;
+text-decoration: none;
 }
 
 

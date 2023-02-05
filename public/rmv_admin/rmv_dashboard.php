@@ -75,11 +75,11 @@
 
 
     <div class="rmv-values">
-      <button class="view"> <a href="request_for_suspend.php"> View</a></button>
+      <button class="view"> <a class="view-link" href="request_for_suspend.php"> View</a></button>
 
-      <button class="view"> <a href="request_for_reinstate.php"> View</a></button>
+      <button class="view"> <a class="view-link" href="request_for_reinstate.php"> View</a></button>
 
-      <button class="view"> <a href="request_for_edit.php"> View</a></button>
+      <button class="view"> <a class="view-link" href="request_for_edit.php"> View</a></button>
 
 
     </div>
@@ -103,13 +103,14 @@
     </div>
 
 
+    <?php include 'footer.php' ?>
 
   </section>
 
   <script src="../js/script.js"></script>
 
 
-
+  
 
 
 </body>
