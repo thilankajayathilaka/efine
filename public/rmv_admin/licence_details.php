@@ -120,7 +120,7 @@ include("../../include/rmv_admin/db_conn2.php");
 
 
             <div class="contactform-rmv">
-            <h1 class="i-name">Licence Details</h1>
+                <h1 class="i-name">Licence Details</h1>
 
                 <form action="" method="POST">
                     <div class="input-row">
@@ -167,8 +167,14 @@ include("../../include/rmv_admin/db_conn2.php");
 
 
                 </form>
-                <button type="submit" name="submit_btn">Edit</button>
 
+                <a>
+
+                    <?php echo "<a href='licence_data_edit.php?id=$LicenceNo&NIC=$NIC&vehicleTypes=$vehicleTypes&Issuing_Date=$Issuing_Date&name=$name&address=$address'>"; ?>
+                    <button type="submit" name="submit_btn">Edit</button>
+                    <?php echo "</a>" ?>
+
+                </a>
 
             </div>
             </div>
