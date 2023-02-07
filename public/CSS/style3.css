@@ -625,10 +625,10 @@
 }
 
 .contactform-rmv {
-  width: 70%;
+  width: 60%;
   background: #ffffff;
   margin: 40px auto;
-  margin-top: 60px;
+  padding: 40px auto;
 
 }
 
@@ -661,7 +661,7 @@
 }
 
 .contactform-rmv label {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: block;
   color: #1c00b5;
 
@@ -752,11 +752,13 @@ footer .links{
 color:  #ffffff;
 margin: 0 0 10px;
 padding: 0;
+
 }
 
 footer .links a{
 display:inline-block;
 text-decoration: none;
+font-size:10px;
 }
 
 

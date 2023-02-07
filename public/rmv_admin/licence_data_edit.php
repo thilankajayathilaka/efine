@@ -1,5 +1,21 @@
 <?php
 include("../../include/rmv_admin/db_conn2.php");
+if (isset($_POST['submit'])) {
+    $get_id = $_POST['lnumber'];
+    $NIC = $_POST['nic'];
+    $vehicleTypes = $_POST['vehicleType'];
+    $Issuing_Date = $_POST['date'];
+    $name = $_POST['name'];
+    $address = $_POST['address'];
+
+    $data = mysqli_query($conn2, "UPDATE licencedetails SET `NIC`='$NIC', `vehicleTypes`='$vehicleTypes', `Issuing Date`='$Issuing_Date', `name`='$name', `address`='$address' WHERE LicenceNo='$get_id' ");
+    if ($data) {
+        echo "<script>alert('Record updated successfully')</script>";
+        header("Location:licence_details.php");
+    } else {
+        echo "<script>alert('Record update failed')</script>";
+    }
+}
 ?>
 
 
@@ -39,8 +55,8 @@ include("../../include/rmv_admin/db_conn2.php");
 
             
 
-            <div class="contactform">
-                <h1>Licence Details</h1>
+            <div class="contactform-rmv">
+                <h1 class="i-name">Licence Details</h1>
 
                 <form action="" method="POST">
                     <div class="input-row">
@@ -55,7 +71,7 @@ include("../../include/rmv_admin/db_conn2.php");
 
                     <div class="input-row">
                         <div class="input-requestform">
-                            <label for="">Licence Validity</label>
+                            <label for="">Issuing Date</label>
                             <input type="date" name="date" value="<?php echo $Issuing_Date ?>"/>
                         </div>
                         <div class="input-requestform">
@@ -84,10 +100,8 @@ include("../../include/rmv_admin/db_conn2.php");
 
                     </div>
 
-
+                    <button type="submit" name="submit" value="update_data">Done</button>
                 </form>
-                <button type="submit" name="submit">Done</button>
-
 
             </div>
         </div>

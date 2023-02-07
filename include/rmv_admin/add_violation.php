@@ -19,7 +19,7 @@ $cdate = $_POST["cdate"];
 $message = $_POST["message"];
 $issuingOfficer = $_POST["issuingOfficer"];
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit2"])) {
 
     if (emptyInput($vnumber, $date, $place, $fine, $cdate, $message, $issuingOfficer) !== false) {
         header("location: ../P_O/addFine_form.php?error=emptyInput");
