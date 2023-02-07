@@ -1,9 +1,5 @@
 <?php
-include_once '../../public/police_station/require.php';
-include_once '../../database/Police_station/function_db.php';
-ini_set("display_errors", "1");
-ini_set("display_startup_errors", "1");
-error_reporting(E_ALL);
+include '../../public/police_station/require.php';
 
 // add police officer
 
@@ -32,10 +28,10 @@ if (isset($_POST['Add_police_officer_btn'])) {
 
     // Check if police officer already exists
     $existing_officer = selectPoliceOfficer($con, $po_id, $email);
-    header('Location:../../public/police_station/add_police_officer.php?error=exist');
-    var_dump($existing_officer);
     if ($existing_officer) {
         if ($existing_officer['id'] === $po_id || $existing_officer['email'] === $email) {
+            header('Location:../../public/police_station/add_police_officer.php?error=exist');
+
             exit();
         }
     }

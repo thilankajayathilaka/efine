@@ -49,14 +49,15 @@
                     <td>Points</td>
                     <td>Amount</td>
                     <td>Overdued date</td>
+                    <td>Action</td>
                 </thead>
                 <tbody>
 
                     <?php
                     //read data from table
-                    //$sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+                    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
 
-                    if ($result = mysqli_query($con, readOverdueFineDetails())) {
+                    if ($result = mysqli_query($con, $sql)) {
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
 
@@ -69,15 +70,16 @@
 
                     ?>
 
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Vialation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                        <td id="data"><?php echo $date ?></td>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td><Button>Court</Button></td>
 
-                    </tr>
+                            </tr>
 
                     <?php
                         }

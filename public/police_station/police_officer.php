@@ -1,5 +1,4 @@
-<?php include './require.php';
-include '../../database/Police_station/function_db.php' ?>
+<?php include './require.php'; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -33,9 +32,7 @@ include '../../database/Police_station/function_db.php' ?>
                     </select>
                     <input type="text" name="search" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <a class="add_po_a" href="add_police_officer.php"><input class="add_po"
-                            href="http://localhost/efine/ps/add_police_officer.php" value="Add police Officer"
-                            disabled></a>
+                    <a class="add_po_a" href="add_police_officer.php"><input class="add_po" href="http://localhost/efine/ps/add_police_officer.php" value="Add police Officer" disabled></a>
                     <button class="pdf">Download PDF</button>
                 </form>
 
@@ -63,15 +60,15 @@ include '../../database/Police_station/function_db.php' ?>
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <tr>
-                        <td><?php echo $row['id']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['police_station']; ?></td>
-                        <td><?php echo $row['address']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['phone_No']; ?></td>
-                        <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
-                    </tr>
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['police_station']; ?></td>
+                                <td><?php echo $row['address']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['phone_No']; ?></td>
+                                <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
+                            </tr>
                     <?php
                         }
                         mysqli_free_result($result);
