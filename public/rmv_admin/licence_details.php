@@ -60,6 +60,7 @@ include("../../include/rmv_admin/db_conn2.php");
                         <th>Name</th>
                         <th>NIC</th>
                         <th>Address</th>
+                        <th>Status</th>
 
                     </tr>
 
@@ -72,6 +73,7 @@ include("../../include/rmv_admin/db_conn2.php");
                         $Issuing_Date = $row['Issuing Date'];
                         $name    = $row['name'];
                         $address = $row['address'];
+                        $status=$row['Status'];
 
 
                     ?>
@@ -80,12 +82,14 @@ include("../../include/rmv_admin/db_conn2.php");
                 <tbody class="ltable">
                     <tr>
 
-                        <th><?php echo $LicenceNo; ?></th>
-                        <th><?php echo $NIC; ?></th>
-                        <th><?php echo $vehicleTypes; ?></th>
-                        <th><?php echo $Issuing_Date; ?></th>
-                        <th><?php echo $name; ?></th>
-                        <th><?php echo $address; ?></th>
+                        <td><?php echo $LicenceNo; ?></td>
+                        <td><?php echo $NIC; ?></td>
+                        <td><?php echo $vehicleTypes; ?></td>
+                        <td><?php echo $Issuing_Date; ?></td>
+                        <td><?php echo $name; ?></td>
+                        <td><?php echo $address; ?></td>
+                        <td class="t-status t-active"><?php echo $status; ?></td>
+
 
                     </tr>
                 <?php } ?>
@@ -113,6 +117,7 @@ include("../../include/rmv_admin/db_conn2.php");
                 $Issuing_Date = $row['Issuing Date'];
                 $name    = $row['name'];
                 $address = $row['address'];
+                $status=$row['Status'];
             }
 
 
@@ -161,6 +166,10 @@ include("../../include/rmv_admin/db_conn2.php");
                         <div class="input-requestform">
                             <label for="">Address</label>
                             <div><?php echo $address ?></div>
+                        </div>
+                        <div class="input-requestform">
+                            <label for="">Address</label>
+                            <div><?php echo $status ?></div>
                         </div>
 
                     </div>

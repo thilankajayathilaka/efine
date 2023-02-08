@@ -30,7 +30,7 @@
           <i class='bx bx-mail-send'></i>
         </span>
         <div>
-          <h3>Requests for Suspend</h3>
+          <h3>Suspended licence</h3>
           <p type="text" class="val-field">6</p>
 
         </div>

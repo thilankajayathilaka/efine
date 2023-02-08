@@ -1,6 +1,6 @@
 <?php
 require 'db_conn2.php';
-if (isset($_POST['submit'])) {
+if (isset($_POST['update_data'])) {
     $get_id = $_POST['lnumber'];
     $NIC = $_POST['nic'];
     $vehicleTypes = $_POST['vehicleType'];

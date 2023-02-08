@@ -1,6 +1,8 @@
 <?php
 include("../../include/rmv_admin/db_conn2.php");
-if (isset($_POST['submit'])) {
+
+
+if (isset($_POST['update_data'])) {
     $get_id = $_POST['lnumber'];
     $NIC = $_POST['nic'];
     $vehicleTypes = $_POST['vehicleType'];
@@ -26,7 +28,7 @@ if (isset($_POST['submit'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Report a Problem</title>
+    <title>Licence Details Edit</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,7 +102,7 @@ if (isset($_POST['submit'])) {
 
                     </div>
 
-                    <button type="submit" name="submit" value="update_data">Done</button>
+                    <button type="submit" name="update_data" >Done</button>
                 </form>
 
             </div>
