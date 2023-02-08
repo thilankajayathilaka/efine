@@ -53,16 +53,18 @@ while ($row = mysqli_fetch_assoc($result)) {
         <div class="paymentsearch">
             <div class="search">
 
-                <form action="" class="searchbar">
+                <form action="" method="post">
                     <label>Search By</label>
-                    <select name="fines" id="fines" style="margin-left: 15px; width:150px;">
-                        <option value="fine_id">Fine ID</option>
+                    <select name="search_criteria" style="margin-left: 15px;">
+                        <option value="Fine_ID">Fine ID</option>
                         <option value="name">Name</option>
-                        <option value="date1">Date</option>
+                        <option value="date">Date</option>
                     </select>
-                    <input type="text" name="search" class="serchinput">
+                    <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
                     <button class="pdf">Download PDF</button>
+                    </select>
+
                 </form>
 
             </div>
@@ -73,16 +75,18 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                 <thead>
                     <td>Fine ID</td>
-                    <td>Vialation</td>
+                    <td>Violation</td>
                     <td>Payment status</td>
                     <td>Points</td>
-                    <td>Amount</td>
-                    <td>Overdued date</td>
+                    <td>Amount <br>(Rs)</td>
+                    <td>Overdue date</td>
                 </thead>
                 <tbody>
 
                     <?php
-                    foreach ($fines as $fine) : ?>
+                    foreach ($fines as $fine) :
+
+                    ?>
 
                         <tr>
                             <td><?php echo $fine['id']; ?></td>
