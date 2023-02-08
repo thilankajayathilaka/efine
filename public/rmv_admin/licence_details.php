@@ -82,13 +82,15 @@ include("../../include/rmv_admin/db_conn2.php");
                 <tbody class="ltable">
                     <tr>
 
-                        <td><?php echo $LicenceNo; ?></td>
-                        <td><?php echo $NIC; ?></td>
-                        <td><?php echo $vehicleTypes; ?></td>
-                        <td><?php echo $Issuing_Date; ?></td>
-                        <td><?php echo $name; ?></td>
-                        <td><?php echo $address; ?></td>
-                        <td class="t-status t-active"><?php echo $status; ?></td>
+                    <tr>
+      <td><?php echo $LicenceNo; ?></td>
+      <td><?php echo $NIC; ?></td>
+      <td><?php echo $vehicleTypes; ?></td>
+      <td><?php echo $Issuing_Date; ?></td>
+      <td><?php echo $name; ?></td>
+      <td><?php echo $address; ?></td>
+      <td class="<?php echo ($status == 'Suspended') ? 't-status t-inactive' : 't-status t-active'; ?>"><?php echo $status; ?></td>
+    </tr>
 
 
                     </tr>
@@ -169,7 +171,7 @@ include("../../include/rmv_admin/db_conn2.php");
                         </div>
                         <div class="input-requestform">
                             <label for="">Address</label>
-                            <div><?php echo $status ?></div>
+                            <div class="<?php echo ($status == 'Suspended') ? 't-status t-inactive' : 't-status t-active'; ?>"><?php echo $status ?></div>
                         </div>
 
                     </div>
@@ -179,7 +181,7 @@ include("../../include/rmv_admin/db_conn2.php");
 
                 <a>
 
-                    <?php echo "<a href='licence_data_edit.php?id=$LicenceNo&NIC=$NIC&vehicleTypes=$vehicleTypes&Issuing_Date=$Issuing_Date&name=$name&address=$address'>"; ?>
+                    <?php echo "<a href='licence_data_edit.php?id=$LicenceNo&NIC=$NIC&vehicleTypes=$vehicleTypes&Issuing_Date=$Issuing_Date&name=$name&address=$address&Status=$status'>"; ?>
                     <button type="submit" name="submit_btn">Edit</button>
                     <?php echo "</a>" ?>
 

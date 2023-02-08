@@ -50,7 +50,7 @@
       </li>
 
       <li>
-        <a href="rmv_report_roblem.php">
+        <a href="rmv_report_problem.php">
           <i class='bx bx-error'></i>
           <span class="link_name">Report a Problem</span>
         </a>

@@ -9,8 +9,9 @@ if (isset($_POST['update_data'])) {
     $Issuing_Date = $_POST['date'];
     $name = $_POST['name'];
     $address = $_POST['address'];
+    $status=$_POST['status'];
 
-    $data = mysqli_query($conn2, "UPDATE licencedetails SET `NIC`='$NIC', `vehicleTypes`='$vehicleTypes', `Issuing Date`='$Issuing_Date', `name`='$name', `address`='$address' WHERE LicenceNo='$get_id' ");
+    $data = mysqli_query($conn2, "UPDATE licencedetails SET `NIC`='$NIC', `vehicleTypes`='$vehicleTypes', `Issuing Date`='$Issuing_Date', `name`='$name', `address`='$address',`Status`='$status' WHERE LicenceNo='$get_id' ");
     if ($data) {
         echo "<script>alert('Record updated successfully')</script>";
         header("Location:licence_details.php");
@@ -54,6 +55,7 @@ if (isset($_POST['update_data'])) {
             <?php $Issuing_Date = $_GET['Issuing_Date'];?>
             <?php $name = $_GET['name'];?>
             <?php $address = $_GET['address'];?>
+            <?php $status = $_GET['Status'];?>
 
             
 
@@ -97,7 +99,12 @@ if (isset($_POST['update_data'])) {
                     <div class="input-row">
                         <div class="input-requestform">
                             <label for="">Address</label>
-                            <input type="address" name="address" value="<?php echo $address ?>"/>
+                            <input type="text" name="address" value="<?php echo $address ?>"/>
+                            
+                        </div>
+                        <div class="input-requestform">
+                            <label for="">Status</label>
+                            <input type="text" name="status" value="<?php echo $status ?>"/>
                         </div>
 
                     </div>

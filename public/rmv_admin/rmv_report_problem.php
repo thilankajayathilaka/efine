@@ -12,19 +12,17 @@
 </head>
 
 <body>
-    <?php include 'po_sidebar.php' ?>
+    <?php include 'rmv_sidebar.php' ?>
 
     <section class="home-section">
 
         <?php include 'navbar.php' ?>
-        <h3 class="i-name_rp">
-            Report a Problem
-        </h3>
+        
         <div class="board">
 
 
-            <div class="contactform">
-                <h3>Send Your Request</h3>
+            <div class="contactform-rmv">
+                <h3 class="i-name">Send Your Request</h3>
                 <form action="" method="POST">
                     <div class="input-row">
                         <div class="input-requestform">

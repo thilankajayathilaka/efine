@@ -362,7 +362,7 @@
   
  
   .i-name {
-    color: #444a53;
+    color: #10327a;
     padding: 30px 30px 0 30px;
     font-size: 24px;
     font-weight: 700;
@@ -578,13 +578,13 @@
 .rmv-table .t-medium {
   width: 20%;
 }
-.rmv-table .t-status {
+.t-status {
   font-weight: bold;
 }
-.rmv-table .t-active {
+.t-active {
   color: #46a546;
 }
-.rmv-table .t-inactive {
+.t-inactive {
   color: #e00300;
 }
 
