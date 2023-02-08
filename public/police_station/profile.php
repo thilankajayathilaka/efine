@@ -22,8 +22,6 @@
             Profile
         </h3>
         <div class="board1" style="width: 900px; margin:0 200px;padding:5%">
-            <?php include '../../include/police_station/add_report_problem.php' ?>
-            <?php include('../../include/police_station/error.php'); ?>
             <div class="profile_div">
                 <div class="profile_img">
                     <i class='bx bxs-user' style='color:#000000; font-size: 150px'></i>
@@ -80,8 +78,7 @@
 
                         </tr>
                         <tr>
-                            <td colspan="2" style="border: none;text-align:right"><Button
-                                    style="width: 150px;height:30px;background-color:#236adb;border:none;color:white;border-radius:3px">Change
+                            <td colspan="2" style="border: none;text-align:right"><Button style="width: 150px;height:30px;background-color:#236adb;border:none;color:white;border-radius:3px">Change
                                     Password</Button></td>
 
                         </tr>
