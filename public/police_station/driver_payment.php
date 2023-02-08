@@ -49,7 +49,7 @@
                     <td>Vialation</td>
                     <td>Payment status</td>
                     <td>Points</td>
-                    <td>Amount</td>
+                    <td>Amount <br>(Rs)</td>
                 </thead>
                 <tbody>
                     <?php
