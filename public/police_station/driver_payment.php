@@ -33,6 +33,9 @@
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
+                    <button class="pdf">Download PDF</button>
+                    </select>
+
                 </form>
 
 
