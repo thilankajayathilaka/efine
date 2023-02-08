@@ -63,13 +63,13 @@ function driverPaymentSearch()
     // Modify the SQL query based on the search criteria
     switch ($search_criteria) {
         case "Fine_ID":
-            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')";
+            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
             break;
         case "name":
-            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')";
+            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
             break;
         case "date":
-            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')";
+            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
             break;
     }
     return $sql;
@@ -89,6 +89,45 @@ function totalPaymentSearch()
             break;
         case "date":
             $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')";
+            break;
+    }
+    return $sql;
+}
+function ongoinPaymentSearch()
+{
+    $search_criteria = $_POST['search_criteria'];
+    $search_value = $_POST['search_value'];
+
+    // Modify the SQL query based on the search criteria
+    switch ($search_criteria) {
+        case "Fine_ID":
+            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            break;
+        case "name":
+            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            break;
+        case "date":
+            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            break;
+    }
+    return $sql;
+}
+
+function overduefineSearch()
+{
+    $search_criteria = $_POST['search_criteria'];
+    $search_value = $_POST['search_value'];
+
+    // Modify the SQL query based on the search criteria
+    switch ($search_criteria) {
+        case "Fine_ID":
+            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            break;
+        case "name":
+            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            break;
+        case "date":
+            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
             break;
     }
     return $sql;

@@ -27,3 +27,7 @@ function CalculateRemaingDate($con)
         array_push($fines, $fine);
     }
 }
+function searchOverdueFineDetails($search_criteria, $search_value)
+{
+    return "SELECT * FROM fines WHERE $search_criteria = '$search_value'";
+}
