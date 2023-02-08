@@ -47,7 +47,7 @@
                     <td>Vialation</td>
                     <td>Payment status</td>
                     <td>Points</td>
-                    <td>Amount</td>
+                    <td>Amount <br>(Rs)</td>
                     <td>Overdued date</td>
                     <td>Action Taken</td>
                 </thead>
@@ -70,16 +70,16 @@
 
                     ?>
 
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Vialation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                        <td id="data"><?php echo $date ?></td>
-                        <td>sent to court that day</td>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td>sent to court that day</td>
 
-                    </tr>
+                            </tr>
 
                     <?php
                         }
