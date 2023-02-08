@@ -55,3 +55,22 @@ VALUES(?, ?, ?, ?, ?, 'Police Station')");
     $stmt->bind_param("sssss", $name, $licence_no, $email, $mobile_no, $message);
     return $stmt->execute();
 }
+function driverPaymentSearch()
+{
+    $search_criteria = $_POST['search_criteria'];
+    $search_value = $_POST['search_value'];
+
+    // Modify the SQL query based on the search criteria
+    switch ($search_criteria) {
+        case "Fine_ID":
+            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')";
+            break;
+        case "name":
+            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')";
+            break;
+        case "date":
+            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')";
+            break;
+    }
+    return $sql;
+}
