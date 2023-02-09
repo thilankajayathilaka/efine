@@ -30,6 +30,16 @@
         </li>
       </div>
 
+      <li>
+        <a href="report_problem.php">
+          <i class='bx bx-error'></i>
+          <span class="link_name">Report a Problem</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="report_problem.php">Report a Problem</a></li>
+        </ul>
+      </li>
+
 
 
       <li>
@@ -48,15 +58,7 @@
         </ul>
       </li>
 
-      <li>
-        <a href="report_problem.php">
-          <i class='bx bx-error'></i>
-          <span class="link_name">Report a Problem</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="report_problem.php">Report a Problem</a></li>
-        </ul>
-      </li>
+     
 
       <li>
         <div class="profile-details">
