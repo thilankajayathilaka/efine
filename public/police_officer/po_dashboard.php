@@ -209,7 +209,7 @@ include("../../include/police_officer/db_conn.php");
 
 
 
-	<script src="../js/script.js"></script>
+	<script src="./js/script.js"></script>
 
 
 
