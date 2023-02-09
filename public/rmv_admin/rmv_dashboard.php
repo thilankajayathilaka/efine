@@ -8,7 +8,7 @@ include("../../include/rmv_admin/db_conn2.php");
 <head>
   <meta charset="UTF-8">
   <title> Home </title>
-  <link rel="stylesheet" href="./CSS/style2.css">
+  <link rel="stylesheet" href="./CSS/style3.css">
 
 
 

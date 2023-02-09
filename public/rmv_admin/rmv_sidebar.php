@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title> Home </title>
-  <link rel="stylesheet" href="../css/style3.css">
+  <link rel="stylesheet" href="./CSS/style3.css">
 
 </head>
 
@@ -12,7 +12,7 @@
 
 <div class="sidebar close">
     <div class="logo-details">
-      <a href="dashboard4.php"><i class='bx bx-taxi'></a></i>
+      <a href="rmv_dashboard.php"><i class='bx bx-taxi'></a></i>
       <span class="logo_name">E-Fine</span>
     </div>
 
