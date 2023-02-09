@@ -1,10 +1,11 @@
-<?php include './require.php'; ?>
+<?php include './require.php' ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
-    <title>Police Officers</title>
+    <title>Court fine</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,20 +20,20 @@
 
         <?php include './navbar.php' ?>
         <h3 class="i-name">
-            Station Police Officer's Details
+            Overdue Fine Details
         </h3>
         <div class="paymentsearch">
             <div class="search">
 
-                <form action="" class="searchbar" method="post">
+                <form action="" class="searchbar">
                     <label>Search By</label>
-                    <select name="officer" id="cars" style="margin-left: 15px;">
+                    <select name="fines" id="fines" style="margin-left: 15px; width:150px;">
+                        <option value="fine_id">Fine ID</option>
                         <option value="name">Name</option>
-                        <option value="Id">ID</option>
+                        <option value="date1">Date</option>
                     </select>
                     <input type="text" name="search" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <a class="add_po_a" href="add_police_officer.php"><input class="add_po" href="http://localhost/efine/ps/add_police_officer.php" value="Add police Officer" disabled></a>
                     <button class="pdf">Download PDF</button>
                 </form>
 
@@ -42,33 +43,44 @@
         <div class="board">
             <table class="overview-table" width="100%">
                 <thead>
-                    <td>Police Officer Id</td>
-                    <td>Name</td>
-                    <td>Police Station</td>
-                    <td>Address</td>
-                    <td>email</td>
-                    <td>Phone no</td>
-                    <td style="text-align: center;">Action</td>
+                    <td>Fine ID</td>
+                    <td>Vialation</td>
+                    <td>Payment status</td>
+                    <td>Points</td>
+                    <td>Amount <br>(Rs)</td>
+                    <td>Overdued date</td>
+                    <td>Action Taken</td>
                 </thead>
                 <tbody>
+
                     <?php
                     //read data from table
-                    //$sql = "SELECT * FROM policeofficer";
+                    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
 
-
-                    if ($result = mysqli_query($con, readPoliceOfficerDetails())) {
+                    if ($result = mysqli_query($con, $sql)) {
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
+
+                            $date1 = strval($row['date']);
+
+                            $dateTime1 = new DateTime($date1);
+                            $dateTime1->modify('14 days');
+                            $date = $dateTime1->format('Y-m-d H:i:s');
+
+
                     ?>
+
                             <tr>
-                                <td><?php echo $row['id']; ?></td>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['police_station']; ?></td>
-                                <td><?php echo $row['address']; ?></td>
-                                <td><?php echo $row['email']; ?></td>
-                                <td><?php echo $row['phone_No']; ?></td>
-                                <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td>sent to court that day</td>
+
                             </tr>
+
                     <?php
                         }
                         mysqli_free_result($result);
@@ -76,13 +88,12 @@
 
                     mysqli_close($con);
 
-
                     ?>
                 </tbody>
             </table>
         </div>
     </section>
-    <script src="../js/script.js"></script>
+    <script src=" ../js/script.js"></script>
 
 </body>
 

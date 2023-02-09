@@ -78,6 +78,18 @@
             </ul>
         </li>
         <li>
+            <div class="iocn-link">
+                <a href="./court_fine.php">
+                    <i class='bx bxs-shopping-bag-alt' style='color:#ffffff'></i>
+                    <span class="link_name">Court Cases</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="./court_fine.php">Court Cases</a></li>
+
+            </ul>
+        </li>
+        <li>
             <a href="./request_to_rmv.php">
                 <i class='bx bx-mail-send' style='color:#ffffff'></i>
                 <span class="link_name">Request to RMV</span>

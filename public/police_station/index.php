@@ -1,6 +1,6 @@
 <?php
+
 include './require.php';
-session_start();
 
 
 if (isset($_POST["login"])) {
@@ -24,7 +24,9 @@ if (isset($_POST["login"])) {
             header("location: ./index.php?error=invalidLogin");
         }
     }
-} ?>
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,5 +79,7 @@ if (isset($_POST["login"])) {
         </div>
 
     </section>
+
+</body>
 
 </html>

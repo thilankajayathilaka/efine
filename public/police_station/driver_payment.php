@@ -1,4 +1,4 @@
-<?php include './require.php' ?>
+<?php include './require.php'; ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -13,28 +13,31 @@
 </head>
 
 <body>
-    <?php include './sidebar.php' ?>
+    <?php include './sidebar.php'; ?>
 
     <section class="home-section">
 
-        <?php include './navbar.php' ?>
+        <?php include './navbar.php'; ?>
         <h3 class="i-name">
             Driver Payment Details
         </h3>
         <div class="paymentsearch">
             <div class="search">
 
-                <form action="/action_page.php" class="searchbar">
-                    <label for="cars">Search By</label>
-                    <select name="cars" id="cars" style="margin-left: 15px;">
-                        <option value="fine_id">Fine ID</option>
+                <form action="" method="post">
+                    <label>Search By</label>
+                    <select name="search_criteria" style="margin-left: 15px;">
+                        <option value="Fine_ID">Fine ID</option>
                         <option value="name">Name</option>
-                        <option value="date1">Date</option>
+                        <option value="date">Date</option>
                     </select>
-                    <input type="text" name="search" class="serchinput">
+                    <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
                     <button class="pdf">Download PDF</button>
+                    </select>
+
                 </form>
+
 
             </div>
         </div>
@@ -46,32 +49,49 @@
                     <td>Vialation</td>
                     <td>Payment status</td>
                     <td>Points</td>
-                    <td>Amount</td>
+                    <td>Amount <br>(Rs)</td>
                 </thead>
                 <tbody>
                     <?php
-                    //read data from table
-                    $sql = "SELECT * FROM driverpayments where Payment_status='paid'";
+                    if (isset($_POST['search_value'])) {
 
-                    if ($result = mysqli_query($con, $sql)) {
-                        // Fetch one and one row
+
+                        // Execute the query
+                        $result = mysqli_query($con, driverPaymentSearch());
+
+                        // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Vialation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                    </tr>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                            </tr>
+                        <?php
+                        }
+                        mysqli_free_result($result);
+                    } else {
+                        // If no search value is provided, display all the data
+                        $result = mysqli_query($con, readDriverPaymentDetails());
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                            </tr>
                     <?php
                         }
                         mysqli_free_result($result);
                     }
 
                     mysqli_close($con);
-
                     ?>
+
                 </tbody>
             </table>
         </div>
