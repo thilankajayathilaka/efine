@@ -9,7 +9,7 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/ps/dashboard.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
 
 </head>
 
@@ -70,16 +70,16 @@
                             $dateTime1->modify('14 days');
                             $date = $dateTime1->format('Y-m-d H:i:s');
                     ?>
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Vialation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                        <td id="data"><?php echo $date ?></td>
-                        <td><Button>Send to Court</Button></td>
-                    </tr>
-                    <?php
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td><Button>Send to Court</Button></td>
+                            </tr>
+                        <?php
                         }
                         mysqli_free_result($result);
                     } else {
@@ -92,16 +92,16 @@
                             $dateTime1->modify('14 days');
                             $date = $dateTime1->format('Y-m-d H:i:s');
                         ?>
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Vialation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                        <td id="data"><?php echo $date ?></td>
-                        <td><Button>Court</Button></td>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td><Button>Court</Button></td>
 
-                    </tr>
+                            </tr>
                     <?php
                         }
                         mysqli_free_result($result);

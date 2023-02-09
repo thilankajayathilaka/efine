@@ -8,7 +8,7 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/ps/dashboard.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -78,8 +78,7 @@
                 </div> -->
                 <p id="error-login" style="color:red;"> <?php include("errors.php"); ?></p>
                 <div>
-                    <input class="add-ps-btn" type="submit" name="Add_police_officer_btn" value="Add Police Officer"
-                        id="login-btn">
+                    <input class="add-ps-btn" type="submit" name="Add_police_officer_btn" value="Add Police Officer" id="login-btn">
                 </div>
             </form>
 
