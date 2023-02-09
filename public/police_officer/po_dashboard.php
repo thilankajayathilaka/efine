@@ -10,7 +10,7 @@ include("../../include/police_officer/db_conn.php");
 <head>
 	<meta charset="UTF-8">
 	<title> Home </title>
-	<link rel="stylesheet" href="../CSS/style2.css">
+	<link rel="stylesheet" href="./CSS/style2.css">
 	<!-- Boxiocns CDN Link -->
 	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
