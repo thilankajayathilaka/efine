@@ -1,0 +1,123 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-image: url('../../image/wave-haikei.svg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+div {
+    position: relative;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    display: flex;
+    width: 400px;
+    margin-right: 150px
+}
+
+
+.image img {
+    width: 400px;
+    height: 400px;
+    margin-right: 150px;
+}
+
+.form {
+    max-width: 430px;
+    width: 100%;
+    flex: 50%;
+
+}
+
+header {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+form {
+    margin-top: 30px;
+}
+
+.input-email,
+.input-password {
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid #cacaca;
+    height: 30px;
+    width: 77%;
+}
+
+input.input-email {
+    margin-left: 50px;
+    margin-top: 15px;
+
+}
+
+input.input-password {
+    margin-left: 48px;
+    margin-top: 15px;
+
+}
+
+.login-btn button {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: #004581;
+    color: white;
+    cursor: pointer;
+}
+
+.form div,
+span,
+button {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.form a {
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.login-btn input {
+
+    background: #0066FF;
+    width: 100px;
+    border: none;
+    outline: none;
+    color: #fff;
+    height: 35px;
+    border-radius: 30px;
+    margin-top: 20px;
+    box-shadow: 0px 5px 15px 0px rgb(28 0 181 / 30%);
+    cursor: pointer;
+}
+
+.required {
+    color: red;
+}
+
+.remem {
+    margin-top: 20px;
+}
