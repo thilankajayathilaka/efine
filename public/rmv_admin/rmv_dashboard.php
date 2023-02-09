@@ -1,6 +1,6 @@
 <?php
-include("../../include/rmv_admin/db_conn.php");
- ?>
+include("../../include/rmv_admin/db_conn2.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -28,14 +28,74 @@ include("../../include/rmv_admin/db_conn.php");
     <h3 class="i-name">
       Overview
     </h3>
+    <div class="rmv-values2">
+      <div class="rmv-val-box2">
+
+        <?php
+
+        $total_sql = "SELECT COUNT(*) as total FROM licencedetails";
+        $total_result = mysqli_query($conn2, $total_sql);
+        $total_row = mysqli_fetch_assoc($total_result);
+        $total = $total_row["total"];
+
+        if (!$total_result) {
+          die("Query failed: " . mysqli_error($conn2));
+        }
+        
+       ?> 
+        <div><p class="dashboard_para">All Licence</p> <br><span  class="extra-huge-number"><?php echo $total; ?></span ></div>
+
+      </div>
+        <div class="rmv-val-box2"> 
+           <?php
+
+
+        $suspended_sql = "SELECT COUNT(*) as suspended FROM licencedetails WHERE TRIM(LOWER(Status))='Suspended'";
+        $suspended_result = mysqli_query($conn2, $suspended_sql);
+        if (!$suspended_result) {
+          die("Query failed: " . mysqli_error($conn));
+        }
+        $suspended_row = mysqli_fetch_assoc($suspended_result);
+        if (!$suspended_row) {
+          die("No suspended licenses found");
+        }
+        $suspended = $suspended_row["suspended"];
+        
+        ?>
+        <div><p class="dashboard_para">Suspended Licenses</p> <br><span  class="extra-huge-number"><?php echo $suspended; ?></span ></div>
+        </div>
+ <div class="rmv-val-box2"> 
+
+        <?php
+
+        // Calculate the percentage of suspended licenses
+        $percentage = number_format(($suspended / $total) * 100, 2);
+
+        mysqli_close($conn2);
+        ?>
+       <div><p class="dashboard_para">Suspended Licenses as a Percentage</p><br><span  class="extra-huge-number"><?php echo $percentage; ?>%</span ></div>
+      </div>
+
+
+
+
+
+
+     
+
+
+    </div>
+
+
+
     <div class="rmv-values">
       <div class="val-box">
         <span class="material-symbols-outlined">
           <i class='bx bx-mail-send'></i>
         </span>
         <div>
-          <h3>Suspended licence</h3>
-          <p type="text" class="val-field">6</p>
+          <h3>Suspended licenses</h3>
+          <p type="text" class="val-field"></p>
 
         </div>
 
@@ -83,65 +143,10 @@ include("../../include/rmv_admin/db_conn.php");
 
       <button class="view"> <a class="view-link" href="request_for_reinstate.php"> View</a></button>
 
-      <button class="view"> <a class="view-link" href="request_for_edit.php"> View</a></button>
+      <button class="view"> <a class="view-link" href="request_for_suspend.php"> View</a></button>
 
 
     </div>
-
-    <div class="rmv-values2">
-      <div class="rmv-val-box">
-      
-  
-
-  
-  <?php
-  
-  $total_sql = "SELECT COUNT(*) as total FROM licencedetails";
-  $total_result = mysqli_query($conn, $total_sql);
-  $total_row = mysqli_fetch_assoc($total_result);
-  $total = $total_row["total"];
-  
-  if (!$total_result) {
-    die("Query failed: " . mysqli_error($conn));
-  }
-
-  echo "Total licenses: " . $total . "<br>";
-
-  $suspended_sql = "SELECT COUNT(*) as suspended FROM licencedetails WHERE Status='Suspended'";
-  $suspended_result = mysqli_query($conn, $suspended_sql);
-  if (!$suspended_result) {
-    die("Query failed: " . mysqli_error($conn));
-  }
-  $suspended_row = mysqli_fetch_assoc($suspended_result);
-  if (!$suspended_row) {
-    die("No suspended licenses found");
-  }
-  $suspended = $suspended_row["suspended"];
-  echo "Suspended licenses: " . $suspended . "<br>";
-
-  // Calculate the percentage of suspended licenses
-  $percentage = ($suspended / $total) * 100;
-
-  // Display the percentage
-  echo "The percentage of suspended licenses is: " . $percentage . "%";
-
-  // Close the database connection
-  mysqli_close($conn);
-?>
-
-
-
-      
-
-     
-
-
-      </div>
-
-
-
-    </div>
-
 
     
 
@@ -150,7 +155,7 @@ include("../../include/rmv_admin/db_conn.php");
   <script src="../js/script.js"></script>
 
 
-  
+
 
 
 </body>

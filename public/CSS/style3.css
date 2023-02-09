@@ -462,7 +462,7 @@
   
   .rmv-values .val-box h3 {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 300;
   }
   
   .rmv-values .val-box span {
@@ -525,6 +525,18 @@
    align-items: center;
    margin-top: 0px;
    }
+
+   .rmv-val-box2 {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    background: #fff;
+    width: 290px;
+    height: 230px;
+    padding: auto;
+    border-radius: 5px;
+    margin-top: 0px;
+  }
 
    .rmv-values2 {
     padding: 30px;
@@ -759,6 +771,19 @@ footer .links a{
 display:inline-block;
 text-decoration: none;
 font-size:10px;
+}
+
+.extra-huge-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: rgb(17, 151, 168);
+    
+  }
+
+.dashboard_para{
+  font-size: 18px;
+    font-weight:500;
+    color: rgb(9, 19, 77);
 }
 
 
