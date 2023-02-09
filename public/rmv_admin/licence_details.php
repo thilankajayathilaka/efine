@@ -198,7 +198,8 @@ include("../../include/rmv_admin/db_conn2.php");
 
     </section>
     <?php include 'footer.php' ?>
-    <script src=" ../js/script.js"></script>
+    <script src="./js/script.js"></script> 
+
 </body>
 
 </html>

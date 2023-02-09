@@ -152,10 +152,7 @@ include("../../include/rmv_admin/db_conn2.php");
 
   </section>
 
-  <script src="../js/script.js"></script>
-
-
-
+  <script src="./js/script.js"></script> 
 
 
 </body>
