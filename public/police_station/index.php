@@ -35,7 +35,7 @@ if (isset($_POST["login"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/ps/policeStationAdminLogin.css">
+    <link rel="stylesheet" href="./css/policeStationAdminLogin.css">
 </head>
 
 <body>
@@ -52,14 +52,12 @@ if (isset($_POST["login"])) {
                 <form action="" method="POST" id="login-form" novalidate>
                     <div class="email">
                         <label for="">Email<span class="required">*</span></label>
-                        <input type="email" name="email" placeholder="Enter Your Email Address" class="input-email"
-                            id="email">
+                        <input type="email" name="email" placeholder="Enter Your Email Address" class="input-email" id="email">
                     </div>
                     <p id="error-email" style="color:red;"></p>
                     <div class="password">
                         <label for="">Password<span class="required">*</span></label>
-                        <input type="password" name="pass" placeholder="Enter Your Password" class="input-password"
-                            id="password">
+                        <input type="password" name="pass" placeholder="Enter Your Password" class="input-password" id="password">
                     </div>
                     <p id="error-password" style="color:red;"></p>
                     <div class="remem">
