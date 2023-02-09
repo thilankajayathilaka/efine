@@ -103,9 +103,10 @@ if (isset($_POST['update_data'])) {
                             
                         </div>
                         <div class="input-requestform">
-                            <label for="">Status</label>
-                            <input type="text" name="status" value="<?php echo $status ?>"/>
-                        </div>
+    <label for="">Status</label>
+    <input type="radio" name="status" value="Suspended" <?php if ($status === "Suspended") echo "checked"; ?> /> Suspended
+    <input type="radio" name="status" value="Active" <?php if ($status === "Active") echo "checked"; ?> /> Active
+</div>
 
                     </div>
 
