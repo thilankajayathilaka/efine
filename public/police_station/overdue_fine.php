@@ -1,4 +1,7 @@
-<?php include './require.php' ?>
+<?php include './require.php';
+include_once '../../include/TCPDF-main/tcpdf.php'
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,7 +37,7 @@
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/overdue_fine_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
                     </select>
 
                 </form>
@@ -47,7 +50,7 @@
             <table class="overview-table" width="100%">
                 <thead>
                     <td>Fine ID</td>
-                    <td>Vialation</td>
+                    <td>Violation</td>
                     <td>Payment status</td>
                     <td>Points</td>
                     <td>Amount <br>(Rs)</td>
@@ -72,7 +75,7 @@
                     ?>
                             <tr>
                                 <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Violation']; ?></td>
                                 <td><?php echo $row['Payment_status']; ?></td>
                                 <td><?php echo $row['Points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
@@ -94,7 +97,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Violation']; ?></td>
                                 <td><?php echo $row['Payment_status']; ?></td>
                                 <td><?php echo $row['Points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
@@ -108,6 +111,8 @@
                     }
 
                     mysqli_close($con);
+
+
                     ?>
                 </tbody>
             </table>

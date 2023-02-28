@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     // store the fine information in the array
     $fine = array(
         'id' => $row['Fine ID'],
-        'violation' => $row['Vialation'],
+        'violation' => $row['Violation'],
         'Payment_status' => $row['Payment_status'],
         'Points' => $row['Points'],
         'amount' => $row['amount'],
@@ -23,9 +23,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     );
     array_push($fines, $fine);
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +59,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf">Download PDF</button>
                     </select>
 
                 </form>
@@ -88,15 +85,15 @@ while ($row = mysqli_fetch_assoc($result)) {
 
                     ?>
 
-                        <tr>
-                            <td><?php echo $fine['id']; ?></td>
-                            <td><?php echo $fine['violation']; ?></td>
-                            <td><?php echo $fine['Payment_status']; ?></td>
-                            <td><?php echo $fine['Points']; ?></td>
-                            <td><?php echo $fine['amount']; ?></td>
-                            <td id="data"><?php echo $fine['remaining_days']; ?> Days Remaining</td>
+                    <tr>
+                        <td><?php echo $fine['id']; ?></td>
+                        <td><?php echo $fine['violation']; ?></td>
+                        <td><?php echo $fine['Payment_status']; ?></td>
+                        <td><?php echo $fine['Points']; ?></td>
+                        <td><?php echo $fine['amount']; ?></td>
+                        <td id="data"><?php echo $fine['remaining_days']; ?> Days Remaining</td>
 
-                        </tr>
+                    </tr>
                     <?php endforeach; ?>
 
                 </tbody>

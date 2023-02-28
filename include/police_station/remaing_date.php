@@ -18,7 +18,7 @@ function CalculateRemaingDate($con)
         // store the fine information in the array
         $fine = array(
             'id' => $row['Fine ID'],
-            'violation' => $row['Vialation'],
+            'violation' => $row['Violation'],
             'Payment_status' => $row['Payment_status'],
             'Points' => $row['Points'],
             'amount' => $row['amount'],

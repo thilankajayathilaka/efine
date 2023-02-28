@@ -64,7 +64,7 @@
                     ?>
                             <tr>
                                 <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Violation']; ?></td>
                                 <td><?php echo $row['Payment_status']; ?></td>
                                 <td><?php echo $row['Points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
@@ -79,7 +79,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
+                                <td><?php echo $row['Violation']; ?></td>
                                 <td><?php echo $row['Payment_status']; ?></td>
                                 <td><?php echo $row['Points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
