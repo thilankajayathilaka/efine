@@ -5,7 +5,7 @@ include_once '../../database/Police_station/function_db.php';
 function CalculateRemaingDate($con)
 {
     // create an array to store the fine information
-    $fines = array();
+    $data = array();
     $result = mysqli_query($con, readOverdueFineDetails());
     while ($row = mysqli_fetch_assoc($result)) {
         // calculate the due date by adding 14 days to the payment date
@@ -24,7 +24,7 @@ function CalculateRemaingDate($con)
             'amount' => $row['amount'],
             'remaining_days' => $remaining_days
         );
-        array_push($fines, $fine);
+        array_push($data, $row);
     }
 }
 function searchOverdueFineDetails($search_criteria, $search_value)

@@ -59,7 +59,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf" name="download_pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/ongoing_fine_pdf.php"
+                            style="text-decoration:none; color:white"> Download PDF</a></button>
                     </select>
 
                 </form>
