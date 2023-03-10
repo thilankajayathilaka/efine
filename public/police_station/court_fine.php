@@ -34,7 +34,7 @@
                     </select>
                     <input type="text" name="search" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/court_cases_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
                 </form>
 
             </div>
@@ -70,16 +70,16 @@
 
                     ?>
 
-                    <tr>
-                        <td><?php echo $row['Fine ID']; ?></td>
-                        <td><?php echo $row['Violation']; ?></td>
-                        <td><?php echo $row['Payment_status']; ?></td>
-                        <td><?php echo $row['Points']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-                        <td id="data"><?php echo $date ?></td>
-                        <td>sent to court that day</td>
+                            <tr>
+                                <td><?php echo $row['Fine ID']; ?></td>
+                                <td><?php echo $row['Violation']; ?></td>
+                                <td><?php echo $row['Payment_status']; ?></td>
+                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td id="data"><?php echo $date ?></td>
+                                <td>sent to court that day</td>
 
-                    </tr>
+                            </tr>
 
                     <?php
                         }
