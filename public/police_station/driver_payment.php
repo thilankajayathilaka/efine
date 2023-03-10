@@ -33,7 +33,9 @@
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a
+                            href="../../include/police_station/driver_payment_pdf.php"
+                            style="text-decoration:none; color:white"> Download PDF</a></button>
                     </select>
 
                 </form>
@@ -62,14 +64,14 @@
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                            <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
-                                <td><?php echo $row['amount']; ?></td>
-                            </tr>
-                        <?php
+                    <tr>
+                        <td><?php echo $row['Fine ID']; ?></td>
+                        <td><?php echo $row['Violation']; ?></td>
+                        <td><?php echo $row['Payment_status']; ?></td>
+                        <td><?php echo $row['Points']; ?></td>
+                        <td><?php echo $row['amount']; ?></td>
+                    </tr>
+                    <?php
                         }
                         mysqli_free_result($result);
                     } else {
@@ -77,13 +79,13 @@
                         $result = mysqli_query($con, readDriverPaymentDetails());
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
-                                <td><?php echo $row['amount']; ?></td>
-                            </tr>
+                    <tr>
+                        <td><?php echo $row['Fine ID']; ?></td>
+                        <td><?php echo $row['Violation']; ?></td>
+                        <td><?php echo $row['Payment_status']; ?></td>
+                        <td><?php echo $row['Points']; ?></td>
+                        <td><?php echo $row['amount']; ?></td>
+                    </tr>
                     <?php
                         }
                         mysqli_free_result($result);
