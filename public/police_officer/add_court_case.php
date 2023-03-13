@@ -32,12 +32,12 @@ if (mysqli_num_rows($result) > 0) {
         <?php include 'navbar.php' ?>
         
             <div class="form-header">
-                <h2>Add Fine</h2>
+                <h2>Add a Court Case</h2>
             </div>
 
             <div class="form-container">
 
-            <form method="post" action="../../include/police_officer/add_violation.php">
+            <form method="post" action="../../include/police_officer/add_courtcase.php">
                 <?php $get_id = $_GET['id']; ?>
                 <?php $name = $_GET['name']; ?>
                 <?php $address = $_GET['address']; ?>
@@ -87,43 +87,12 @@ if (mysqli_num_rows($result) > 0) {
 
                         // populate dropdown menu with violation names
                         while ($row = mysqli_fetch_assoc($result)) { ?>
-                            <option value="<?php echo $row['fine']; ?>"><?php echo $row['law']; ?></option>;
+                            <option value="<?php echo $row['law']; ?>"><?php echo $row['law']; ?></option>;
                         <?php  }
                         ?>
                     </select>
                 </div>
                   
-                <div class="form-field">
-
-                    <label for="amount">Amount:</label>
-                    <input type="text" name="amount" id="amount">
-
-
-
-                    <script>
-                        var violationSelect = document.getElementById("violation");
-                        var amountInput = document.getElementById("amount");
-
-                        violationSelect.addEventListener("change", function() {
-                            // get selected violation name and amount
-                            var violationName = this.options[this.selectedIndex].text;
-                            var violationAmount = this.value;
-
-                            // update amount input field
-                            amountInput.value = violationAmount;
-
-                            // update violation name input field
-                            var violationNameInput = document.createElement("input");
-                            violationNameInput.type = "hidden";
-                            violationNameInput.name = "violation_name";
-                            violationNameInput.value = violationName;
-                            document.getElementById("violation").after(violationNameInput);
-                        });
-                    </script>
-
-                </div>
-
-
                 </select>
 
 
@@ -230,7 +199,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="btn-group">
-                    <button class="btn1" type="submit" name="submit">Add</button>
+                    <button class="btn1" type="submit" name="add_c">Add</button>
 
                     <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['clear-btn'])) {

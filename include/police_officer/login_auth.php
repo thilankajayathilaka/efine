@@ -11,7 +11,7 @@ if (isset($_REQUEST['login'])) {
   $logincheck = 0;
 
   $sql = "SELECT * FROM policeofficer WHERE email ='$username' AND password ='$password'";
-  $result = mysqli_query($conn, $sql);
+  $result = mysqli_query($con, $sql);
 
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {

@@ -1,20 +1,20 @@
 <?php
 include('db_conn.php');
-
-if (isset($_POST["submit"])) {
+$name = $_POST['name'];
+$DLnumber = $_POST['DLnumber'];
+$address = $_POST['address'];
+$date = $_POST['date'];
+$place = $_POST['place'];
+$violation =  $_POST['violation'];
+$court = $_POST['court'];
+$cdate = $_POST['cdate'];
+$message = $_POST['message'];
+$issuingOfficer = $_POST['issuingOfficer'];
+$vnumber = $_POST['vnumber'];
+if (isset($_POST["add_c"])) {
     // Receive all input values from the form
-    $name = $_POST['name'];
-    $DLnumber = $_POST['DLnumber'];
-    $address = $_POST['address'];
-    $date = $_POST['date'];
-    $place = $_POST['place'];
-    $violation =  $_POST['violation'];
-    $amount = $_POST['amount'];
-    $court = $_POST['court'];
-    $cdate = $_POST['cdate'];
-    $message = $_POST['message'];
-    $issuingOfficer = $_POST['issuingOfficer'];
-    $vnumber = $_POST['vnumber'];
+    
+    
 
     // Validate form data
     $errors = [];
@@ -30,9 +30,7 @@ if (isset($_POST["submit"])) {
     if (empty($place)) {
         $errors[] = "Location of violation is required.";
     }
-    if (empty($amount)) {
-        $errors[] = "Amount of fine is required.";
-    }
+    
     if (empty($court)) {
         $errors[] = "Name of court is required.";
     }
@@ -45,8 +43,8 @@ if (isset($_POST["submit"])) {
 
     if (empty($errors)) {
         // Insert the fine record
-        $query_add = "INSERT INTO `fine` (Licence_No, Vehicle_No, type, location, violation, amount, Court, Court_Date, Message, IssuingOfficer) 
-                VALUES('$DLnumber', '$vnumber', '$violation', '$place', '$violation', '$amount', '$court', '$cdate', '$message', '$issuingOfficer')";
+        $query_add = "INSERT INTO `court_cases` (Licence_No, Name, Address, Vdate, Vehicle_No, Violation, Place, Court, CDate, Description, Issuing_officer) 
+                VALUES('$DLnumber', '$name', '$address', '$date', '$vnumber', '$violation', '$place','$court', '$cdate', '$message', '$issuingOfficer')";
 
         $result = mysqli_query($con, $query_add);
         if ($result) {
@@ -56,7 +54,7 @@ if (isset($_POST["submit"])) {
             $driver_row = mysqli_fetch_assoc($driver_result);
             $driver_email = $driver_row['Email'];
             $subject = "Traffic Fine Notification";
-            $message = "Dear Driver,\n\nYou have been fined $amount for $violation at $place on $date. Please pay the fine.\n\nSincerely,\nTraffic Fine Management System";
+            $message = "Dear Driver,\n\nYou have been done $violation at $place on $date. Please pay the fine.\n\nSincerely,\nTraffic Fine Management System";
             $headers = "From: sathyanganipriyasha810@gmail.com\r\n";
             $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
             $headers .= "Reply-To: sathyanganipriyasha810@gmail.com\r\n";
