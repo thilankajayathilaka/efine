@@ -23,7 +23,11 @@ function readPoliceOfficerDetails()
 }
 function readDriverPaymentDetails()
 {
-    $sql = "SELECT * FROM driverpayments where Payment_status='paid'";
+    $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.Nic_No, d.Licence_No, d.Name, d.Address, d.Mobile_No, d.Point_Balance 
+    FROM driverpayment dp 
+    JOIN fine f ON dp.fineid = f.fineid
+    JOIN driver d ON dp.Nic_No = d.Nic_No 
+    where dp.status='Paid'";
     return $sql;
 }
 function readTotalFineDetails()
@@ -33,12 +37,21 @@ function readTotalFineDetails()
 }
 function readOngoinFineDetails()
 {
-    $sql = "SELECT * FROM `driverpayments` where Payment_status='unpaid'";
+    $sql = "SELECT f.fineId, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.Name,d.Licence_No, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+    FROM fine f
+    LEFT JOIN driverpayment dp ON f.fineId = dp.fineid
+    JOIN driver d ON f.Nic_No = d.Nic_No
+    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0";
+
     return $sql;
 }
 function readOverdueFineDetails()
 {
-    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+    $sql = "SELECT f.fineId, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.Name,d.Licence_No, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+    FROM fine f
+    LEFT JOIN driverpayment dp ON f.fineId = dp.fineid
+    JOIN driver d ON f.Nic_No = d.Nic_No
+    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0";
     return $sql;
 }
 function requestRmv($con, $fileName)

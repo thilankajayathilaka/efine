@@ -3,7 +3,7 @@
 $serverName = "localhost";
 $dBUsername = "root";
 $dBPassword = "";
-$dBName = "efine";
+$dBName = "efine_no";
 
 $con = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
 
