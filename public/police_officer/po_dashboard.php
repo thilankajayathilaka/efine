@@ -24,29 +24,47 @@ include("../../include/police_officer/db_conn.php");
 	<section class="home-section2">
 
 		<?php include 'navbar.php' ?>
-		
+
 
 
 		<?php
 		if (!isset($_POST['search'])) { ?>
-		   
-            <img src="./image/landing-image.png" class="landing-img">
-			<form action="view-details.php" method="POST">
-				<div class="searchbar">
-					<input type="input" placeholder="Search the Licence Number" class="searchfield" name="id">
-					<input type="submit" class="searchbt" name="search" value="search" >
+
+
+			<div class="landing-pg-container">
+				<div>
+					<img src="./image/landing-image.png" class="landing-img">
+					
 				</div>
-			</form>
-		</div>
+				<div class="abcd">
+					<form action="view-details.php" method="POST">
+						<div class="searchbar">
+							<input type="input" placeholder="Search the Licence Number" class="searchfield" name="id">
+							<input type="submit" class="searchbt" name="search" value="search">
+						</div>
+
+					</form>
+					<div class="box-container">
+						<div class="boxes">Recently Added Cases</div>
+						<div class="boxes">Violation Added History</div>
+						
+					</div>
+					<?php include 'footer.php' ?>
+				</div>
+				
+			</div>
+
 
 		<?php
 		}
 		?>
+
 	</section>
 
 
 
 	<script src="./js/script.js"></script>
+
 
 
 

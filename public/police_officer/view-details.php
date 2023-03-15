@@ -24,10 +24,10 @@ include("../../include/police_officer/db_conn.php");
 	<section class="home-section">
 
 		<?php include 'navbar.php' ?>
-		
 
 
-		
+
+
 		<?php
 		if (isset($_POST['search'])) {
 			$id = $_POST['id'];
@@ -50,7 +50,7 @@ include("../../include/police_officer/db_conn.php");
 		?>
 
 
-           
+
 
 			<h3 class="i-name">
 				Overview
@@ -87,15 +87,17 @@ include("../../include/police_officer/db_conn.php");
 					</span>
 					<div>
 						<h3>Remaining Points</h3>
-						
+
+
 
 
 					</div>
 					<div class="donut">
-					<div class="semi-donut-model-2 margin" style="--percentage : 90; --fill: #039BE5 ;">
-					<?php echo $pointBalance ?>
+						<div class="semi-donut-model-2 margin" style="--percentage: <?php echo $pointBalance / 15 * 100; ?>; --fill: #039BE5;">
+							<?php echo $pointBalance; ?>
+						</div>
 					</div>
-					</div>
+					
 				</div>
 
 			<?php
