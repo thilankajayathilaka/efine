@@ -47,15 +47,15 @@ if (mysqli_num_rows($result) > 0) {
 
                 <div class="form-field">
                     <label>Driving Licence Number</label>
-                    <input type="text" name="DLnumber" id="DLnumber" value="<?php echo $get_id ?>">
+                    <input type="text" name="DLnumber" id="DLnumber" value="<?php echo $get_id ?>" readonly>
                 </div>
                 <div class="form-field">
                     <label> Name of the Driver</label>
-                    <input type="text" name="name" id="name" value="<?php echo $name ?>">
+                    <input type="text" name="name" id="name" value="<?php echo $name ?>" readonly>
                 </div>
                 <div class="form-field">
                     <label>Address</label>
-                    <input type="text" name="address" id="address" value="<?php echo $address ?>">
+                    <input type="text" name="address" id="address" value="<?php echo $address ?>" readonly>
                 </div>
 
 

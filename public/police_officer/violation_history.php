@@ -36,8 +36,8 @@ include("../../include/police_officer/db_conn.php");
 				}
 			?>
 				<h3 class="i-name">Fines</h3>
-
-				<table class="overview-table" width="90%">
+				<div class="table-container">
+				<table class="overview-table" width="100%">
 					<thead>
 						<tr class="overview-tr">
 						    <td>Violation ID</td>
@@ -45,6 +45,7 @@ include("../../include/police_officer/db_conn.php");
 							<td>Location</td>
 							<td>Type</td>
 							<td>Amount</td>
+							<td>Status</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -72,6 +73,7 @@ include("../../include/police_officer/db_conn.php");
 					</tbody>
 					
 				</table>
+				</div>
 				
 			<?php } ?><br>
 			<?php
@@ -86,15 +88,16 @@ include("../../include/police_officer/db_conn.php");
 					$rows[] = $row;
 				}
 			?>
-				<h3 class="i-name">Court Cases</h3>
-
-				<table class="overview-table">
+				<h3 class="i-name-red">Court Cases</h3>
+                <div class="table-container">
+				<table class="overview-table" width="100%">
 					<thead>
 						<tr class="overview-tr">
 						    <td>Violation ID</td>
 							<td>Date and Time</td>
 							<td>Location</td>
 							<td>Type</td>
+							<td>Status</td>
 							
 						</tr>
 					</thead>
@@ -125,10 +128,7 @@ include("../../include/police_officer/db_conn.php");
 				
 			<?php } ?><br>
 
-			<?php echo "<a href='po_dashboard.php'>"; ?>
-					<button type="submit" name="history" class="btn1">Back</button>
-					<?php echo "</a>" ?>	
-		
+			
 	</section>
 	<script src="./js/script.js"></script>
 </body>
