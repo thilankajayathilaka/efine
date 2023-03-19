@@ -33,59 +33,14 @@
                 </div>
                 <div class="form-field">
                     <label>Message</label>
-                    <textarea rows="10" placeholder="" name="message"></textarea>
+                    <input type="text" name="name" id="name" value readonly>
                 </div>
 
-                <button class="btn1" type="submit" name="submit">Send</button>
+                <button class="btn1" type="submit" name="submit">Edit Profile</button>
             </form>
             </div>
 
-        <div class="board1" style="width: 900px; margin:0 200px;padding:5%">
-            
-            <div class="profile_div">
-                <div class="profile_img">
-                    <i class='bx bxs-user' style='color:#000000; font-size: 200px'></i>
-                </div>
-                <div class="profile_input">
-                    <table>
-                        <tr>
-                            <td colspan="2" style="text-align: center;border:none;padding-bottom:20px;font-size:30px,">
-                                Profile Details
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>
-                                <div class="tdata">
-                                    Priyasha Sathyangani
-                                </div>
-                            </td>
 
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>
-                                <div class="tdata">
-                                    priyasha@police.lk
-                                </div>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td>
-                                <div class="tdata">
-                                    **********
-                                </div>
-                            </td>
-
-                        </tr>
-                        
-                    </table>
-                    <button class=edit_profile>Edit Profile</button>
-                </div>
-
-            </div>
 
         </div>
     </section>
