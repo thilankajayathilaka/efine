@@ -1,10 +1,12 @@
 <?php
 
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "efine";
+$serverName = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "efine";
 
-if (!$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname)) {
-    die("failed to connect!");
+$con = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
 }

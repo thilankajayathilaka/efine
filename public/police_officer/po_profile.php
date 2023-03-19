@@ -18,9 +18,28 @@
     <section class="home-section">
 
         <?php include 'navbar.php' ?>
-        <h3 class="i-name">
-            Profile
-        </h3>
+        <div class="form-container">
+
+            <form method="post" action="../../include/police_officer/add_violation.php">
+                
+
+                <div class="form-field">
+                    <label>Name</label>
+                    <input type="text" name="DLnumber" id="DLnumber"  readonly>
+                </div>
+                <div class="form-field">
+                    <label>E-mail</label>
+                    <input type="text" name="name" id="name" value readonly>
+                </div>
+                <div class="form-field">
+                    <label>Message</label>
+                    <textarea rows="10" placeholder="" name="message"></textarea>
+                </div>
+
+                <button class="btn1" type="submit" name="submit">Send</button>
+            </form>
+            </div>
+
         <div class="board1" style="width: 900px; margin:0 200px;padding:5%">
             
             <div class="profile_div">
