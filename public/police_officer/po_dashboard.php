@@ -26,8 +26,8 @@ include("../../include/police_officer/db_conn.php");
 
         <?php include 'navbar.php' ?>
 
-		
-   
+
+
         <div class="landing-pg-container">
             <div>
                 <img src="./image/landing-image.png" class="landing-img">
@@ -43,12 +43,16 @@ include("../../include/police_officer/db_conn.php");
                 <div class="box-container">
                     <div class="boxes">Recently Added Cases</div>
                     <div class="boxes">Violation Added History</div>
-            
 
+
+
+                </div>
                 <?php include 'footer.php' ?>
             </div>
-        </div>
+           
 
+        </div>
+        
     </section>
 
     <script src="./js/script.js"></script>

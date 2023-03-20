@@ -18,10 +18,11 @@
     <section class="home-section">
 
         <?php include 'navbar.php' ?>
-        <div class="form-container">
+        <div class="profile-container">
 
             <form method="post" action="../../include/police_officer/add_violation.php">
                 
+                 <img class="profile_image" src="./image/profile-img.png">
 
                 <div class="form-field">
                     <label>Name</label>
