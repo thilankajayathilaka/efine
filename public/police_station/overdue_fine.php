@@ -50,10 +50,11 @@ include_once '../../include/TCPDF-main/tcpdf.php'
             <table class="overview-table" width="100%">
                 <thead>
                     <td>Fine ID</td>
+                    <td>Driver Name</td>
+                    <td>Licence No</td>
                     <td>Violation</td>
-                    <td>Payment status</td>
                     <td>Points</td>
-                    <td>Amount <br>(Rs)</td>
+                    <td>Amount</td>
                     <td>Overdue date</td>
                     <td>Action</td>
                 </thead>
@@ -67,19 +68,15 @@ include_once '../../include/TCPDF-main/tcpdf.php'
 
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $date1 = strval($row['date']);
-
-                            $dateTime1 = new DateTime($date1);
-                            $dateTime1->modify('14 days');
-                            $date = $dateTime1->format('Y-m-d H:i:s');
                     ?>
                             <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Violation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
-                                <td><?php echo $row['amount']; ?></td>
-                                <td id="data"><?php echo $date ?></td>
+                                <td><?php echo $row["fineId"] ?></td>
+                                <td><?php echo $row['Name']; ?></td>
+                                <td><?php echo $row['Licence_No'] ?></td>
+                                <td><?php echo $row["violation"] ?></td>
+                                <td><?php echo $row["points"] ?></td>
+                                <td><?php echo $row["amount"] ?></td>
+                                <td><?php echo $row['due_date'] ?></td>
                                 <td><Button>Send to Court</Button></td>
                             </tr>
                         <?php
@@ -89,20 +86,16 @@ include_once '../../include/TCPDF-main/tcpdf.php'
                         // If no search value is provided, display all the data
                         $result = mysqli_query($con, readOverdueFineDetails());
                         while ($row = mysqli_fetch_assoc($result)) {
-                            $date1 = strval($row['date']);
-
-                            $dateTime1 = new DateTime($date1);
-                            $dateTime1->modify('14 days');
-                            $date = $dateTime1->format('Y-m-d H:i:s');
                         ?>
                             <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Violation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
-                                <td><?php echo $row['amount']; ?></td>
-                                <td id="data"><?php echo $date ?></td>
-                                <td><Button>Court</Button></td>
+                                <td><?php echo $row["fineId"] ?></td>
+                                <td><?php echo $row['Name']; ?></td>
+                                <td><?php echo $row['Licence_No'] ?></td>
+                                <td><?php echo $row["violation"] ?></td>
+                                <td><?php echo $row["points"] ?></td>
+                                <td><?php echo $row["amount"] ?></td>
+                                <td><?php echo $row['due_date'] ?></td>
+                                <td><Button>Send to Court</Button></td>
 
                             </tr>
                     <?php
