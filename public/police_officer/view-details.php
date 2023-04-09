@@ -139,22 +139,22 @@ include("../../include/police_officer/db_conn.php");
 					<table class="overview-table">
 						<tbody>
 							<tr class="overview-tr">
-								<td>Name</td>
+								<td><b>Name</td>
 								<td class="oview_col" name="name"><?php echo $name ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td>NIC Number</td>
+								<td><b>NIC Number</td>
 								<td class="oview_col" name="NIC"><?php echo $NIC ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td>Licence Number</td>
+								<td><b>Licence Number</td>
 								<td class="oview_col" name="LicenceNo"><?php echo $licenceNo ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td>Address</td>
+								<td><b>Address</td>
 								<td class="oview_col" name="Address"><?php echo $address ?></td>
 							</tr>
 						</tbody>
