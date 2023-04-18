@@ -408,7 +408,7 @@ body.dark-mode .searchbt {
 
 .searchfield {
   padding: 10px;
-  border: none;
+ 
   border-radius: 5px 0 0 5px;
 
 
@@ -423,6 +423,7 @@ body.dark-mode .searchfield {
 .searchbar {
   display: inline-flex;
   justify-content: center;
+
   
 
 }
@@ -735,6 +736,62 @@ body.dark-mode .grid-container .val-field {
   color: #fff;
 }
 
+.item10 {
+  grid-area: value-box-picture;
+  background: rgb(255, 255, 255);
+  justify-content: center;
+  height: relative;
+  width: 270px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 0px #c2d3e3;
+
+}
+
+.item11 {
+  grid-area: value-box11;
+  background: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  height: relative;
+  padding: 32px 30px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 0px #c2d3e3;
+  
+
+}
+.item12 {
+  grid-area: value-box12;
+  background: rgb(255, 255, 255);
+  justify-content: center;
+  height: relative;
+  padding: 32px 30px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px 0px #c2d3e3;
+ 
+
+
+}
+
+
+.grid-container-land {
+  display: grid;
+ justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  column-gap: 3%;
+  row-gap: 8%;
+  height: relative;
+
+  grid-template-areas: 'value-box-picture value-box12'
+    
+  
+}
+
+.landing-img{
+  width: 250px;
+  height: 500px;
+}
+
 
 .table-container {
   max-width: 100%;
@@ -758,6 +815,7 @@ body.dark-mode .table-container {
  padding: 20px;
  background-color: #fff;
  overflow: auto;
+ font-size: 15px;
 
 }
 
@@ -765,9 +823,22 @@ body.dark-mode .table-container {
   border-bottom: 1px solid #fff;
   justify-content: center;
   
+  
 
 }
 
+.overview-td{
+  
+  color: #2a5f91;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+body.dark-mode .overview-td{
+  
+  color: #d1dfec;
+  
+}
 
 body.dark-mode .overview-tr {
   border-bottom: #c9c2e2;
@@ -788,6 +859,8 @@ body.dark-mode .overview-tr {
 
 
 }
+
+
 
 body.dark-mode .overview-table thead td {
   background: #18122B;
@@ -1020,8 +1093,21 @@ body.dark-mode .form-field select {
     display: inline-block;
    
   }
-
   
+  /* Hide Sinhala content by default */
+.sinhala {
+	display: none;
+}
+
+/* Show Sinhala content when .sinhala class is added to element */
+.sinhala.show {
+	display: block;
+}
+
+/* Hide English content when .sinhala class is added to element */
+.hide {
+	display: none;
+}
 
 
 
@@ -1068,25 +1154,10 @@ footer .links {
     width:80px;
   }
 
-  .landing-pg-container{
-    flex-direction: column;
-    justify-content: center;
-    
-  }
-  .landing-pg-right{
-    width: 100%;
-    text-align: center;
-    
-    
-  }
+ 
   
 
-  .landing-img{
-    margin: 2% auto;
-    width: 100%;
-    height: 100%;
-    
-  }
+
 
   .searchbar {
     display: flex;

@@ -24,7 +24,7 @@ include("../../include/police_officer/db_conn.php");
 	<section class="home-section">
 
 		<?php include 'navbar.php' ?>
-
+        <button onclick="toggleLanguage()">සිංහල</button>
 
          
 
@@ -77,7 +77,7 @@ include("../../include/police_officer/db_conn.php");
 
 
 
-			<h3 class="i-name">
+			<h3 class="i-name translation" data-english="Overview" data-sinhala="විශ්ලේෂණය">
 				Overview
 			</h3>
 
@@ -90,7 +90,7 @@ include("../../include/police_officer/db_conn.php");
 						<i class='bx bx-id-card'></i>
 					</span>
 					<div>
-						<h3>Licenece Status</h3>
+						<h3 class="translation" data-english="Licence Status" data-sinhala="රියදුරු බලපත්‍රයේ තත්වය">Licence Status</h3>
 						<div class="val-field">
 							<div class="<?php echo ($status == 'Suspended') ? 't-status t-inactive' : 't-status t-active'; ?>"><?php echo $status ?></div>
 						</div>
@@ -102,7 +102,7 @@ include("../../include/police_officer/db_conn.php");
 						<i class='bx bxs-error'></i>
 					</span>
 					<div>
-						<h3>Total Violations</h3>
+						<h3 class="translation" data-english="Total Violations" data-sinhala="පෙර වැරදි සංඛ්‍යාව">Total Violations</h3>
 						<div class="val-field"><?php echo $total_violations; ?></div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@ include("../../include/police_officer/db_conn.php");
 						<i class='bx bx-id-card'></i>
 					</span>
 					<div>
-						<h3> Account Status</h3>
+						<h3 class="translation" data-english="Account Status" data-sinhala="ගිණුමේ තත්වය"> Account Status</h3>
 						<div class="val-field"><?php echo $acc_status; ?></div>
 					</div>
 				</div>
@@ -121,7 +121,7 @@ include("../../include/police_officer/db_conn.php");
 					</span>
 					<div>
 						
-						<h3 class="p-balance">Point Balance</h3>
+						<h3 class="p-balance translation" data-english="Point Balance" data-sinhala="ලකුණු සංඛ්‍යාව"">Point Balance</h3>
 					</div>
 					<div class="donut">
 						<div class="semi-donut-model-2 margin" style="--percentage: <?php echo $pointBalance / 15 * 100; ?>; --fill: #039BE5;">
@@ -139,22 +139,22 @@ include("../../include/police_officer/db_conn.php");
 					<table class="overview-table">
 						<tbody>
 							<tr class="overview-tr">
-								<td><b>Name</td>
+								<td class="overview-td translation" data-english="Name" data-sinhala="නම"><b>Name</td>
 								<td class="oview_col" name="name"><?php echo $name ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td><b>NIC Number</td>
+								<td class="overview-td translation" data-english="NIC Number" data-sinhala="ජා.හැඳුනුම්පත් අංකය"><b>NIC Number</td>
 								<td class="oview_col" name="NIC"><?php echo $NIC ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td><b>Licence Number</td>
+								<td class="overview-td translation" data-english="Licence Number" data-sinhala="රියදුරු බලපත්‍ර අංකය "><b>Licence Number</td>
 								<td class="oview_col" name="LicenceNo"><?php echo $licenceNo ?></td>
 							</tr>
 
 							<tr class="overview-tr">
-								<td><b>Address</td>
+								<td class="overview-td translation" data-english="Address" data-sinhala="ලිපිනය"><b>Address</td>
 								<td class="oview_col" name="Address"><?php echo $address ?></td>
 							</tr>
 						</tbody>
@@ -167,15 +167,15 @@ include("../../include/police_officer/db_conn.php");
 
 			<div class="btn-container">
 			<?php echo "<a href='add_driver.php?id=$licenceNo&name=$name&address=$address&nic=$NIC'>"; ?>
-				<button type="submit" name="submit_btn" class="btn1">Add to the System</button>
+				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Violation History" data-sinhala="පද්ධතියට ඇතුලත් කිරීම">Add to the System</button>
 				<?php echo "</a>" ?>
 				<?php echo "<a href='addFine_form.php?id=$licenceNo&name=$name&address=$address'>"; ?>
-				<button type="submit" name="submit_btn" class="btn1">Add Fine</button>
+				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Add Fine" data-sinhala="දඩ නියම කිරීම">Add Fine</button>
 				<?php echo "</a>" ?>
 				<?php echo "<a href='add_court_case.php?id=$licenceNo&name=$name&address=$address'>"; ?>
-				<button type="submit" name="submit_btn" class="btn1">Add a Court Case </button>
+				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Add a Court Case" data-sinhala="උසාවි නඩුවක් පැමිණිලි කිරීම">Add a Court Case </button>
 				<?php echo "<a href='violation_history.php?id=$licenceNo'>"; ?>
-				<button type="submit" name="history" class="btn1">Violation History</button>
+				<button type="submit" name="history" class="btn1 translation" data-english="Violation History" data-sinhala="පෙර වැරදි">Violation History</button>
 				<?php echo "</a>" ?>
 				<?php echo "<a href='po_dashboard.php'>"; ?>
 				Back
@@ -194,6 +194,7 @@ include("../../include/police_officer/db_conn.php");
 
 
 	<script src="./js/script.js"></script>
+	<script src="./js/change-language.js"></script>
 
 
 
