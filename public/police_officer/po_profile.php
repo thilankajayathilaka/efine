@@ -7,7 +7,7 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/style3.css">
+    <link rel="stylesheet" href="../CSS/style2.css">
 
 </head>
 
@@ -29,12 +29,16 @@
                     <input type="text" name="DLnumber" id="DLnumber"  readonly>
                 </div>
                 <div class="form-field">
+                    <label>Officer ID</label>
+                    <input type="text" name="po-id" id="po-id" value readonly>
+                </div>
+                <div class="form-field">
                     <label>E-mail</label>
                     <input type="text" name="name" id="name" value readonly>
                 </div>
                 <div class="form-field">
-                    <label>Message</label>
-                    <input type="text" name="name" id="name" value readonly>
+                    <label>Police Station</label>
+                    <input type="text" name="station" id="station" value readonly>
                 </div>
 
                 <button class="btn1" type="submit" name="submit">Edit Profile</button>

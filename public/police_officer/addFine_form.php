@@ -30,9 +30,10 @@ if (mysqli_num_rows($result) > 0) {
 
     <section class="home-section">
         <?php include 'navbar.php' ?>
+
         
             <div class="form-header">
-                <h2>Add Fine</h2>
+                <h2 class="translation" data-english="Add Fine" data-sinhala="දඩ නියම කිරීම">Add Fine</h2>
             </div>
 
             <div class="form-container">
@@ -41,20 +42,27 @@ if (mysqli_num_rows($result) > 0) {
                 <?php $get_id = $_GET['id']; ?>
                 <?php $name = $_GET['name']; ?>
                 <?php $address = $_GET['address']; ?>
+                <?php $NIC = $_GET['nic']; ?>
+
 
 
 
 
                 <div class="form-field">
-                    <label>Driving Licence Number</label>
+                    <label class="translation" data-english="Driving Licence Number" data-sinhala="රියදුරු බලපත්‍ර අංකය">Driving Licence Number</label>
                     <input type="text" name="DLnumber" id="DLnumber" value="<?php echo $get_id ?>" readonly>
                 </div>
                 <div class="form-field">
-                    <label> Name of the Driver</label>
+                    <label class="translation" data-english=" Name of the Driver" data-sinhala="රියදුරුගේ නම"> Name of the Driver</label>
                     <input type="text" name="name" id="name" value="<?php echo $name ?>" readonly>
                 </div>
                 <div class="form-field">
-                    <label>Address</label>
+                    <label class="translation" data-english=">NIC Number" data-sinhala="ජා.හැඳුනුම්පත් අංකය">NIC Number</label>
+                    <input type="text" name="nic" id="nic" value="<?php echo $NIC ?>" readonly>
+                </div>
+
+                <div class="form-field">
+                    <label class="translation" data-english="Address" data-sinhala="ලිපිනය">Address</label>
                     <input type="text" name="address" id="address" value="<?php echo $address ?>" readonly>
                 </div>
 
@@ -62,22 +70,22 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="form-field">
-                    <label>Vehicle Number</label>
+                    <label class="translation" data-english="Vehicle Number" data-sinhala="වාහන අංකය">Vehicle Number</label>
                     <input type="text" name="vnumber" id="vnumber">
                 </div>
                 <div class="form-field">
-                    <label>Date of the Violation</label>
+                    <label class="translation" data-english="Date of the Violation" data-sinhala="වරද කල දිනය">Date of the Violation</label>
                     <input type="date" name="date" id="date">
                 </div>
                 <div class="form-field">
-                    <label>Place</label>
+                    <label class="translation" data-english="Place" data-sinhala="ස්ථානය">Place</label>
                     <input type="text" name="place" id="place">
                 </div>
                 
     
     
                 <div class="form-field">
-                    <label>Nature of the violation</label>
+                    <label class="translation" data-english="Nature of the violation" data-sinhala="වරදේ ස්වභාවය ">Nature of the violation</label>
                     <select name="violation" id="violation">
                         <option value="">--Select violation--</option>
                         <?php
@@ -95,7 +103,7 @@ if (mysqli_num_rows($result) > 0) {
                   
                 <div class="form-field">
 
-                    <label for="amount">Amount:</label>
+                    <label for="amount" class="translation" data-english="Amount:" data-sinhala="දඩ මුදල">Amount:</label>
                     <input type="text" name="amount" id="amount">
 
 
@@ -130,7 +138,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="form-field">
-                    <label>Court</label>
+                    <label class="translation" data-english="Court" data-sinhala="උසාවිය">Court</label>
                     <select name="court" id="court">
                         <option value="High Court Ambilipitiya">High Court Ambilipitiya</option>
                         <option>High Court Ampara</option>
@@ -216,15 +224,15 @@ if (mysqli_num_rows($result) > 0) {
                     </select>
                 </div>
                 <div class="form-field">
-                    <label>Court Date</label>
+                    <label class="translation" data-english="Court Date" data-sinhala="උසාවි දිනය">Court Date</label>
                     <input type="date" name="cdate" id="cdate">
                 </div>
                 <div class="form-field">
-                    <label>More</label>
+                    <label class="translation" data-english="More" data-sinhala="අමතර විස්තර">More</label>
                     <textarea rows="10" placeholder="" name="message"></textarea>
                 </div>
                 <div class="form-field">
-                    <label>Issuing Officer</label>
+                    <label class="translation" data-english="Issuing Officer" data-sinhala="නිකුත් කිරීමේ නිලධාරියා">Issuing Officer</label>
                     <input type="text" name="issuingOfficer" id="issuingOfficer">
                 </div>
 
@@ -248,6 +256,7 @@ if (mysqli_num_rows($result) > 0) {
     </section>
 
     <script src="./js/script.js"></script>
+    
 
 </body>
 

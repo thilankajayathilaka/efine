@@ -10,17 +10,13 @@ if (isset($_POST["add_D"])) {
     $Mobilenumber= $_POST['mobileNo'];
     $issuingOfficer = $_POST['issuingOfficer'];
     $userRole="Driver";
-
-    
-    $query_user = "INSERT INTO `user` (role) VALUES ('$userRole')";
-    $result_user = mysqli_query($con, $query_user);
     
     
     $query_driver = "INSERT INTO `driver` (Name, Licence_No, Nic_No, Address, Mobile_No ) 
                 VALUES ('$name', '$DLnumber', '$NIC', '$address', '$Mobilenumber')";
     $result_driver = mysqli_query($con, $query_driver);
 
-    if ($result_user && $result_driver) {
+    if ($result_driver) {
         // Success!
         echo "Data inserted successfully.";
     } else {

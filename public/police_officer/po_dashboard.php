@@ -27,7 +27,7 @@ include("../../include/police_officer/db_conn.php");
     <section class="home-section">
 
         <?php include 'navbar.php' ?>
-        <button onclick="toggleLanguage()">සිංහල</button>
+        
 
 
         <div class="grid-container-land ">
@@ -108,7 +108,7 @@ include("../../include/police_officer/db_conn.php");
     </section>
 
     <script src="./js/script.js"></script>
-    <script src="./js/change-language.js"></script>
+    
 
 </body>
 

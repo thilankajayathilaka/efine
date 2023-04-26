@@ -277,7 +277,7 @@ body.dark-mode .home-section {
   align-items: center;
   flex-wrap: wrap;
   background: #96b1d3;
-  height: 45px;
+  height: 55px;
 }
 
 .home-section .home-content .right-side-items {
@@ -311,6 +311,7 @@ body.dark-mode .home-section {
   font-size: 35px;
 }
 
+
 .home-section .home-content .bx-menu {
   cursor: pointer;
   margin-right: 10px;
@@ -322,74 +323,20 @@ body.dark-mode .home-section {
   font-weight: 600;
 }
 
-
-.home-section2 {
-  position: relative;
-  overflow: scroll;
-  background: #E4E9F7;
-  background-repeat: no-repeat;
-  height: 100vh;
-  left: 260px;
-  width: calc(100% - 260px);
-  transition: all 0.5s ease;
-
+.language-btn{
+  background-color: #f8f8f8;
+  border: none;
+  border-radius:3px;
+  margin-right:3px;
+  padding: 2px;
 }
 
-
-.sidebar.close~.home-section2 {
-  left: 78px;
-  width: calc(100% - 78px);
+.language-btn.active{
+  background-color: #191827;
+  color: #ffff;
+ 
 }
 
-
-
-
-
-
-
-
-
-.home-section2 .home-content .right-side-items {
-  display: flex;
-  margin-left: auto;
-  margin-right: 20px;
-
-}
-
-.home-section2 .home-content .right-side-items .profile img {
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
-  object-fit: cover;
-  border-radius: 50%;
-
-}
-
-.home-section2 .home-content .right-side-items .bx-bell {
-  cursor: pointer;
-  font-size: 30px;
-  margin-right: 20px;
-  color: #1d1b31;
-
-
-}
-
-.home-section2 .home-content .bx-menu,
-.home-section2 .home-content .text {
-  color: #1d1b31;
-  font-size: 35px;
-}
-
-.home-section2 .home-content .bx-menu {
-  cursor: pointer;
-  margin-right: 10px;
-  color: #1d1b31;
-}
-
-.home-section2 .home-content .text {
-  font-size: 26px;
-  font-weight: 600;
-}
 
 .searchbt {
   padding: 10px;
@@ -1094,20 +1041,7 @@ body.dark-mode .form-field select {
    
   }
   
-  /* Hide Sinhala content by default */
-.sinhala {
-	display: none;
-}
-
-/* Show Sinhala content when .sinhala class is added to element */
-.sinhala.show {
-	display: block;
-}
-
-/* Hide English content when .sinhala class is added to element */
-.hide {
-	display: none;
-}
+ 
 
 
 
@@ -1140,9 +1074,6 @@ footer .links {
     font-size: 12px;
   }
   
-  .home-section2{
-    overflow: scroll;
-  }
   .home-section{
     overflow: scroll;
   }

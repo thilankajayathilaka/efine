@@ -24,8 +24,7 @@ include("../../include/police_officer/db_conn.php");
 	<section class="home-section">
 
 		<?php include 'navbar.php' ?>
-        <button onclick="toggleLanguage()">සිංහල</button>
-
+       
          
 
 		<?php
@@ -34,14 +33,26 @@ include("../../include/police_officer/db_conn.php");
     $query = "SELECT * FROM driver WHERE Licence_No = '$id'";
     $query_run = mysqli_query($con, $query);
 
-    if (mysqli_num_rows($query_run) > 0) {
-        // Driver is registered
+	if (mysqli_num_rows($query_run) > 0) {
+        // The driver record exists, so retrieve the email and password fields
         $row = mysqli_fetch_assoc($query_run);
-        $acc_status = "Registered";
-        $pointBalance = $row['Point_Balance'];
-        $status = $row['status'];
+        $email = $row["email"];
+        $password = $row["password"];
+
+        // Check if the email and password fields are empty
+        if (empty($email) && empty($password)) {
+            // The email and password fields are empty, so display "not registered"
+            $acc_status = "Not Registered";
+            $pointBalance = 15;
+            $status = "Active";
+        } else {
+            // The email and/or password fields are not empty, so display the driver record
+            $acc_status = "Registered";
+            $pointBalance = $row['Point_Balance'];
+            $status = $row['status'];
+        }
     } else {
-        // Driver is not registered
+        // The driver record doesn't exist, so display "not registered"
         $acc_status = "Not Registered";
         $pointBalance = 15;
         $status = "Active";
@@ -167,12 +178,12 @@ include("../../include/police_officer/db_conn.php");
 
 			<div class="btn-container">
 			<?php echo "<a href='add_driver.php?id=$licenceNo&name=$name&address=$address&nic=$NIC'>"; ?>
-				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Violation History" data-sinhala="පද්ධතියට ඇතුලත් කිරීම">Add to the System</button>
+				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Add to the System" data-sinhala="පද්ධතියට ඇතුලත් කිරීම">Add to the System</button>
 				<?php echo "</a>" ?>
-				<?php echo "<a href='addFine_form.php?id=$licenceNo&name=$name&address=$address'>"; ?>
+				<?php echo "<a href='addFine_form.php?id=$licenceNo&name=$name&address=$address&nic=$NIC'>"; ?>
 				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Add Fine" data-sinhala="දඩ නියම කිරීම">Add Fine</button>
 				<?php echo "</a>" ?>
-				<?php echo "<a href='add_court_case.php?id=$licenceNo&name=$name&address=$address'>"; ?>
+				<?php echo "<a href='add_court_case.php?id=$licenceNo&name=$name&address=$address&nic=$NIC'>"; ?>
 				<button type="submit" name="submit_btn" class="btn1 translation" data-english="Add a Court Case" data-sinhala="උසාවි නඩුවක් පැමිණිලි කිරීම">Add a Court Case </button>
 				<?php echo "<a href='violation_history.php?id=$licenceNo'>"; ?>
 				<button type="submit" name="history" class="btn1 translation" data-english="Violation History" data-sinhala="පෙර වැරදි">Violation History</button>
@@ -194,8 +205,7 @@ include("../../include/police_officer/db_conn.php");
 
 
 	<script src="./js/script.js"></script>
-	<script src="./js/change-language.js"></script>
-
+	
 
 
 </body>

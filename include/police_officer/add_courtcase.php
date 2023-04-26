@@ -48,34 +48,22 @@ if (isset($_POST["add_c"])) {
 
         $result = mysqli_query($con, $query_add);
         if ($result) {
-            // Send email notification to driver
-            $driver_query = "SELECT Email FROM driver WHERE Licence_No='$DLnumber'";
-            $driver_result = mysqli_query($con, $driver_query);
-            $driver_row = mysqli_fetch_assoc($driver_result);
-            $driver_email = $driver_row['Email'];
-            $subject = "Traffic Fine Notification";
-            $message = "Dear Driver,\n\nYou have been done $violation at $place on $date. Please pay the fine.\n\nSincerely,\nTraffic Fine Management System";
-            $headers = "From: sathyanganipriyasha810@gmail.com\r\n";
-            $headers .= "Content-type: text/plain; charset=UTF-8\r\n";
-            $headers .= "Reply-To: sathyanganipriyasha810@gmail.com\r\n";
-            $headers .= "X-Mailer: PHP/" . phpversion();
-            if (mail($driver_email, $subject, $message, $headers)) {
-                ?>
-                <script>
-                    Swal.fire('Form Submitted Successfully');
-                </script>
-            <?php
-            } else {
-                die("Error: Unable to send email.");
-            }
-        } else {
-            die(mysqli_error($con));
+            ?>
+            <script>
+              alert("<?php echo 'Court Case Added' ?>");
+            </script>
+
+            
+           
+    <?php
+            
+          
         }
-    } else {
-        // Display error messages
-        foreach ($errors as $error) {
-            echo $error . "<br>";
-        }
-    }
+      }
+    
 }
+    ?>
+       
 ?>
+        
+  

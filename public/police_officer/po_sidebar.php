@@ -84,7 +84,6 @@
           <li><a class="link_name" id="mode-name-mobile">Dark Mode</a></li>
         </ul>
       </li>
-
       
        <script src="./js/color-mode.js"></script>
       

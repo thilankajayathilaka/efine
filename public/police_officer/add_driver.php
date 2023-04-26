@@ -22,7 +22,7 @@ include("../../include/police_officer/db_conn.php");
         <?php include 'navbar.php' ?>
         
             <div class="form-header">
-                <h2>Add to the System</h2>
+                <h2 class="translation" data-english="Add to the System" data-sinhala="රියදුරු පද්ධතියට ඇතුලත් කිරීම">Add to the System</h2>
             </div>
 
             <div class="form-container">
@@ -38,15 +38,15 @@ include("../../include/police_officer/db_conn.php");
 
 
                 <div class="form-field">
-                    <label>Driving Licence Number</label>
+                <label class="translation" data-english="Driving Licence Number" data-sinhala="රියදුරු බලපත්‍ර අංකය">Driving Licence Number</label>
                     <input type="text" name="DLnumber" id="DLnumber" value="<?php echo $get_id ?>" readonly>
                 </div>
                 <div class="form-field">
-                    <label> Name</label>
+                <label class="translation" data-english=" Name of the Driver" data-sinhala="රියදුරුගේ නම"> Name of the Driver</label>
                     <input type="text" name="name" id="name" value="<?php echo $name ?>" readonly>
                 </div>
                 <div class="form-field">
-                    <label>Address</label>
+                <label class="translation" data-english="Address" data-sinhala="ලිපිනය">Address</label>
                     <input type="text" name="address" id="address" value="<?php echo $address ?>" readonly>
                 </div>
 
@@ -54,17 +54,17 @@ include("../../include/police_officer/db_conn.php");
 
 
                 <div class="form-field">
-                    <label>NIC Number</label>
-                    <input type="text" name="nic" id="nic" value="<?php echo $NIC ?>" readonly>
+                <label class="translation" data-english="NIC Number" data-sinhala="ජා.හැඳුනුම්පත් අංකය">NIC Number</label>
+                <input type="text" name="nic" id="nic" value="<?php echo $NIC ?>" readonly>
                 </div>
                
                 <div class="form-field">
-                    <label>Telephone Number</label>
+                    <label class="translation" data-english="Telephone Number" data-sinhala="ජංගම දුරකථන අංකය">Telephone Number</label>
                     <input type="text" name="mobileNo" id="mobileNo">
                 </div>
                 
                 <div class="form-field">
-                    <label>Added by</label>
+                    <label class="translation" data-english="Added by" data-sinhala="ජා.හැඳුනුම්පත් අංකය">Added by</label>
                     <input type="text" name="issuingOfficer" id="issuingOfficer">
                 </div>
 

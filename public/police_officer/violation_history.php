@@ -51,11 +51,11 @@ include("../../include/police_officer/db_conn.php");
 					<tbody>
 						<?php
 						foreach ($rows as $row) {
-							$violation_id = $row['fineId'];
-							$Date = $row['Date'];
+							$violation_id = $row['id'];
+							$Date = $row['Violation_date'];
 							$Amount = $row['amount'];
-							$Type = $row['violation'];
-							$location = $row['location'];
+							$Type = $row['Violation'];
+							$location = $row['Place'];
 
 							
 
