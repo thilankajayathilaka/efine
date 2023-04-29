@@ -38,7 +38,7 @@
             </ul>
         </li>
 
-        <li>
+        <!-- <li>
             <div class="iocn-link">
                 <a href="total_fines.php">
                     <i class='bx bx-receipt' style='color:#ffffff'></i>
@@ -50,7 +50,7 @@
                 <li><a class="link_name" href="total_fines.php">Total Fines</a></li>
 
             </ul>
-        </li>
+        </li> -->
         <li>
             <div class="iocn-link">
                 <a href="./ongoing_fine.php">

@@ -18,27 +18,50 @@ function insertPoliceOfficer($con, $po_id, $name, $po_station, $address, $phone_
 }
 function readPoliceOfficerDetails()
 {
-    $sql = "SELECT * FROM policeofficer";
+    $sql = "SELECT * FROM policeofficer
+    join User ON policeofficer.user_id=user.user_id";
     return $sql;
 }
 function readDriverPaymentDetails()
 {
-    $sql = "SELECT * FROM driverpayments where Payment_status='paid'";
+    $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.nic_no    , d.licence_no, d.name, d.Address, d.Mobile_No, d.Point_Balance 
+    FROM driverpayment dp 
+    JOIN fine f ON dp.fine_id = f.fine_id
+    JOIN driver d ON dp.nic_no = d.nic_no     
+    where dp.status='Paid'";
     return $sql;
 }
 function readTotalFineDetails()
 {
-    $sql = "SELECT * FROM driverpayments";
+    $sql = "SELECT * FROM driverpayment";
     return $sql;
 }
 function readOngoinFineDetails()
 {
-    $sql = "SELECT * FROM `driverpayments` where Payment_status='unpaid'";
+    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+    FROM fine f
+    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+    JOIN driver d ON f.nic_no = d.nic_no    
+    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0";
+
     return $sql;
 }
 function readOverdueFineDetails()
 {
-    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+    FROM fine f
+    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+    JOIN driver d ON f.nic_no = d.nic_no    
+    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0";
+    return $sql;
+}
+function readCourtFineDetails()
+{
+    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount,f.court_date, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+    FROM fine f
+    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+    JOIN driver d ON f.nic_no = d.nic_no    
+    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0";
     return $sql;
 }
 function requestRmv($con, $fileName)
@@ -63,13 +86,26 @@ function driverPaymentSearch()
     // Modify the SQL query based on the search criteria
     switch ($search_criteria) {
         case "Fine_ID":
-            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
+
+            $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.nic_no    , d.licence_no, d.name, d.Address, d.Mobile_No, d.Point_Balance 
+            FROM driverpayment dp 
+            JOIN fine f ON dp.fine_id = f.fine_id
+            JOIN driver d ON dp.nic_no = d.nic_no     
+            where dp.status='Paid' And f.fine_id like CONCAT('%','$search_value','%')";
             break;
         case "name":
-            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
+            $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.nic_no    , d.licence_no, d.name, d.Address, d.Mobile_No, d.Point_Balance 
+            FROM driverpayment dp 
+            JOIN fine f ON dp.fine_id = f.fine_id
+            JOIN driver d ON dp.nic_no = d.nic_no     
+            where dp.status='Paid' And d.name like CONCAT('%','$search_value','%')";
             break;
         case "date":
-            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='paid'";
+            $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.nic_no    , d.licence_no, d.name, d.Address, d.Mobile_No, d.Point_Balance 
+            FROM driverpayment dp 
+            JOIN fine f ON dp.fine_id = f.fine_id
+            JOIN driver d ON dp.nic_no = d.nic_no     
+            where dp.status='Paid' And f.date like CONCAT('%','$search_value','%')";
             break;
     }
     return $sql;
@@ -82,7 +118,7 @@ function totalPaymentSearch()
     // Modify the SQL query based on the search criteria
     switch ($search_criteria) {
         case "Fine_ID":
-            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')";
+            $sql = "SELECT * FROM driverpayments WHERE `fine_id` like CONCAT('%','$search_value','%')";
             break;
         case "name":
             $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')";
@@ -101,14 +137,24 @@ function ongoinPaymentSearch()
     // Modify the SQL query based on the search criteria
     switch ($search_criteria) {
         case "Fine_ID":
-            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+        FROM fine f
+        LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+        JOIN driver d ON f.nic_no = d.nic_no   
+        WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0 AND f.fine_id like CONCAT('%','$search_value','%')";
             break;
         case "name":
-            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
-            break;
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+        FROM fine f
+        LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+        JOIN driver d ON f.nic_no = d.nic_no   
+        WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0 AND d.name like CONCAT('%','$search_value','%')";
         case "date":
-            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
-            break;
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+        FROM fine f
+        LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+        JOIN driver d ON f.nic_no = d.nic_no   
+        WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0 AND f.date like CONCAT('%','$search_value','%')";
     }
     return $sql;
 }
@@ -121,13 +167,25 @@ function overduefineSearch()
     // Modify the SQL query based on the search criteria
     switch ($search_criteria) {
         case "Fine_ID":
-            $sql = "SELECT * FROM driverpayments WHERE `Fine ID` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+        FROM fine f
+        LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+        JOIN driver d ON f.nic_no = d.nic_no   
+        WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0 AND f.fine_id like CONCAT('%','$search_value','%')";
             break;
         case "name":
-            $sql = "SELECT * FROM driverpayments WHERE `name` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+        FROM fine f
+        LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+        JOIN driver d ON f.nic_no = d.nic_no   
+        WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0 AND d.name like CONCAT('%','$search_value','%')";
             break;
         case "date":
-            $sql = "SELECT * FROM driverpayments WHERE `date1` like CONCAT('%','$search_value','%')  AND 'Payment_status'='unpaid'";
+            $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
+            FROM fine f
+            LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
+            JOIN driver d ON f.nic_no = d.nic_no   
+            WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0 AND f.date like CONCAT('%','$search_value','%')";
             break;
     }
     return $sql;

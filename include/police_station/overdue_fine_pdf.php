@@ -40,13 +40,13 @@ class MYPDF extends TCPDF
         // Data
         $fill = 0;
         foreach ($data as $row) {
-            $this->Cell($w[0], 6, $row['Fine ID'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row['Violation'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, $row['Payment_status'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[3], 6, $row['Points'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[0], 6, $row['fine_id'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $row['violation'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[2], 6, $row['payamentStatus'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[3], 6, $row['points'], 'LR', 0, 'L', $fill);
             $this->Cell($w[4], 6, number_format($row['amount']), 'LR', 0, 'R', $fill);
             $this->Cell($w[5], 6, $row['date'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[6], 6, $row['overdue_date'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[6], 6, $row['due_date'], 'LR', 0, 'L', $fill);
             $this->Ln();
             $fill = !$fill;
         }

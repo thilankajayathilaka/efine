@@ -17,7 +17,7 @@ class MYPDF extends TCPDF
 
             // store the fine information in the array
             $officer_info = array(
-                'id' => $row['id'],
+                'id' => $row['police_officer_id'],
                 'name' => $row['name'],
                 'police_station' => $row['police_station'],
                 'address' => $row['address'],

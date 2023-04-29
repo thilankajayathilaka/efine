@@ -20,7 +20,7 @@
 
         <?php include './navbar.php' ?>
         <h3 class="i-name">
-            Overdue Fine Details
+            Court case Details
         </h3>
         <div class="paymentsearch">
             <div class="search">
@@ -28,13 +28,14 @@
                 <form action="" class="searchbar">
                     <label>Search By</label>
                     <select name="fines" id="fines" style="margin-left: 15px; width:150px;">
-                        <option value="fine_id">Fine ID</option>
+                        <option value="Fine_ID">Fine ID</option>
                         <option value="name">Name</option>
-                        <option value="date1">Date</option>
+                        <option value="date">Date</option>
                     </select>
                     <input type="text" name="search" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/court_cases_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/court_cases_pdf.php"
+                            style="text-decoration:none; color:white"> Download PDF</a></button>
                 </form>
 
             </div>
@@ -44,49 +45,63 @@
             <table class="overview-table" width="100%">
                 <thead>
                     <td>Fine ID</td>
-                    <td>Vialation</td>
-                    <td>Payment status</td>
+                    <td>Driver Name</td>
+                    <td>Licence No</td>
+                    <td>Violation</td>
                     <td>Points</td>
-                    <td>Amount <br>(Rs)</td>
-                    <td>Overdued date</td>
+                    <td>Amount</td>
+                    <td>Overdue date</td>
+                    <td>Court date</td>
                     <td>Action Taken</td>
                 </thead>
                 <tbody>
-
                     <?php
-                    //read data from table
-                    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
+                    if (isset($_POST['search_value'])) {
 
-                    if ($result = mysqli_query($con, $sql)) {
-                        // Fetch one and one row
+                        // Execute the query
+                        $result = mysqli_query($con, overduefineSearch());
+
+                        // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
-
-                            $date1 = strval($row['date']);
-
-                            $dateTime1 = new DateTime($date1);
-                            $dateTime1->modify('14 days');
-                            $date = $dateTime1->format('Y-m-d H:i:s');
-
-
                     ?>
+                    <tr>
+                        <td><?php echo $row["fine_id"] ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['licence_no'] ?></td>
+                        <td><?php echo $row["violation"] ?></td>
+                        <td><?php echo $row["points"] ?></td>
+                        <td><?php echo $row["amount"] ?></td>
+                        <td><?php echo $row['due_date'] ?></td>
+                        <td><?php echo $row['court_date'] ?></td>
+                        <td><Button>Sended to Court that day</Button></td>
+                    </tr>
+                    <?php
+                        }
+                        mysqli_free_result($result);
+                    } else {
+                        // If no search value is provided, display all the data
+                        $result = mysqli_query($con, readCourtFineDetails());
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                    <tr>
+                        <td><?php echo $row["fine_id"] ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['licence_no'] ?></td>
+                        <td><?php echo $row["violation"] ?></td>
+                        <td><?php echo $row["points"] ?></td>
+                        <td><?php echo $row["amount"] ?></td>
+                        <td><?php echo $row['due_date'] ?></td>
+                        <td><?php echo $row['court_date'] ?></td>
+                        <td><Button>Sended to Court that day</Button></td>
 
-                            <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Violation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
-                                <td><?php echo $row['amount']; ?></td>
-                                <td id="data"><?php echo $date ?></td>
-                                <td>sent to court that day</td>
-
-                            </tr>
-
+                    </tr>
                     <?php
                         }
                         mysqli_free_result($result);
                     }
 
                     mysqli_close($con);
+
 
                     ?>
                 </tbody>

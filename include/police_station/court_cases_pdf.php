@@ -10,7 +10,7 @@ class MYPDF extends TCPDF
     public function LoadData($file)
     {
         require('../../database/db_conn.php');
-        $result = mysqli_query($con, "SELECT * FROM driverpayments where Payment_status='unpaid'");
+        $result = mysqli_query($con, readCourtFineDetails());
         $data = array();
         while ($row = mysqli_fetch_assoc($result)) {
             $data[] = $row;
@@ -27,10 +27,10 @@ class MYPDF extends TCPDF
         $this->SetLineWidth(0.1);
         $this->SetFont('', 'B');
         // Header
-        $w = array(20, 32, 30, 25, 25, 28, 25);
+        $w = array(20,20, 20, 42, 20, 20, 25,25);
         $num_headers = count($header);
         for ($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
+            $this->Cell($w[$i],7, $header[$i], 1, 0, 'C', 1);
         }
         $this->Ln();
         // Color and font restoration
@@ -40,13 +40,14 @@ class MYPDF extends TCPDF
         // Data
         $fill = 0;
         foreach ($data as $row) {
-            $this->Cell($w[0], 6, $row['Fine ID'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row['Violation'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, $row['Payment_status'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[3], 6, $row['Points'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[4], 6, number_format($row['amount']), 'LR', 0, 'R', $fill);
-            $this->Cell($w[5], 6, $row['date'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[6], 6, $row['overdue_date'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[0], 6, $row['fine_id'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $row['name'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[2], 6, $row['licence_no'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[3], 6, $row['violation'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[4], 6, $row['points'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[5], 6, number_format($row['amount']), 'LR', 0, 'R', $fill);
+            $this->Cell($w[6], 6, $row['due_date'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[7], 6, $row['court_date'], 'LR', 0, 'L', $fill);
             $this->Ln();
             $fill = !$fill;
         }
@@ -106,7 +107,7 @@ $pdf->setFooterFont(array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 $pdf->AddPage();
 
 // column titles
-$header = array('FINE ID', 'VIOLATION', 'PAYMENT STATUS', 'POINTS', 'AMOUNT(RS)', 'Date', 'OVERDUE DATE',);
+$header = array('FINE ID', 'Driver Name', 'Licence No', 'Violation','Points','AMOUNT(RS)','OVERDUE DATE','Court date');
 
 // data loading
 $data = $pdf->LoadData('data/table_data_demo.txt');

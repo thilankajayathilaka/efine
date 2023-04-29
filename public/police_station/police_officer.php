@@ -65,7 +65,7 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo $row['police_officer_id']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['police_station']; ?></td>
                         <td><?php echo $row['address']; ?></td>
