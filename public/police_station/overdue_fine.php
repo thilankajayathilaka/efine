@@ -114,7 +114,6 @@ function hideModal() {
                         <td><?php echo $row["amount"] ?></td>
                         <td><?php echo $row['due_date'] ?></td>
                         <td><button onclick="showModal(<?php echo $row['fine_id'] ?>)">Send to Court</button></td>
-
                     </tr>
                     <?php
                         }

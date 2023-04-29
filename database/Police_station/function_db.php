@@ -24,10 +24,10 @@ function readPoliceOfficerDetails()
 }
 function readDriverPaymentDetails()
 {
-    $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.nic_no    , d.licence_no, d.name, d.Address, d.Mobile_No, d.Point_Balance 
+    $sql = "SELECT dp.id, dp.status, dp.amount, dp.authorization_code, dp.created_at,f.violation, f.points, f.payamentStatus, f.amount AS fine_amount, d.Nic_No, d.Licence_No, d.Name, d.Address, d.Mobile_No, d.Point_Balance 
     FROM driverpayment dp 
-    JOIN fine f ON dp.fine_id = f.fine_id
-    JOIN driver d ON dp.nic_no = d.nic_no     
+    JOIN fine f ON dp.fineid = f.fineid
+    JOIN driver d ON dp.Nic_No = d.Nic_No 
     where dp.status='Paid'";
     return $sql;
 }
@@ -38,30 +38,12 @@ function readTotalFineDetails()
 }
 function readOngoinFineDetails()
 {
-    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
-    FROM fine f
-    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
-    JOIN driver d ON f.nic_no = d.nic_no    
-    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) >= 0";
-
+    $sql = "SELECT * FROM `driverpayments` where Payment_status='unpaid'";
     return $sql;
 }
 function readOverdueFineDetails()
 {
-    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
-    FROM fine f
-    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
-    JOIN driver d ON f.nic_no = d.nic_no    
-    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0";
-    return $sql;
-}
-function readCourtFineDetails()
-{
-    $sql = "SELECT f.fine_id, f.type, f.violation, f.points, f.payamentStatus, f.amount,f.court_date, d.name,d.licence_no, f.date, DATE_ADD(f.date, INTERVAL 14 DAY) AS due_date, DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) AS remaining_days
-    FROM fine f
-    LEFT JOIN driverpayment dp ON f.fine_id = dp.fine_id
-    JOIN driver d ON f.nic_no = d.nic_no    
-    WHERE dp.id IS NULL AND DATEDIFF(DATE_ADD(f.date, INTERVAL 14 DAY), CURDATE()) <= 0";
+    $sql = "SELECT * FROM driverpayments where Payment_status='unpaid'";
     return $sql;
 }
 function requestRmv($con, $fileName)

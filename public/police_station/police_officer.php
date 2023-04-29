@@ -32,12 +32,8 @@
                     </select>
                     <input type="text" name="search" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <a class="add_po_a" href="add_police_officer.php"><input class="add_po"
-                            href="http://localhost/efine/ps/add_police_officer.php" value="Add police Officer"
-                            disabled></a>
-                    <button class="pdf" name="download_pdf"> <a
-                            href="../../include/police_station/police_officer_pdf.php"
-                            style="text-decoration:none; color:white"> Download PDF</a></button>
+                    <a class="add_po_a" href="add_police_officer.php"><input class="add_po" href="http://localhost/efine/ps/add_police_officer.php" value="Add police Officer" disabled></a>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/police_officer_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
                 </form>
 
             </div>
@@ -56,8 +52,6 @@
                 </thead>
                 <tbody>
                     <?php
-                    //read data from table
-                    //$sql = "SELECT * FROM policeofficer";
 
 
                     if ($result = mysqli_query($con, readPoliceOfficerDetails())) {

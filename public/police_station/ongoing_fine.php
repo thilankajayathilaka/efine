@@ -66,7 +66,9 @@ include '../../include/police_station/remaing_date.php';
 
 
                         // Execute the query
+
                         $result = mysqli_query($con, ongoinPaymentSearch());
+
 
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -80,8 +82,6 @@ include '../../include/police_station/remaing_date.php';
                                 <td><?php echo $row["amount"] ?></td>
                                 <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
 
-
-
                             </tr>
                         <?php
                         }
@@ -92,6 +92,7 @@ include '../../include/police_station/remaing_date.php';
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                             <tr>
+
                                 <td><?php echo $row["fine_id"] ?></td>
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['licence_No'] ?></td>
@@ -99,8 +100,6 @@ include '../../include/police_station/remaing_date.php';
                                 <td><?php echo $row["points"] ?></td>
                                 <td><?php echo $row["amount"] ?></td>
                                 <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
-
-
 
                             </tr>
                     <?php
