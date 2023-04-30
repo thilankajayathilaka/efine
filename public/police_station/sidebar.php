@@ -38,19 +38,6 @@
             </ul>
         </li>
 
-        <!-- <li>
-            <div class="iocn-link">
-                <a href="total_fines.php">
-                    <i class='bx bx-receipt' style='color:#ffffff'></i>
-
-                    <span class="link_name">Total Fines</span>
-                </a>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="total_fines.php">Total Fines</a></li>
-
-            </ul>
-        </li> -->
         <li>
             <div class="iocn-link">
                 <a href="./ongoing_fine.php">
@@ -86,6 +73,18 @@
             </div>
             <ul class="sub-menu">
                 <li><a class="link_name" href="./court_fine.php">Court Cases</a></li>
+
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="./stat.php">
+                <i class='bx bx-stats' style='color:#ffffff'  ></i>
+                    <span class="link_name">Statistics</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="./stat.php">Statistics</a></li>
 
             </ul>
         </li>

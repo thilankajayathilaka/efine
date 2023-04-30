@@ -76,7 +76,7 @@ include '../../include/police_station/remaing_date.php';
                             <tr>
                                 <td><?php echo $row["fine_id"] ?></td>
                                 <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['licence_No'] ?></td>
+                                <td><?php echo $row['licence_no'] ?></td>
                                 <td><?php echo $row["violation"] ?></td>
                                 <td><?php echo $row["points"] ?></td>
                                 <td><?php echo $row["amount"] ?></td>
@@ -95,7 +95,7 @@ include '../../include/police_station/remaing_date.php';
 
                                 <td><?php echo $row["fine_id"] ?></td>
                                 <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['licence_No'] ?></td>
+                                <td><?php echo $row['licence_no'] ?></td>
                                 <td><?php echo $row["violation"] ?></td>
                                 <td><?php echo $row["points"] ?></td>
                                 <td><?php echo $row["amount"] ?></td>

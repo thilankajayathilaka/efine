@@ -10,7 +10,6 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dashboard.css">
-
 </head>
 
 <body>
@@ -65,10 +64,66 @@
             OverView
         </h3>
         <div class="board">
-            <img src="./image/basic-bar-graph.png" alt="graph" style="height: 300px;margin-left:150px">
-            <img src="./image/PieChart.png" alt="pie_chart" style="height: 300px;margin-left:200px">
+            <div>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div>
+                <canvas id="pieChart"></canvas>
+            </div>
+
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('barChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Label 1', 'Label 2', 'Label 3'],
+                datasets: [{
+                    label: 'Dataset 1',
+                    data: [10, 20, 30],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Dataset 2',
+                    data: [20, 30, 40],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'y-axis-1',
+                        position: 'left',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }, {
+                        id: 'y-axis-2',
+                        position: 'right',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+
+        });
+    </script>
     <script src=" ../js/script.js"></script>
 </body>
 
