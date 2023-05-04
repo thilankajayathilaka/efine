@@ -34,7 +34,8 @@ include("../../include/police_officer/db_conn.php");
 				while ($row = mysqli_fetch_assoc($query_run)) {
 					$rows[] = $row;
 				}
-			?>  <div class="form-header"><h2>Violation History</h2></div>
+			?>  
+			<div class="form-header"><h2>Violation History</h2></div>
 				<h3 class="i-name">Fines</h3>
 				<div class="table-container">
 				<table class="overview-table" width="100%">
@@ -56,10 +57,6 @@ include("../../include/police_officer/db_conn.php");
 							$Amount = $row['amount'];
 							$Type = $row['Violation'];
 							$location = $row['Place'];
-
-							
-
-
 
 						?>
 							<tr class="overview-tr">

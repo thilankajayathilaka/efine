@@ -67,7 +67,7 @@
           </div>
           <div class="name-job">
             <div class="profile_name">Priyasha </div>
-            <div class="job">Police Constable(PC-2296)</div>
+            <div class="job">(PC-2296)</div>
           </div>
           <a href="login2.php"> <i class='bx bx-log-out'></i></a>
         </div>

@@ -30,12 +30,12 @@ if (mysqli_num_rows($result) > 0) {
 
     <section class="home-section">
         <?php include 'navbar.php' ?>
-        
-            <div class="form-header">
-                <h2>Add a Court Case</h2>
-            </div>
 
-            <div class="form-container">
+        <div class="form-header">
+            <h2>Add a Court Case</h2>
+        </div>
+
+        <div class="form-container">
 
             <form method="post" action="../../include/police_officer/add_courtcase.php">
                 <?php $get_id = $_GET['id']; ?>
@@ -46,15 +46,15 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="form-field">
-                <label class="translation" data-english="Driving Licence Number" data-sinhala="රියදුරු බලපත්‍ර අංකය">Driving Licence Number</label>
+                    <label class="translation" data-english="Driving Licence Number" data-sinhala="රියදුරු බලපත්‍ර අංකය">Driving Licence Number</label>
                     <input type="text" name="DLnumber" id="DLnumber" value="<?php echo $get_id ?>" readonly>
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english=" Name of the Driver" data-sinhala="රියදුරුගේ නම"> Name of the Driver</label>
+                    <label class="translation" data-english=" Name of the Driver" data-sinhala="රියදුරුගේ නම"> Name of the Driver</label>
                     <input type="text" name="name" id="name" value="<?php echo $name ?>" readonly>
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english="Address" data-sinhala="ලිපිනය">Address</label>
+                    <label class="translation" data-english="Address" data-sinhala="ලිපිනය">Address</label>
                     <input type="text" name="address" id="address" value="<?php echo $address ?>" readonly>
                 </div>
 
@@ -62,22 +62,22 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="form-field">
-                <label class="translation" data-english="Vehicle Number" data-sinhala="වාහන අංකය">Vehicle Number</label>
+                    <label class="translation" data-english="Vehicle Number" data-sinhala="වාහන අංකය">Vehicle Number</label>
                     <input type="text" name="vnumber" id="vnumber">
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english="Date of the Violation" data-sinhala="වරද කල දිනය">Date of the Violation</label>
+                    <label class="translation" data-english="Date of the Violation" data-sinhala="වරද කල දිනය">Date of the Violation</label>
                     <input type="date" name="date" id="date">
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english="Place" data-sinhala="ස්ථානය">Place</label>
+                    <label class="translation" data-english="Place" data-sinhala="ස්ථානය">Place</label>
                     <input type="text" name="place" id="place">
                 </div>
-                
-    
-    
+
+
+
                 <div class="form-field">
-                <label class="translation" data-english="Nature of the violation" data-sinhala="වරදේ ස්වභාවය ">Nature of the violation</label>
+                    <label class="translation" data-english="Nature of the violation" data-sinhala="වරදේ ස්වභාවය ">Nature of the violation</label>
                     <select name="violation" id="violation">
                         <option value="">--Select violation--</option>
                         <?php
@@ -92,14 +92,14 @@ if (mysqli_num_rows($result) > 0) {
                         ?>
                     </select>
                 </div>
-                  
+
                 </select>
 
 
 
 
                 <div class="form-field">
-                <label class="translation" data-english="Court" data-sinhala="උසාවිය">Court</label>
+                    <label class="translation" data-english="Court" data-sinhala="උසාවිය">Court</label>
                     <select name="court" id="court">
                         <option value="High Court Ambilipitiya">High Court Ambilipitiya</option>
                         <option>High Court Ampara</option>
@@ -185,17 +185,41 @@ if (mysqli_num_rows($result) > 0) {
                     </select>
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english="Court Date" data-sinhala="උසාවි දිනය">Court Date</label>
+                    <label class="translation" data-english="Court Date" data-sinhala="උසාවි දිනය">Court Date</label>
                     <input type="date" name="cdate" id="cdate">
                 </div>
                 <div class="form-field">
-                <label class="translation" data-english="More" data-sinhala="අමතර විස්තර">More</label>
+                    <label class="translation" data-english="More" data-sinhala="අමතර විස්තර">More</label>
                     <textarea rows="10" placeholder="" name="message"></textarea>
                 </div>
-                <div class="form-field">
-                <label class="translation" data-english="Issuing Officer" data-sinhala="නිකුත් කිරීමේ නිලධාරියා">Issuing Officer</label>
-                    <input type="text" name="issuingOfficer" id="issuingOfficer">
-                </div>
+                <?php
+        $user_id = $_SESSION['user_id'];
+        $query = "SELECT * FROM policeofficer WHERE email = '$user_id'";
+        $result = mysqli_query($con, $query);
+    
+        // Check if query returned exactly one row
+        if (mysqli_num_rows($result) == 1) {
+            $row = mysqli_fetch_assoc($result);
+            $officerid = $row['police_officer_id'];
+            $policestation = $row['police_station'];
+
+    
+            
+        } else {
+            echo "Error retrieving user data.";
+            exit;
+        }
+
+        ?>
+
+        <div class="form-field">
+            <label class="translation" data-english="Issuing Officer ID" data-sinhala="නිකුත් කිරීමේ නිලධාරියා">Issuing Officer</label>
+            <input type="text" name="issuingOfficer" id="issuingOfficer" value="<?php echo $officerid ?>">
+        </div>
+        <div class="form-field">
+            <label class="translation" data-english="Police Station" data-sinhala="පොලිස් ස්ථානය">Police Station</label>
+            <input type="text" name="policestation" id="policestation" value="<?php echo $policestation ?>">
+        </div>
 
 
                 <div class="btn-group">

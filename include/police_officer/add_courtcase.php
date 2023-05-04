@@ -1,8 +1,7 @@
 <?php
 include('db_conn.php');
-$name = $_POST['name'];
+
 $DLnumber = $_POST['DLnumber'];
-$address = $_POST['address'];
 $date = $_POST['date'];
 $place = $_POST['place'];
 $violation =  $_POST['violation'];
@@ -43,8 +42,8 @@ if (isset($_POST["add_c"])) {
 
     if (empty($errors)) {
         // Insert the fine record
-        $query_add = "INSERT INTO `court_cases` (Licence_No, Name, Address, Vdate, Vehicle_No, Violation, Place, Court, CDate, Description, Issuing_officer) 
-                VALUES('$DLnumber', '$name', '$address', '$date', '$vnumber', '$violation', '$place','$court', '$cdate', '$message', '$issuingOfficer')";
+        $query_add = "INSERT INTO `court_cases` (Licence_No,  Vdate, Vehicle_No, Violation, Place, Court, CDate, Description, Issuing_officer) 
+                VALUES('$DLnumber', '$date', '$vnumber', '$violation', '$place','$court', '$cdate', '$message', '$issuingOfficer')";
 
         $result = mysqli_query($con, $query_add);
         if ($result) {
