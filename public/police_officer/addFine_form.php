@@ -64,7 +64,7 @@ if (mysqli_num_rows($result) > 0) {
                     <input type="text" name="name" id="name" value="<?php echo $name ?>" readonly>
                 </div>
                 <div class="form-field">
-                    <label class="translation" data-english=">NIC Number" data-sinhala="ජා.හැඳුනුම්පත් අංකය">NIC Number</label>
+                    <label class="translation" data-english="NIC Number" data-sinhala="ජා.හැඳුනුම්පත් අංකය">NIC Number</label>
                     <input type="text" name="nic" id="nic" value="<?php echo $NIC ?>" readonly>
                 </div>
 

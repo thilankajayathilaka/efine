@@ -531,7 +531,7 @@ body.dark-mode .i-name {
   display: grid;
   justify-content: center;
   margin-top: 2%;
-  margin-bottom: 6%;
+  margin-bottom: 5%;
   column-gap: 6%;
   row-gap: 12%;
   height: relative;
@@ -1064,6 +1064,59 @@ footer .links {
   padding: 0;
 
 }
+.picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: relative;
+  background-color:#1d1b31 ;
+  border: 1px solid rgb(247, 245, 252);
+}
+
+.picture-box {
+  width: 300px;
+  height: 350px;
+  margin: 10px;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-box1 {
+  border-radius: 25px;
+  background-size:300px 350px ;
+  padding: 20px;
+  font-size: 40px;
+  
+}
+
+.p-box2 {
+  border-radius: 25px;
+  background-image: url(../image/image1.jpg);
+  background-size:300px 350px ;
+  padding: 20px;
+  
+}
+
+.p-box3{
+  border-radius: 25px;
+  background-image: url(../image/image2.jpg);
+  background-size:300px 350px ;
+  padding: 20px;
+  
+}
+
+.p-box4{
+  border-radius: 25px;
+  background-image: url(../image/image3.jpg);
+  background-size:300px 350px ;
+  padding: 20px;
+  
+}
+
+
 
 
 @media screen and (max-width: 900px){
@@ -1082,10 +1135,6 @@ footer .links {
     width:80px;
   }
 
- 
-  
-
-
 
   .searchbar {
     display: flex;
@@ -1095,9 +1144,6 @@ footer .links {
     
   }
  
-
- 
-
   .grid-container {
     grid-template-areas: 
       'value-box1'

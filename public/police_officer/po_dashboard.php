@@ -49,6 +49,12 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </form>
         </div>
+        <div class="picture-container">
+            <div class="picture-box p-box1">Welcome to E-Fine Traffic Fine Payment System</div>
+            <div class="picture-box p-box2">Welcome to E-Fine Traffic Fine Payment System</div>
+            <div class="picture-box p-box3">Welcome to E-Fine Traffic Fine Payment System</div>
+            <div class="picture-box p-box4">Welcome to E-Fine Traffic Fine Payment System</div>
+        </div>
         <table class="overview-table">
             <thead>
                 <tr class="overview-tr">
