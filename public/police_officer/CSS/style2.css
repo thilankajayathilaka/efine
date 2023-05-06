@@ -944,7 +944,12 @@ body.dark-mode .form-header h2 {
 /* Form fields */
 .form-field {
   margin-bottom: 20px;
+  color: #243342;
 
+}
+
+body.dark-mode .form-field {
+  color: #ebf4ff;
 }
 
 .form-field label {
@@ -1006,36 +1011,107 @@ body.dark-mode .form-field select {
 /*profile*/
 .profile-container
   {
-    max-width: 40%;
+    max-width: 35%;
     margin: 1% auto;
     padding: 20px;
     background-color: #ffffff;
     height: 84%;
     overflow: hidden;
     text-align: center;
-    border-radius: 7%;
+    border-radius: 4%;
+    box-shadow: 0px 5px 15px 0px #c2d3e3;
+
   }
 
-  .profile-form{
-    display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  
-}
-
-
-
-  
+ 
 
   body.dark-mode .profile-container {
     background-color: #18122B;
+    box-shadow: 0px 10px 20px 0px #160f2c;
   }
+
+.officer-name{
+    color: #2a5f91;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+.police-station{
+  color: #414242;
+  font-size: 20px;
+  }
+ 
+ body.dark-mode .officer-name{
+    color: #7F8FA6;
+  }
+
+ body.dark-mode .police-station{
+    color: #bec4ca;
+  }
+
+  
 
   .profile_image{
     border-radius: 55%;
     max-width:40%;
     display: inline-block;
    
+  }
+
+  .picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: relative;
+    background-color:#1d1b31 ;
+    margin-bottom: 40px;
+    
+  }
+
+ 
+  
+  
+  .picture-box {
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .p-box1 {
+    border-radius: 25px;
+    background-size:300px 350px ;
+    padding: 20px;
+    font-size: 40px;
+    
+  }
+  
+  .p-box2 {
+    border-radius: 25px;
+    background-image: url(../image/image1.jpg);
+    background-size:300px 350px ;
+    padding: 20px;
+    
+  }
+  
+  .p-box3{
+    border-radius: 25px;
+    background-image: url(../image/image2.jpg);
+    background-size:300px 350px ;
+    padding: 20px;
+    
+  }
+  
+  .p-box4{
+    border-radius: 25px;
+    background-image: url(../image/image3.jpg);
+    background-size:300px 350px ;
+    padding: 20px;
+    
   }
   
  
@@ -1064,57 +1140,7 @@ footer .links {
   padding: 0;
 
 }
-.picture-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: relative;
-  background-color:#1d1b31 ;
-  border: 1px solid rgb(247, 245, 252);
-}
 
-.picture-box {
-  width: 300px;
-  height: 350px;
-  margin: 10px;
-  color: white;
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.p-box1 {
-  border-radius: 25px;
-  background-size:300px 350px ;
-  padding: 20px;
-  font-size: 40px;
-  
-}
-
-.p-box2 {
-  border-radius: 25px;
-  background-image: url(../image/image1.jpg);
-  background-size:300px 350px ;
-  padding: 20px;
-  
-}
-
-.p-box3{
-  border-radius: 25px;
-  background-image: url(../image/image2.jpg);
-  background-size:300px 350px ;
-  padding: 20px;
-  
-}
-
-.p-box4{
-  border-radius: 25px;
-  background-image: url(../image/image3.jpg);
-  background-size:300px 350px ;
-  padding: 20px;
-  
-}
 
 
 
@@ -1182,13 +1208,18 @@ footer .links {
     padding: 5px;
   }
 
+  .overview-table tbody td{
+    font-size: 11px;
+    padding: 5px;
+  }
+
   .box-container{
    justify-content: center; 
     
   }
 
   .btn1{
-    width:120px;
+    width:100px;
     margin: 3% auto;
     font-size: smaller;
   }
@@ -1220,6 +1251,11 @@ footer .links {
     margin-top: 0%;
     position: relative;
   }
+
+  .police-station{
+    color: #414242;
+    font-size: 16px;
+    }
 
   
 }

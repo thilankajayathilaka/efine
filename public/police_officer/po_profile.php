@@ -2,6 +2,7 @@
 
 include("../../include/police_officer/db_conn2.php");
 include("../../include/police_officer/db_conn.php");
+
    
 
     // Check if user is logged in
@@ -58,17 +59,17 @@ include("../../include/police_officer/db_conn.php");
         <?php include 'navbar.php' ?>
         <div class="profile-container">
 
-            <form method="post" action="../../include/police_officer/add_violation.php">
+            <form method="post" action="">
                 
                  <img class="profile_image" src="./image/profile-img.png">
 
                 <div class="form-field">
-                    <h2><?php echo $name; ?></h2>
+                    <h2 class="officer-name"><?php echo $name; ?></h2>
                 <div class="form-field">
                     <p><?php echo $email; ?></p>
                 </div>
                 <div class="form-field">
-                <p>Police Station-<?php echo $policestation; ?></p>
+                <p class="police-station">Police Station-<?php echo $policestation; ?></p>
                 </div>
                 <div class="form-field">
                 <p>Offcer ID-<?php echo $officerid; ?></p>

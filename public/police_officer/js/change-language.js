@@ -1,4 +1,4 @@
-var language = "english"; // default language is Sinhala
+var language = "english";
       var englishBtn = document.getElementById("englishBtn");
       var sinhalaBtn = document.getElementById("sinhalaBtn");
 

@@ -31,6 +31,17 @@
       </div>
 
       <li>
+        <a href="officer_history.php">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="officer_history.php">History</a></li>
+        </ul>
+      </li>
+
+      
+      <li>
         <a href="report_problem.php">
           <i class='bx bx-error'></i>
           <span class="link_name">Report a Problem</span>

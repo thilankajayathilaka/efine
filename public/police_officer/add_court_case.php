@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
         <?php include 'navbar.php' ?>
 
         <div class="form-header">
-            <h2>Add a Court Case</h2>
+            <h2 class="translation" data-english="Add a Court Case" data-sinhala="උසාවි නඩුවක් පැමිණිලි කිරීම">Add a Court Case</h2>
         </div>
 
         <div class="form-container">

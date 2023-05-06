@@ -51,9 +51,12 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <div class="picture-container">
             <div class="picture-box p-box1">Welcome to E-Fine Traffic Fine Payment System</div>
-            <div class="picture-box p-box2">Welcome to E-Fine Traffic Fine Payment System</div>
-            <div class="picture-box p-box3">Welcome to E-Fine Traffic Fine Payment System</div>
-            <div class="picture-box p-box4">Welcome to E-Fine Traffic Fine Payment System</div>
+            <div class="picture-box p-box2"></div>
+            <div class="picture-box p-box3"></div>
+            <div class="picture-box p-box4">E-Fine is designed to simplify the process of managing traffic fines.</div>
+        </div>
+        <div class="form-header">
+            <h2>Recent Activities</h2>
         </div>
         <table class="overview-table">
             <thead>
@@ -66,48 +69,44 @@ if (!isset($_SESSION['user_id'])) {
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $user_id = $_SESSION['user_id'];
-                $query = "SELECT * FROM policeofficer WHERE email = '$user_id'";
-                $result = mysqli_query($con, $query);
+    <?php
+    $user_id = $_SESSION['user_id'];
+    $query = "SELECT * FROM policeofficer WHERE email = '$user_id'";
+    $result = mysqli_query($con, $query);
 
-                // Check if query returned exactly one row
-                if (mysqli_num_rows($result) == 1) {
-                    $row = mysqli_fetch_assoc($result);
-                    $officerid = $row['police_officer_id'];
+    // Check if query returned exactly one row
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        $officerid = $row['police_officer_id'];
 
-                    $query = "SELECT * FROM fine WHERE police_officer_id = '$officerid'";
-                    $query_run = mysqli_query($con, $query);
+        $query = "SELECT * FROM fine WHERE police_officer_id = '$officerid' ORDER BY Violation_date DESC LIMIT 4";
+        $query_run = mysqli_query($con, $query);
 
-                    while ($row = mysqli_fetch_assoc($query_run)) {
-                        $violation_id = $row['id'];
-                        $Date = $row['Violation_date'];
-                        $status = $row['payamentStatus'];
-                        $Type = $row['Violation'];
-                        $location = $row['Place'];
-                ?>
-                        <tr class="overview-tr">
-                            <td><?php echo $violation_id ?></td>
-                            <td><?php echo $Date ?></td>
-                            <td><?php echo $location ?></td>
-                            <td><?php echo $Type ?></td>
-                            <td><?php echo $status ?></td>
-                        </tr>
-                <?php
-                    }
-                }
-                ?>
-            </tbody>
-
-
-
+        while ($row = mysqli_fetch_assoc($query_run)) {
+            $violation_id = $row['id'];
+            $Date = $row['Violation_date'];
+            $status = $row['payamentStatus'];
+            $Type = $row['Violation'];
+            $location = $row['Place'];
+            ?>
+            <tr class="overview-tr">
+                <td><?php echo $violation_id ?></td>
+                <td><?php echo $Date ?></td>
+                <td><?php echo $location ?></td>
+                <td><?php echo $Type ?></td>
+                <td><?php echo $status ?></td>
+            </tr>
+    <?php
+        }
+    }
+    ?>
+</tbody>
 
         </table>
         <div class="searchbar-container">
-            <button class="btn1 translation" data-english="View All" data-sinhala="තව පෙන්වන්න">View All</button>
-
+        <button type="" name="" class="btn1 translation" data-english="View More" data-sinhala="තව පෙන්වන්න">View More</button>
         </div>
-
+        <?php include 'footer.php' ?>
     </section>
 
     <script src="./js/script.js"></script>
