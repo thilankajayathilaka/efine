@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/dashboard.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+
 </head>
 
 <body>
@@ -37,47 +39,34 @@
                 </script>";
             }
             ?>
-            <form method="POST" action="../../include/police_station/add_police_officer.php">
+           <form name="add-officer-form" method="POST" onsubmit="return validateForm()">
                 <div class="input-group">
                     <label>Police Officer Id<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="police_officer_id" id="id">
-                    <p id="error-email" style="color:red;"></p>
                 </div>
                 <div class="input-group">
                     <label>Name<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="name" id="name">
-                    <p id="error-email" style="color:red;"></p>
                 </div>
                 <div class="input-group">
                     <label>Police Station<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="police_station" id="ps">
-                    <p id="error-email" style="color:red;"></p>
                 </div>
                 <div class="input-group">
                     <label>Address<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="address" id="address">
-                    <p id="error-email" style="color:red;"></p>
                 </div>
                 <div class="input-group">
                     <label>Phone no<span class="required" style="color: red;">*</span></label>
                     <input type="text" name="phone_no" id="phone">
-                    <p id="error-email" style="color:red;"></p>
                 </div>
                 <div class="input-group">
                     <label>email<span class="required" style="color: red;">*</span></label>
-                    <input type="email" name="email" id="email">
-                    <p id="error-email" style="color:red;"></p>
+                    <input type="email" name="email" id="email-<?php echo $name; ?>">
                 </div>
                 <div class="input-group">
                     <label>Temparary password<span class="required" style="color: red;">*</span></label>
                     <input type="password" name="temp_pass" id="pass">
-                    <p id="error-email" style="color:red;"></p>
-                </div>
-                <!-- <div class="login-btn">
-                    <div name="login" value="login" id="submit-btn">Add Police Officer</div>
-                </div> -->
-                <p id="error-login" style="color:red;"> <?php include("errors.php"); ?></p>
-                <div>
                     <input class="add-ps-btn" type="submit" name="Add_police_officer_btn" value="Add Police Officer" id="login-btn">
                 </div>
             </form>
@@ -85,6 +74,81 @@
         </div>
     </section>
     <script src="../js/script.js"></script>
+    <script>
+        function validateForm() {
+            let id = document.forms["add-officer-form"]["police_officer_id"].value;
+            let name = document.forms["add-officer-form"]["name"].value;
+            let station = document.forms["add-officer-form"]["police_station"].value;
+            let address = document.forms["add-officer-form"]["address"].value;
+            let phone = document.forms["add-officer-form"]["phone_no"].value;
+            let email = document.forms["add-officer-form"]["email"].value;
+            let pass = document.forms["add-officer-form"]["temp_pass"].value;
+
+            if (id == "") {
+                // Display error message for ID field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid ID!',
+                });
+                return false;
+            }
+            if (name == "") {
+                // Display error message for name field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid name!',
+                });
+                return false;
+            }
+            if (station == "") {
+                // Display error message for police station field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid police station!',
+                });
+                return false;
+            }
+            if (address == "") {
+                // Display error message for address field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid address!',
+                });
+                return false;
+            }
+            if (phone == "" || isNaN(phone) || phone.length != 10) {
+                // Display error message for phone number field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid phone number!',
+                });
+                return false;
+            }
+            if (email == "" || !email.includes("@")) {
+                // Display error message for email field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid email!',
+                });
+                return false;
+            }
+            if (pass == "") {
+                // Display error message for password field
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter a valid password!',
+                });
+                return false;
+            }
+        }
+    </script>
 
 </body>
 

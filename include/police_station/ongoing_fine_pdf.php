@@ -17,7 +17,7 @@ class MYPDF extends TCPDF
 
             // store the fine information in the array
             $fine_info = array(
-                'id' => $row['fineId'],
+                'id' => $row['fine_id'],
                 'Name' => $row['name'],
                 'Licence_No' => $row['licence_no'],
                 'violation' => $row['violation'],

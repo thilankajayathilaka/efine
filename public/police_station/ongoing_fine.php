@@ -7,7 +7,7 @@ include '../../include/police_station/remaing_date.php';
 
 <head>
     <meta charset="UTF-8">
-    <title>Overdue fine</title>
+    <title>ongoing_fine</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,16 +103,29 @@ include '../../include/police_station/remaing_date.php';
 
                             </tr>
                     <?php
+                    $fine_id=$row["fine_id"];
+                    $vehicle_no=$row["vehicle_no"];
+                    $place=$row["place"];
+                    $date=$row["date"];
+                    $violation=$row["violation"];
+                    $points=$row["points"];
+                    $payment_status=$row["payment_status"];
+                    $amount=$row["amount"];
+                    $message=$row["message"];
+                    $court=$row["court"];
+                    $police_officer_id=$row["police_officer_id"];
+                    $nic_no=$row["nic_no"];
+                    $licence_no=$row["licence_no"];
+                    $court_date=$row["court_date"];
+                    if($row['remaining_days']<0){
+                    AddToCourt($con,$fine_id,$vehicle_no,$place,$date,$violation,$points,$payment_status,$amount,$message,$court,$police_officer_id,$nic_no,$licence_no,$court_date);
+                    }
                         }
                         mysqli_free_result($result);
                     }
 
                     mysqli_close($con);
                     ?>
-
-
-
-
 
                 </tbody>
             </table>

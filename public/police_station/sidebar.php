@@ -53,19 +53,6 @@
         </li>
         <li>
             <div class="iocn-link">
-                <a href="./overdue_fine.php">
-                    <i class='bx bxs-time-five' style='color:#ffffff'></i>
-
-                    <span class="link_name">Overdue Fines</span>
-                </a>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="./overdue_fine.php">Overdue Fines</a></li>
-
-            </ul>
-        </li>
-        <li>
-            <div class="iocn-link">
                 <a href="./court_fine.php">
                     <i class='bx bxs-shopping-bag-alt' style='color:#ffffff'></i>
                     <span class="link_name">Court Cases</span>

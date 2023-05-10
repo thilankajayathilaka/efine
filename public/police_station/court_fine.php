@@ -1,4 +1,6 @@
-<?php include './require.php' ?>
+<?php include './require.php';
+include '../../include/police_station/court_fine_insert.php'
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -49,10 +51,8 @@
                     <td>Licence No</td>
                     <td>Violation</td>
                     <td>Points</td>
-                    <td>Amount</td>
                     <td>Overdue date</td>
                     <td>Court date</td>
-                    <td>Action Taken</td>
                 </thead>
                 <tbody>
                     <?php
@@ -70,10 +70,8 @@
                         <td><?php echo $row['licence_no'] ?></td>
                         <td><?php echo $row["violation"] ?></td>
                         <td><?php echo $row["points"] ?></td>
-                        <td><?php echo $row["amount"] ?></td>
                         <td><?php echo $row['due_date'] ?></td>
                         <td><?php echo $row['court_date'] ?></td>
-                        <td><Button>Sended to Court that day</Button></td>
                     </tr>
                     <?php
                         }
@@ -89,10 +87,8 @@
                         <td><?php echo $row['licence_no'] ?></td>
                         <td><?php echo $row["violation"] ?></td>
                         <td><?php echo $row["points"] ?></td>
-                        <td><?php echo $row["amount"] ?></td>
                         <td><?php echo $row['due_date'] ?></td>
                         <td><?php echo $row['court_date'] ?></td>
-                        <td><Button>Sended to Court that day</Button></td>
 
                     </tr>
                     <?php
