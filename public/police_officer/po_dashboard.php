@@ -50,13 +50,13 @@ if (!isset($_SESSION['user_id'])) {
             </form>
         </div>
         <div class="picture-container">
-            <div class="picture-box p-box1">Welcome to E-Fine Traffic Fine Payment System</div>
+            <div class="picture-box p-box1"></div>
             <div class="picture-box p-box2"></div>
             <div class="picture-box p-box3"></div>
             <div class="picture-box p-box4">E-Fine is designed to simplify the process of managing traffic fines.</div>
         </div>
         <div class="form-header">
-            <h2>Recent Activities</h2>
+            <h2 >Recent Activities</h2>
         </div>
         <table class="overview-table">
             <thead>
@@ -104,7 +104,10 @@ if (!isset($_SESSION['user_id'])) {
 
         </table>
         <div class="searchbar-container">
+        <?php echo "<a href='officer_history.php'>"; ?>
         <button type="" name="" class="btn1 translation" data-english="View More" data-sinhala="තව පෙන්වන්න">View More</button>
+			<?php echo "</a>" ?>
+        
         </div>
         <?php include 'footer.php' ?>
     </section>

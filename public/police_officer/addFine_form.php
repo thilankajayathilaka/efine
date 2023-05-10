@@ -78,22 +78,22 @@ if (mysqli_num_rows($result) > 0) {
 
                 <div class="form-field">
                     <label class="translation" data-english="Vehicle Number" data-sinhala="වාහන අංකය">Vehicle Number</label>
-                    <input type="text" name="vnumber" id="vnumber">
+                    <input type="text" name="vnumber" id="vnumber" required>
                 </div>
                 <div class="form-field">
                     <label class="translation" data-english="Date of the Violation" data-sinhala="වරද කල දිනය">Date of the Violation</label>
-                    <input type="date" name="date" id="date">
+                    <input type="date" name="date" id="date" required>
                 </div>
                 <div class="form-field">
                     <label class="translation" data-english="Place" data-sinhala="ස්ථානය">Place</label>
-                    <input type="text" name="place" id="place">
+                    <input type="text" name="place" id="place" required>
                 </div>
 
 
 
                 <div class="form-field">
                     <label class="translation" data-english="Nature of the violation" data-sinhala="වරදේ ස්වභාවය ">Nature of the violation</label>
-                    <select name="violation" id="violation">
+                    <select name="violation" id="violation" required>
                         <option value="">--Select violation--</option>
                         <?php
                         // select violation names from database
@@ -140,7 +140,7 @@ if (mysqli_num_rows($result) > 0) {
 
         <div class="form-field">
             <label class="translation" data-english="Court" data-sinhala="උසාවිය">Court</label>
-            <select name="court" id="court">
+            <select name="court" id="court" required>
                 <option value="High Court Ambilipitiya">High Court Ambilipitiya</option>
                 <option>High Court Ampara</option>
                 <option>High Court Anuradhapura</option>
@@ -226,7 +226,7 @@ if (mysqli_num_rows($result) > 0) {
         </div>
         <div class="form-field">
             <label class="translation" data-english="Court Date" data-sinhala="උසාවි දිනය">Court Date</label>
-            <input type="date" name="cdate" id="cdate">
+            <input type="date" name="cdate" id="cdate" required>
         </div>
         <div class="form-field">
             <label class="translation" data-english="More" data-sinhala="අමතර විස්තර">More</label>

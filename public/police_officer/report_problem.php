@@ -70,7 +70,7 @@ if (mysqli_num_rows($result) == 1) {
                 </div>
                 <div class="form-field">
                     <label>Message</label>
-                    <textarea rows="10" placeholder="" name="message"></textarea>
+                    <textarea rows="10" placeholder="Write your problem"  name="message"></textarea>
                 </div>
 
                 <button class="btn1" type="submit" name="submit">Send</button>

@@ -60,12 +60,12 @@ include("../../include/police_officer/db_conn.php");
                
                 <div class="form-field">
                     <label class="translation" data-english="Telephone Number" data-sinhala="ජංගම දුරකථන අංකය">Telephone Number</label>
-                    <input type="text" name="mobileNo" id="mobileNo">
+                    <input type="text" name="mobileNo" id="mobileNo" required>
                 </div>
                 
                 <div class="form-field">
-                    <label class="translation" data-english="Added by" data-sinhala="ජා.හැඳුනුම්පත් අංකය">Added by</label>
-                    <input type="text" name="issuingOfficer" id="issuingOfficer">
+                    <label class="translation" data-english="Added by" data-sinhala="නිළධාරියා">Added by</label>
+                    <input type="text" name="issuingOfficer" id="issuingOfficer" required>
                 </div>
 
 
