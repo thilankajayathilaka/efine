@@ -44,7 +44,6 @@
                 <thead>
                     <td>Police Officer Id</td>
                     <td>Name</td>
-                    <td>Police Station</td>
                     <td>Address</td>
                     <td>email</td>
                     <td>Phone no</td>
@@ -58,15 +57,15 @@
                         // Fetch one and one row
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                    <tr>
-                        <td><?php echo $row['officer_id']; ?></td>
-                        <td><?php echo $row['name']; ?></td>
-                        <td><?php echo $row['police_station']; ?></td>
-                        <td><?php echo $row['address']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['phone_no']; ?></td>
-                        <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
-                    </tr>
+                            <tr>
+                                <td><?php echo $row['officer_id']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['police_station']; ?></td>
+                                <td><?php echo $row['address']; ?></td>
+                                <td><?php echo $row['email']; ?></td>
+                                <td><?php echo $row['phone_no']; ?></td>
+                                <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
+                            </tr>
                     <?php
                         }
                         mysqli_free_result($result);

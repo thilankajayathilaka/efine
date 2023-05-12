@@ -37,7 +37,6 @@
                 <li><a class="link_name" href="./driver_payment.php">Driver Payment</a></li>
             </ul>
         </li>
-
         <li>
             <div class="iocn-link">
                 <a href="./ongoing_fine.php">
@@ -66,7 +65,7 @@
         <li>
             <div class="iocn-link">
                 <a href="./stat.php">
-                <i class='bx bx-stats' style='color:#ffffff'  ></i>
+                    <i class='bx bx-stats' style='color:#ffffff'></i>
                     <span class="link_name">Statistics</span>
                 </a>
             </div>

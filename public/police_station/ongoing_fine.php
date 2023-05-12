@@ -36,7 +36,8 @@ include '../../include/police_station/remaing_date.php';
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/ongoing_fine_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/ongoing_fine_pdf.php"
+                            style="text-decoration:none; color:white"> Download PDF</a></button>
                     </select>
 
                 </form>
@@ -73,17 +74,18 @@ include '../../include/police_station/remaing_date.php';
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                            <tr>
-                                <td><?php echo $row["fine_id"] ?></td>
-                                <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['licence_no'] ?></td>
-                                <td><?php echo $row["violation"] ?></td>
-                                <td><?php echo $row["points"] ?></td>
-                                <td><?php echo $row["amount"] ?></td>
-                                <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
+                    <tr>
+                        <td><?php echo $row["fine_id"] ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['licence_no'] ?></td>
+                        <td><?php echo $row["violation"] ?></td>
+                        <td><?php echo $row["points"] ?></td>
+                        <td><?php echo $row["amount"] ?></td>
+                        <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
+                        <<<<<<< Updated upstream=======>>>>>>> Stashed changes
 
-                            </tr>
-                        <?php
+                    </tr>
+                    <?php
                         }
                         mysqli_free_result($result);
                     } else {
@@ -91,17 +93,17 @@ include '../../include/police_station/remaing_date.php';
                         $result = mysqli_query($con, readOngoinFineDetails());
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
-                            <tr>
+                    <tr>
 
-                                <td><?php echo $row["fine_id"] ?></td>
-                                <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['licence_no'] ?></td>
-                                <td><?php echo $row["violation"] ?></td>
-                                <td><?php echo $row["points"] ?></td>
-                                <td><?php echo $row["amount"] ?></td>
-                                <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
+                        <td><?php echo $row["fine_id"] ?></td>
+                        <td><?php echo $row['name'] ?></td>
+                        <td><?php echo $row['licence_no'] ?></td>
+                        <td><?php echo $row["violation"] ?></td>
+                        <td><?php echo $row["points"] ?></td>
+                        <td><?php echo $row["amount"] ?></td>
+                        <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
 
-                            </tr>
+                    </tr>
                     <?php
                     $fine_id=$row["fine_id"];
                     $vehicle_no=$row["vehicle_no"];

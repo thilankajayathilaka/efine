@@ -15,20 +15,20 @@ include_once '../../include/TCPDF-main/tcpdf.php'
     <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <script>
-    function showModal(fine_id) {
-  // Show the modal
-  let modal = document.getElementById("myModal");
-  modal.style.display = "block";
+function showModal(fine_id) {
+    // Show the modal
+    let modal = document.getElementById("myModal");
+    modal.style.display = "block";
 
-  // Focus on the court date input field
-  let courtDateInput = document.getElementById("courtDateInput");
-  courtDateInput.focus();
+    // Focus on the court date input field
+    let courtDateInput = document.getElementById("courtDateInput");
+    courtDateInput.focus();
 }
 
 function hideModal() {
-  // Hide the modal
-  let modal = document.getElementById("myModal");
-  modal.style.display = "none";
+    // Hide the modal
+    let modal = document.getElementById("myModal");
+    modal.style.display = "none";
 }
 </script>
 
@@ -94,9 +94,8 @@ function hideModal() {
                         <td><?php echo $row["points"] ?></td>
                         <td><?php echo $row["amount"] ?></td>
                         <td><?php echo $row['due_date'] ?></td>
-                        <td><button  onclick="showModal(<?php echo $row['fine_id'] ?>)">Send to Court</button></td>
-</tr>
-
+                        <td><Button>Send to Court</Button></td>
+                    </tr>
                     <?php
                         }
                         mysqli_free_result($result);
@@ -113,7 +112,8 @@ function hideModal() {
                         <td><?php echo $row["points"] ?></td>
                         <td><?php echo $row["amount"] ?></td>
                         <td><?php echo $row['due_date'] ?></td>
-                        <td><button onclick="showModal(<?php echo $row['fine_id'] ?>)">Send to Court</button></td>
+                        <td><Button>Send to Court</Button></td>
+
                     </tr>
                     <?php
                         }
@@ -128,62 +128,60 @@ function hideModal() {
             </table>
         </div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="hideModal()">&times;</span>
-    <p>Enter the new court date :</p>
-    <input type="date" id="courtDateInput">
-    <button onclick="updateOverdueFine()">Update</button>
-  </div>
-</div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="hideModal()">&times;</span>
+                <p>Enter the new court date :</p>
+                <input type="date" id="courtDateInput">
+                <button onclick="updateOverdueFine()">Update</button>
+            </div>
+        </div>
 
     </section>
     <script>
-function showModal($fine_id,$court_date) {
-  // Show the modal
-  let modal = document.getElementById("myModal");
-  modal.style.display = "block";
+    function showModal($fine_id, $court_date) {
+        // Show the modal
+        let modal = document.getElementById("myModal");
+        modal.style.display = "block";
 
-  // Focus on the court date input field
-  let courtDateInput = document.getElementById("courtDateInput").value = $court_date;
-  courtDateInput.focus();
-}
-
-function hideModal() {
-  // Hide the modal
-  let modal = document.getElementById("myModal");
-  modal.style.display = "none";
-}
-
-function updateOverdueFine() {
-  // Get the fine ID and court date input
-  let fineId = $fine_id;
-  let courtDateInput = document.getElementById("courtDateInput");
-
-  // Make sure the court date is not empty
-  let courtDate = courtDateInput.value.trim();
-  if (courtDate === "") {
-    alert("Please enter a valid court date.");
-    return;
-  }
-
-  // Make an AJAX request to update the overdue fine record in the database
-  let xhr = new XMLHttpRequest();
-  xhr.open("POST", "update_overdue_fine.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      // Hide the modal
-      hideModal();
-
-      // Redirect the user to a new page to display the updated overdue fine details
-      window.location.href = "overdue_fine_details.php?fine_id=" + fineId;
+        // Focus on the court date input field
+        let courtDateInput = document.getElementById("courtDateInput").value = $court_date;
+        courtDateInput.focus();
     }
-  };
-  xhr.send("fine_id=" + fineId + "&court_date=" + encodeURIComponent(courtDate));
-}
 
+    function hideModal() {
+        // Hide the modal
+        let modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
 
+    function updateOverdueFine() {
+        // Get the fine ID and court date input
+        let fineId = $fine_id;
+        let courtDateInput = document.getElementById("courtDateInput");
+
+        // Make sure the court date is not empty
+        let courtDate = courtDateInput.value.trim();
+        if (courtDate === "") {
+            alert("Please enter a valid court date.");
+            return;
+        }
+
+        // Make an AJAX request to update the overdue fine record in the database
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "update_overdue_fine.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Hide the modal
+                hideModal();
+
+                // Redirect the user to a new page to display the updated overdue fine details
+                window.location.href = "overdue_fine_details.php?fine_id=" + fineId;
+            }
+        };
+        xhr.send("fine_id=" + fineId + "&court_date=" + encodeURIComponent(courtDate));
+    }
     </script>
 
 </body>

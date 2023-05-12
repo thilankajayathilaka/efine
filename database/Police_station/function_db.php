@@ -174,11 +174,12 @@ function overduefineSearch()
     }
     return $sql;
 }
-function AddToCourt($con,$fine_id,$vehicle_no,$place,$date,$violation,$points,$payment_status,$amount,$message,$court,$police_officer_id,$nic_no,$licence_no,$court_date){
+function AddToCourt($con, $fine_id, $vehicle_no, $place, $date, $violation, $points, $payment_status, $amount, $message, $court, $police_officer_id, $nic_no, $licence_no, $court_date)
+{
 
     $stmt = $con->prepare("INSERT INTO `court_cases` (fine_id, vehicle_no, place, date, violation, points, payment_status, message, court, police_officer_id, nic_no, licence_no, court_date) 
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON DUPLICATE KEY UPDATE fine_id=fine_id");
-    $stmt->bind_param("sssssssssssss", $fine_id,$vehicle_no,$place,$date,$violation,$points,$payment_status,$message,$court,$police_officer_id,$nic_no,$licence_no,$court_date);
+    $stmt->bind_param("sssssssssssss", $fine_id, $vehicle_no, $place, $date, $violation, $points, $payment_status, $message, $court, $police_officer_id, $nic_no, $licence_no, $court_date);
     return $stmt->execute();
 }
