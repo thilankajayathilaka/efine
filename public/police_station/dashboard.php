@@ -34,7 +34,7 @@
         <div class="values">
             <div class="val-box">
                 <span class="material-symbols-outlined">
-                <i class='bx bxs-shopping-bag-alt' style='color:#ffffff'></i>
+                    <i class='bx bxs-shopping-bag-alt' style='color:#ffffff'></i>
                 </span>
                 <div>
                     <h3><a href="./overdue_fine.php" style="text-decoration: none;color:black">Court cases</a> </h3>
@@ -47,7 +47,7 @@
 
             <div class="val-box">
                 <span class="material-symbols-outlined">
-                <i class='bx bx-notepad' style='color:#ffffff'></i>
+                    <i class='bx bx-notepad' style='color:#ffffff'></i>
 
 
                 </span>
@@ -87,13 +87,13 @@
     </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <?php
-    $sql1 = "SELECT MONTH(date) AS month, YEAR(date) AS year, SUM(amount) AS sum 
+    $sql1 = "SELECT MONTH(violation_date) AS month, YEAR(violation_date) AS year, SUM(amount) AS sum 
              FROM fine 
-             WHERE payment_status = 'paid' 
-             AND date >= DATE_SUB(LAST_DAY(NOW()), INTERVAL 6 MONTH) + INTERVAL 1 DAY 
-             AND YEAR(date) = YEAR(CURDATE())
-             GROUP BY YEAR(date), MONTH(date)
-             ORDER BY YEAR(date) DESC, MONTH(date) ASC";
+             WHERE payment_status = 1 
+             AND violation_date >= DATE_SUB(LAST_DAY(NOW()), INTERVAL 6 MONTH) + INTERVAL 1 DAY 
+             AND YEAR(violation_date) = YEAR(CURDATE())
+             GROUP BY YEAR(violation_date), MONTH(violation_date)
+             ORDER BY YEAR(violation_date) DESC, MONTH(violation_date) ASC";
     $result = mysqli_query($con, $sql1);
     $data_amount = array();
     $labels_month = array();
@@ -122,6 +122,23 @@
                 }]
             },
             options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Month',
+                            font:16,
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Rs',
+                            font:16,
+                        }
+                    }
+                },
+
                 responsive: true,
                 maintainAspectRatio: false, // disable the maintain aspect ratio in favor of your custom size
                 width: 700, // set the width to whatever you want
@@ -135,14 +152,15 @@
                         }
                     }
                 },
+
             }
         });
     </script>
     <?php
     $sql2 = "SELECT payment_status, COUNT(*) AS count 
                 FROM fine 
-                WHERE MONTH(date) >= MONTH(CURDATE()) - 2 
-                AND YEAR(date) = YEAR(CURDATE()) 
+                WHERE MONTH(violation_date) >= MONTH(CURDATE()) - 2 
+                AND YEAR(violation_date) = YEAR(CURDATE()) 
                 GROUP BY payment_status;";
     $result2 = mysqli_query($con, $sql2);
     $data2 = array();;
@@ -155,7 +173,7 @@
         var myChart = new Chart(ctx2, {
             type: 'pie',
             data: {
-                labels: ['Paid', 'Unpaid'],
+                labels: ['Unpaid', 'Paid'],
                 datasets: [{
                     data: <?php echo json_encode($data2); ?>,
                     backgroundColor: [

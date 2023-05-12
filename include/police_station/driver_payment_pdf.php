@@ -17,13 +17,13 @@ class MYPDF extends TCPDF
 
             // store the fine information in the array
             $fine_info = array(
-                'id' => $row['id'],
+                'id' => $row['receipt_id'],
                 'Name' => $row['name'],
-                'Nic_No' => $row['nic_no'],
+                'Nic_No' => $row['licence_no'],
                 'violation' => $row['violation'],
                 'points' => $row['points'],
                 'amount' => $row['amount'],
-                'created_at' => $row['created_at'],
+                'created_at' => $row['date'],
             );
             array_push($data, $fine_info);
         }

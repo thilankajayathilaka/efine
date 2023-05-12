@@ -121,7 +121,7 @@ include './require.php';
                 $year2 = $_POST['year2'];
 
                 // Retrieve data for the selected months
-                $sql_year1 = "SELECT violation, COUNT(*) AS count FROM fine WHERE Year(date) = '$year1' GROUP BY violation";
+                $sql_year1 = "SELECT violation, COUNT(*) AS count FROM fine WHERE Year(violation_date) = '$year1' GROUP BY violation";
                 $result_year1 = mysqli_query($con, $sql_year1);
                 $data_year1 = array();
                 $labels_year1 = array();
@@ -130,7 +130,7 @@ include './require.php';
                     $labels_year1[] = $row_year1['violation'];
                 }
 
-                $sql_year2 = "SELECT violation, COUNT(*) AS count FROM fine WHERE year(date) = '$year2' GROUP BY violation";
+                $sql_year2 = "SELECT violation, COUNT(*) AS count FROM fine WHERE year(violation_date) = '$year2' GROUP BY violation";
                 $result_year2 = mysqli_query($con, $sql_year2);
                 $data_year2 = array();
                 $labels_year2 = array();
@@ -176,12 +176,29 @@ include './require.php';
                                 }
                             },
                             scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        precision: 0, // display integers only
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Violations',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
                                     }
-                                }]
+                                },
+                                y: {
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                }
                             }
                         }
                     });
@@ -191,7 +208,7 @@ include './require.php';
                 $month1 = $_POST['month1'];
                 $month2 = $_POST['month2'];
                 // Retrieve data for the selected months
-                $sql_month1 = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$month1' GROUP BY violation";
+                $sql_month1 = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$month1' GROUP BY violation";
                 $result_month1 = mysqli_query($con, $sql_month1);
                 $data_month1 = array();
                 $labels_month1 = array();
@@ -200,7 +217,7 @@ include './require.php';
                     $labels_month1[] = $row_month1['violation'];
                 }
 
-                $sql_month2 = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$month2' GROUP BY violation";
+                $sql_month2 = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$month2' GROUP BY violation";
                 $result_month2 = mysqli_query($con, $sql_month2);
                 $data_month2 = array();
                 $labels_month2 = array();
@@ -245,12 +262,30 @@ include './require.php';
                                 }
                             },
                             scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        precision: 0, // display integers only
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Violations',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
                                     }
-                                }]
+                                },
+                                y: {
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     });
@@ -261,7 +296,7 @@ include './require.php';
                 $current_year = date('Y');
 
                 // Retrieve data for the current month
-                $sql_cu_month = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$current_month' AND YEAR(date) = '$current_year' GROUP BY violation";
+                $sql_cu_month = "SELECT violation, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$current_month' AND YEAR(violation_date) = '$current_year' GROUP BY violation";
                 $result_cu_month = mysqli_query($con, $sql_cu_month);
                 $data_cu_month = array();
                 $labels_cu_month = array();
@@ -302,8 +337,28 @@ include './require.php';
                                 }
                             },
                             scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Violations',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                },
                                 y: {
-                                    beginAtZero: true
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -326,22 +381,22 @@ include './require.php';
                 $year2 = $_POST['year2'];
 
                 // Retrieve data for the selected months
-                $sql_year1 = "SELECT police_officer_id, COUNT(*) AS count FROM fine WHERE Year(date) = '$year1' GROUP BY police_officer_id";
+                $sql_year1 = "SELECT officer_id, COUNT(*) AS count FROM fine WHERE Year(violation_date) = '$year1' GROUP BY officer_id";
                 $result_year1 = mysqli_query($con, $sql_year1);
                 $data_year1 = array();
                 $labels_year1 = array();
                 while ($row_year1 = mysqli_fetch_array($result_year1)) {
                     $data_year1[] = $row_year1['count'];
-                    $labels_year1[] = $row_year1['police_officer_id'];
+                    $labels_year1[] = $row_year1['officer_id'];
                 }
 
-                $sql_year2 = "SELECT police_officer_id, COUNT(*) AS count FROM fine WHERE year(date) = '$year2' GROUP BY police_officer_id";
+                $sql_year2 = "SELECT officer_id, COUNT(*) AS count FROM fine WHERE year(violation_date) = '$year2' GROUP BY officer_id";
                 $result_year2 = mysqli_query($con, $sql_year2);
                 $data_year2 = array();
                 $labels_year2 = array();
                 while ($row_year2 = mysqli_fetch_array($result_year2)) {
                     $data_year2[] = $row_year2['count'];
-                    $labels_year2[] = $row_year2['police_officer_id'];
+                    $labels_year2[] = $row_year2['officer_id'];
                 }
             ?>
                 <div class="chart-container">
@@ -381,12 +436,29 @@ include './require.php';
                                 }
                             },
                             scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        precision: 0, // display integers only
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Police Officer',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
                                     }
-                                }]
+                                },
+                                y: {
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Fine Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                }
                             }
                         }
                     });
@@ -396,22 +468,22 @@ include './require.php';
                 $month1 = $_POST['month1'];
                 $month2 = $_POST['month2'];
                 // Retrieve data for the selected months
-                $sql_month1 = "SELECT police_officer_id, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$month1' GROUP BY police_officer_id";
+                $sql_month1 = "SELECT officer_id, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$month1' GROUP BY officer_id";
                 $result_month1 = mysqli_query($con, $sql_month1);
                 $data_month1 = array();
                 $labels_month1 = array();
                 while ($row_month1 = mysqli_fetch_array($result_month1)) {
                     $data_month1[] = $row_month1['count'];
-                    $labels_month1[] = $row_month1['police_officer_id'];
+                    $labels_month1[] = $row_month1['officer_id'];
                 }
 
-                $sql_month2 = "SELECT police_officer_id, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$month2' GROUP BY police_officer_id";
+                $sql_month2 = "SELECT officer_id, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$month2' GROUP BY officer_id";
                 $result_month2 = mysqli_query($con, $sql_month2);
                 $data_month2 = array();
                 $labels_month2 = array();
                 while ($row_month2 = mysqli_fetch_array($result_month2)) {
                     $data_month2[] = $row_month2['count'];
-                    $labels_month2[] = $row_month2['police_officer_id'];
+                    $labels_month2[] = $row_month2['officer_id'];
                 }
             ?>
                 <div class="chart-container">
@@ -451,12 +523,29 @@ include './require.php';
                             },
 
                             scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero: true,
-                                        precision: 0, // display integers only
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Poloce Officer',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
                                     }
-                                }]
+                                },
+                                y: {
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Fine Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                }
                             }
                         }
                     });
@@ -467,13 +556,13 @@ include './require.php';
                 $current_year = date('Y');
 
                 // Retrieve data for the current month
-                $sql_cu_month = "SELECT police_officer_id, COUNT(*) AS count FROM fine WHERE MONTH(date) = '$current_month' AND YEAR(date) = '$current_year' GROUP BY police_officer_id";
+                $sql_cu_month = "SELECT officer_id, COUNT(*) AS count FROM fine WHERE MONTH(violation_date) = '$current_month' AND YEAR(violation_date) = '$current_year' GROUP BY officer_id";
                 $result_cu_month = mysqli_query($con, $sql_cu_month);
                 $data_cu_month = array();
                 $labels_cu_month = array();
                 while ($row_cu_month = mysqli_fetch_array($result_cu_month)) {
                     $data_cu_month[] = $row_cu_month['count'];
-                    $labels_cu_month[] = $row_cu_month['police_officer_id'];
+                    $labels_cu_month[] = $row_cu_month['officer_id'];
                 }
 
 
@@ -508,8 +597,28 @@ include './require.php';
                                 }
                             },
                             scales: {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: 'Police Officer',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
+                                },
                                 y: {
-                                    beginAtZero: true
+                                    ticks: {
+                                        stepSize: 1
+                                    },
+                                    beginAtZero: true,
+                                    precision: 0, // display integers only
+                                    title: {
+                                        display: true,
+                                        text: 'Fine Count',
+                                        font: {
+                                            size: 16 // set the font size for the title
+                                        }
+                                    }
                                 }
                             }
                         }

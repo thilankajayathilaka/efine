@@ -17,12 +17,12 @@ class MYPDF extends TCPDF
 
             // store the fine information in the array
             $officer_info = array(
-                'id' => $row['police_officer_id'],
+                'id' => $row['officer_id'],
                 'name' => $row['name'],
                 'police_station' => $row['police_station'],
                 'address' => $row['address'],
                 'email' => $row['email'],
-                'phone_No' => $row['phone_No'],
+                'phone_No' => $row['phone_no'],
             );
             array_push($data, $officer_info);
         }

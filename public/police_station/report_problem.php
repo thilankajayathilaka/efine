@@ -23,21 +23,20 @@
         <div class="board">
             <?php include('../../include/police_station/error.php'); ?>
             <div class="contactform">
-                <h3>Send Your Request</h3>
+                <h3>Send Your Problem</h3>
                 <form action="../../include/police_station/add_report_problem.php" method="POST">
                     <div class="input-row">
                         <div class="input-requestform">
-                            <label for="">Name<span class="required" style="color: red;">*</span></label>
-                            <input type="text" placeholder="Full Name" name="name">
+                            <label for="">Error Type<span class="required" style="color: red;">*</span></label>
+                            <select name="report_error" id="">Error Type
+                            <option value="abc">abc</option>
+                            <option value="abc">abc</option>
+                            <option value="abc">abc</option>
+                            <option value="abc">Other</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="input-row">
-                        <div class="input-requestform">
-                            <label for="">Email<span class="required" style="color: red;">*</span></label>
-                            <input type="email" placeholder="email" name="email">
-                        </div>
-                    </div>
                     <label for="">Message<span class="required" style="color: red;">*</span></label>
                     <textarea rows="10" placeholder="Write your problem" name="message"></textarea>
                     <button type="submit" name="submit_btn">Submit</button>

@@ -65,13 +65,13 @@
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                            <tr><td><?php echo $row['id']; ?></td>
+                            <tr><td><?php echo $row['receipt_id']; ?></td>
                                 <td><?php echo $row['name']; ?></td>
-                                <td><?php echo $row['nic_no']; ?></td>
+                                <td><?php echo $row['licence_no']; ?></td>
                                 <td><?php echo $row['violation']; ?></td>
                                 <td><?php echo $row['points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
-                                <td><?php echo $row['created_at']; ?></td>
+                                <td><?php echo $row['date']; ?></td>
                                 </tr>
                             <?php
                         }
@@ -82,13 +82,13 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                             ?>
                                 <tr>
-                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['receipt_id']; ?></td>
                                     <td><?php echo $row['name']; ?></td>
-                                    <td><?php echo $row['nic_no']; ?></td>
+                                    <td><?php echo $row['licence_no']; ?></td>
                                     <td><?php echo $row['violation']; ?></td>
                                     <td><?php echo $row['points']; ?></td>
                                     <td><?php echo $row['amount']; ?></td>
-                                    <td><?php echo $row['created_at']; ?></td>
+                                    <td><?php echo $row['date']; ?></td>
                                 </tr>
                         <?php
                         }

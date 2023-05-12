@@ -59,12 +59,12 @@
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                     <tr>
-                        <td><?php echo $row['police_officer_id']; ?></td>
+                        <td><?php echo $row['officer_id']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['police_station']; ?></td>
                         <td><?php echo $row['address']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['phone_No']; ?></td>
+                        <td><?php echo $row['phone_no']; ?></td>
                         <td><button class="po_update">Update</button><button class="po_delete">Delete</button></td>
                     </tr>
                     <?php

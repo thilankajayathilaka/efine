@@ -105,16 +105,15 @@ include '../../include/police_station/remaing_date.php';
                     <?php
                     $fine_id=$row["fine_id"];
                     $vehicle_no=$row["vehicle_no"];
-                    $place=$row["place"];
-                    $date=$row["date"];
+                    $place=$row["location"];
+                    $date=$row["violation_date"];
                     $violation=$row["violation"];
                     $points=$row["points"];
                     $payment_status=$row["payment_status"];
                     $amount=$row["amount"];
                     $message=$row["message"];
-                    $court=$row["court"];
-                    $police_officer_id=$row["police_officer_id"];
-                    $nic_no=$row["nic_no"];
+                    $court=$row["court_name"];
+                    $police_officer_id=$row["officer_id"];
                     $licence_no=$row["licence_no"];
                     $court_date=$row["court_date"];
                     if($row['remaining_days']<0){
