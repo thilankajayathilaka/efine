@@ -1,11 +1,11 @@
 <?php
-session_start();  
-
+ 
+session_start();
 $conn_error='Could not Connect.';
 $mysql_host='localhost';
 $mysql_user='root';
 $mysql_pass='';
-$mysql_db='efine';
+$mysql_db='efine_final';
 
 $con=mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
 // Check connection

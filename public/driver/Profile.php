@@ -3,9 +3,9 @@
 <?php include('../../include/driver/session.php'); ?>
 
 <?php
-$email = $_SESSION['Email'];
+$email = $_SESSION['email'];
 
-$sql1 = "SELECT * FROM rmv_database WHERE  nic='$id'";
+$sql1 = "SELECT * FROM driver WHERE  nic='$id'";
 $res1 = mysqli_query($con, $sql1);
 if ($res == TRUE) {
 
@@ -13,17 +13,16 @@ if ($res == TRUE) {
 
   $id = $row1['nic'];
   $licence = $row1['licence_no'];
-  $fname = $row1['fname'];
-  $uname = $row1['uname'];
-  $dob = $row1['dob'];
+  $name = $row1['name'];
   $address = $row1['address'];
+  $mobile = $row['mobile_no'];
 } else {
   echo "error1";
 }
 
 
 
-$sql = "SELECT * FROM driver WHERE  Email='$email'";
+$sql = "SELECT * FROM driver WHERE  email='$email'";
 
 
 
@@ -34,7 +33,7 @@ if ($res == TRUE) {
 
   $row = mysqli_fetch_assoc($res);
 
-  $mobile = $row['Mobile_No'];
+ 
 } else {
   echo "error1";
 }
@@ -70,30 +69,16 @@ if ($res == TRUE) {
         </div>
       </td>
     </tr>
+    
     <tr>
-      <td>First name</td>
+      <td>Full Name</td>
       <td>
         <div class="tdata">
-          <?php echo  $fname ?>
+          <?php echo $name ?>
         </div>
       </td>
     </tr>
-    <tr>
-      <td>Last name</td>
-      <td>
-        <div class="tdata">
-          <?php echo $uname ?>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Date of birth</td>
-      <td>
-        <div class="tdata">
-          <?php echo $dob ?>
-        </div>
-      </td>
-    </tr>
+    
     <tr>
       <td>Address</td>
       <td>

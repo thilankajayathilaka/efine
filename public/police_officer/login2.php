@@ -1,33 +1,60 @@
 <?php
-include("../includes/db_conn.php");
+include("../../include/police_officer/db_conn.php");
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/style2.css">
-    <title>Login</title>
+	<title>Login Page</title>
 </head>
-
 <body>
-    <div class="login">
-        <div id="import-img" class="login-img">
-            <img src="../images/logo-anim.gif" width="400" height="240"><br>
-            <img src="../images/loginimage.png" width="400" height="400">
-        </div>
-        <div class="vl"></div>
-        <div id="loginform" class="login-f">
-            <form id="login-form" action="login_auth.php" method="post">
-                <input class="login_input" type="text" name="email" placeholder="Enter your E-mail" />
-                <input class="login_input" type="password" name="pass" placeholder="Password" />
-                <input type="submit" name="login" class="login-btn" value="LOGIN" />
-            </form>
-        </div>
-    </div>
-</body>
 
+	<?php
+		
+
+		// Retrieve user inputs
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+
+
+			// Prepare SQL query to retrieve police officer with given email and password
+			$query = "SELECT * FROM user_login WHERE email = '$email' AND password = '$password'";
+
+			// Execute query
+			$result = mysqli_query($con, $query);
+
+			// Check if query returned exactly one row
+			if (mysqli_num_rows($result) == 1) {
+				// Login was successful
+				$row = mysqli_fetch_assoc($result);
+
+				// Store user data in session variables
+				$_SESSION['user_id'] = $row['email'];
+				$_SESSION['user_password'] = $row['password'];
+
+				// Redirect user to home page
+				header('Location: ./po_dashboard.php');
+				exit;
+			} else {
+				// Login was unsuccessful
+				echo "Invalid email or password. Please try again.";
+			}
+
+			
+		}
+	?>
+
+	<h2>Login Page</h2>
+
+	<form method="post">
+		<label for="email">Email:</label>
+		<input type="email" name="email" required><br>
+
+		<label for="password">Password:</label>
+		<input type="password" name="password" required><br>
+
+		<input type="submit" value="Login">
+	</form>
+
+</body>
 </html>

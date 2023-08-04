@@ -9,7 +9,7 @@ if (isset($_POST['update_data'])) {
     $address = $_POST['address'];
     $status=$_POST['status'];
 
-    $data = mysqli_query($conn2, "UPDATE licencedetails SET `NIC`='$NIC', `vehicle Types`='$vehicleTypes', `Issuing Date`='$Issuing_Date', `name`='$name', `address`='$address' `Status`='$status' WHERE LicenceNo=$get_id");
+    $data = mysqli_query($con2, "UPDATE licencedetails SET `NIC`='$NIC', `vehicle Types`='$vehicleTypes', `Issuing Date`='$Issuing_Date', `name`='$name', `address`='$address' `Status`='$status' WHERE LicenceNo=$get_id");
     if ($data) {
         echo "<script>alert('Record updated successfully')</script>";
         header("Location:licence_details.php");

@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
         header("location: ../../index.php?error=emptyInput");
         exit();
     } else {
-        adminLogin($conn, $email, $pwd, $table);
+        adminLogin($con, $email, $pwd, $table);
     }
 } else {
     header("location: ../../public/system-admin/sa-home.php");

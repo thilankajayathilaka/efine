@@ -5,16 +5,16 @@ if (isset($_POST['login'])) {
   $email = mysqli_real_escape_string($con, trim($_POST['Email']));
   $password = trim($_POST['Password']);
 
-  $sql = mysqli_query($con, "SELECT * FROM driver where Email = '$email'");
+  $sql = mysqli_query($con, "SELECT * FROM user_login where email = '$email'");
   $count = mysqli_num_rows($sql);
 
   if ($count > 0) {
     $fetch = mysqli_fetch_assoc($sql);
-    $hashpassword = $fetch["Password"];
+    $hashpassword = $fetch["password"];
 
     if (password_verify($password, $hashpassword)) {
-      $_SESSION['Email'] = $fetch['Email']; //creating session
-      header('location:dashboard.php?email=' . $email);
+      $_SESSION['email'] = $fetch['email']; //creating session
+      header('location:dashboard.php');
     } else {
 ?>
       <script>
@@ -28,18 +28,21 @@ if (isset($_POST['login'])) {
       alert("Email invalid, please try again.");
     </script>
 <?php
+
   }
 }
 
 
 ?>
+  
 <?php
+
 
 if (isset($_POST['search'])) {
   $NIC = mysqli_real_escape_string($con, $_POST['nic']);
 
 
-  $query         = mysqli_query($con, "SELECT * FROM rmv_database WHERE  nic='$NIC' ");
+  $query         = mysqli_query($con, "SELECT * FROM driver WHERE  nic='$NIC' ");
   $row        = mysqli_fetch_array($query);
   $num_row     = mysqli_num_rows($query);
   $id = $row['nic'];
@@ -51,7 +54,9 @@ if (isset($_POST['search'])) {
     echo 'Please Enter a valid NIC';
   }
 }
-?>
+
+?> 
+ 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
