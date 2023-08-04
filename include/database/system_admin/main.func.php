@@ -1,0 +1,131 @@
+<?php
+
+// Increment next id
+function nextId($con, $table)
+{
+    $sql = "SELECT MAX(id) AS id FROM $table;";
+    $result = mysqli_query($con, $sql);
+
+    if (!$result) {
+        return "Unavailable!";
+    }
+
+    $row = mysqli_fetch_assoc($result);
+    return $row['id'] ? $row['id'] + 1 : 1;
+}
+
+/*
+// Login empty input check
+function loginEmptyInput($email, $password)
+{
+    return empty($email) || empty($password);
+}
+
+// Login validation
+function userLogin($con, $email, $password)
+{
+    $emailExists = emailExists($con, $email);
+
+    if (!$emailExists) {
+        header("location: /efine-merged/index.php?error=invalidLogin");
+        exit();
+    }
+
+    $hashedPassword = $emailExists["password"];
+    $checkPassword = password_verify($password, $hashedPassword);
+
+    if (!$checkPassword) {
+        header("location: /efine-merged/index.php?error=invalidLogin");
+        exit();
+    }
+
+    session_start();
+    $_SESSION["user_id"] = $emailExists["user_id"];
+    $_SESSION["email"] = $emailExists["email"];
+    $_SESSION["user_role"] = $emailExists["user_role"];
+
+    switch ($_SESSION["user_role"]) {
+        case "System Admin":
+            redirect("/efine-merged/public/system_admin/sa-home.php");
+            break;
+        case "Police Officer":
+            redirect("/efine-merged/public/police-officer/po-home.php");
+            break;
+        case "police_station":
+            redirect("/efine-merged/public/police-station-admin/psa-home.php");
+            break;
+        case "RMV Admin":
+            redirect("/efine-merged/public/rmv-admin/rmv-home.php");
+            break;
+        default:
+            redirect("/efine-merged/index.php?error=invalidLogin");
+            break;
+    }
+}
+
+function redirect($url)
+{
+    header("location: $url");
+    exit();
+}
+*/
+
+// Existing email check
+function emailExists($con, $email)
+{
+    $sql = "SELECT * FROM user_login WHERE email = ?";
+    $stmt = mysqli_stmt_init($con);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: /efine-merged/public/system_admin/sa-register.php?error=stmtFailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+// Invalid name check (Must be A-Z, a-z or space) 
+function invalidName($name)
+{
+    return !preg_match("/^[a-zA-Z\s]*$/", $name);
+}
+
+// Invalid email check
+function invalidEmail($email)
+{
+    return !filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+// Invalid password check (Must be at least 4 characters) 
+function invalidPassword($password)
+{
+    return strlen($password) >= 4;
+}
+
+// Add login credentials for SA, PO, PSA and RMV
+function userRegister($con, $email, $password, $user_role, $table)
+{
+    $sql = "INSERT INTO user_login (user_id, email, password, user_role, created_at) VALUES ((SELECT MAX(id) FROM $table), ?, ?, ?, now());";
+    $stmt = mysqli_stmt_init($con);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: /efine-merged/public/system_admin/sa-register.php?error=stmtFailed");
+        exit();
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "sss", $email, $hashedPassword, $user_role);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
