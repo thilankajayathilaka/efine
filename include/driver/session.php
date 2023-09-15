@@ -1,2 +1,2 @@
-<?php if (!isset($_SESSION['Email'])) {
-     echo "<script>window.location.href='http://localhost/EfineN/public/driver'; </script>"; }?>
+<?php if (!isset($_SESSION['email'])) {
+     echo "<script>window.location.href='http://localhost/efine-final'; </script>"; }?>

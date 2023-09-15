@@ -1,13 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
-body{
- 
-}
+
+
+
 .sidebar{
   position: fixed;
   top: 0;
@@ -67,8 +69,7 @@ body{
 .sidebar .nav-links .current{
   border-left: 4px solid #fff;
 }
-
-
+   
 
 .sidebar .nav-links li:hover{
   background: #1d1b31;
@@ -215,7 +216,7 @@ body{
   display: none;
 }
 .sidebar .profile-details .job{
-  font-size: 12px;
+  font-size: 13px;
 }
 .home-section{
   position: relative;
@@ -280,25 +281,27 @@ body{
   position: absolute;
 }
 .form-box{
+  box-shadow: 0 0.4rem 0.8rem #13265eb5;
   width: 380px;
   height: 400px;
   position: relative;
   margin: 10% auto;
   background: #fff;
   padding: 5px;
-  border: 1px solid;
-  overflow:hidden;
+  /* border: 1px solid; */
+  overflow: hidden;
+  border-radius: 10px
 
 }
 .form-box-register{
- 
+
   width: 700px;
   margin: 80px auto;
   background: #fff;
   padding: 5px;
   border: 1px solid;
   overflow:hidden;
-  
+
 
 }
 .form-box-register1{
@@ -312,10 +315,10 @@ height: 650px;
 
 }
 .button-box{
-  width: 220px;
+  width: 250px;
   margin: 35px auto;
   position: relative;
-  box-shadow: 0 0 20px 9px #ff61241f;
+  box-shadow: 0 0 10px 1px #2757e2bd;;
   border-radius: 30px;
 }
 
@@ -342,7 +345,7 @@ height: 650px;
   top: 0;
   left: 0;
   position: absolute;
-  width: 110px;
+  width: 125px;
   height: 100%;
   background: linear-gradient(to right, #243FAE,#55BFFF);
   border-radius: 30px;
@@ -354,7 +357,7 @@ top: 150px;
  position: absolute;
  width: 280px;
  transition: .5s;
- 
+
 
 }
 .input-field{
@@ -367,13 +370,13 @@ top: 150px;
   border-bottom: 1px solid #999;
   outline: none;
   background: transparent;
- 
+
 }
 
 .input-field1{
   width: 50%;
   padding: 10px 0;
-  
+
   border: 1px solid #000;
   outline: none;
   background: #CEDEF3;
@@ -425,9 +428,9 @@ nav{
   position: fixed;
 }
 .logo{
-  padding: 5px 0 0 80px;
-  width: 150px;
-  height: auto;
+  padding: 5px 5px 0 37px;
+    width: 170px;
+    height: 58px;
 
 }
 nav ul{
@@ -516,7 +519,7 @@ margin-right: auto;
   width: 300px;
   right: 10px;
  margin-left: auto;
- 
+
 
 }
 .input-group3{
@@ -525,7 +528,7 @@ margin-right: auto;
   width: 200px;
   left: 10px;
  margin-right: auto;
- 
+
 
 }
 
@@ -536,6 +539,7 @@ margin-right: auto;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  
 }
 .values{
   padding: 30px 30px 0 30px;
@@ -549,12 +553,13 @@ margin-right: auto;
   background: #fff;
   width: 290px;
   height: 130px;
+
   padding: 16px 20px;
   border-radius: 5px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 100px;
+  
 }
 .values .val-box .material-symbols-outlined{
   font-size: 25px;
@@ -564,7 +569,7 @@ margin-right: auto;
   border-radius: 50%;
   text-align: center;
   color: #fff;
-  background: chartreuse;
+  
   margin-right: 15px;
 }
 .values .val-box:nth-child(1) .material-symbols-outlined {
@@ -575,6 +580,9 @@ margin-right: auto;
 }
 .values .val-box:nth-child(3) .material-symbols-outlined{
   background: #74daec;
+}
+.values .val-box:nth-child(4) .material-symbols-outlined{
+  background: #be1212;
 }
 
 
@@ -592,7 +600,7 @@ margin-right: auto;
 .board{
   width: 94%;
   margin:auto;
-  overflow: hidden; 
+  overflow: hidden;
   background: #fff;
   border-radius: 8px;
 }
@@ -636,7 +644,7 @@ tbody tr td{
   display: flex;
   justify-content:space-between ;
   margin-bottom: 20px;
-  
+
 }
 .input-row .input-requestform{
   flex-basis: 45%;
@@ -764,13 +772,13 @@ tbody tr td{
 
 
 .forminput{
-  
+
   width:200px;
   height:50px;
   text-align:center;
   margin: auto;
   display: block;
- 
+
 }
 
 .board {
@@ -867,7 +875,7 @@ tbody tr td{
 	top: 23%;
 	cursor: pointer;
   display: inline;
-  
+
 }
 
 .hidden2{
@@ -877,12 +885,12 @@ tbody tr td{
 	top:75%;
 	cursor: pointer;
   display: inline;
-  
+
 }
 .fa{
 	font-size: 20px;
 	color: #7a797e;
- 
+
 }
 
 .required-color {
@@ -927,9 +935,9 @@ tbody tr td{
 
 .editbtn  {
   background: linear-gradient(to right, #243FAE,#55BFFF);
-  
+
   border-radius: 10px;
-  
+
   color: #ffffff;
   width: 60px;
   padding: 8px;
@@ -946,4 +954,214 @@ tbody tr td{
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+.status{
+  background: #cff6dd;
+  color: #1fa750;
+  position: relative;
+  border-radius: 30px;
+  padding: 4px 10px 4px 25px;
+}
+.status::after {
+  background: #23bd5a;
+  position: absolute;
+top: 9px;
+left: 10px;
+width: 10px;
+height: 10px;
+content: '';
+border-radius: 50%;
+}
+.status3{
+  background: #deb6b6;
+  color: #dc422e;
+  position: relative;
+  border-radius: 30px;
+  padding: 4px 10px 4px 25px;
+}
+.status3::after {
+  background: #e05a4e;
+  position: absolute;
+top: 9px;
+left: 10px;
+width: 10px;
+height: 10px;
+content: '';
+border-radius: 50%;
+}
+
+
+
+
+/*search bar*/
+.paymentsearch {
+  width: 96%;
+  background-color: white;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.search {
+  height: 20px;
+  width: 95%;
+}
+
+.searchbar select {
+  width: 15%;
+}
+
+.serchinput {
+  width: 330px;
+  margin: 0px 2%
+}
+
+.searchbtn {
+  width: 100px;
+}
+/* button */
+.buttonClass {
+  margin-top: 20px;
+  font-size:10px;
+  font-family:Arial;
+  width:100px;
+  height:30px;
+  border-width:1px;
+  color:#ffffff;
+  border-color:#057fd0;
+  font-weight:bold;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  box-shadow: 0px 1px 8px 0px #f0f7fa;
+  text-shadow: 0px -1px 0px #5b6178;
+  background:linear-gradient(#00b4f5, #243fae);
+}
+
+.buttonClass:hover {
+  background: linear-gradient(#06769f, #33bdef);
+}
+
+.buttonClass2{
+  cursor: pointer;
+  font-size:12px;
+  font-family:Arial;
+  width:100px;
+  height:30px;
+  border-width:0px;
+  color:rgba(0, 0, 0, 1);
+  border-color:rgba(255, 195, 94, 1);
+  font-weight:bold;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  box-shadow: 0px 1px 0px 0px #fff6af;
+  text-shadow: 0px 2px 0px #ffee66;
+  background:linear-gradient(#ffec64, rgba(253, 184, 74, 1));
+}
+
+.buttonClass2:hover {
+  background: linear-gradient(rgba(253, 184, 74, 1), #ffec64);
+}
+              
+          
+
+/* overview table*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  list-style: none;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.common_list_content {
+  width: 100%;
+  background-color: #fff;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.common_list_content table {
+  font-size: 0.9rem;
+  width: 90%;
+  margin-left: 3rem;
+  text-align: center;
+  table-layout: fixed;
+  word-wrap: normal;
+}
+
+.common_list_content table th {
+  /* height: 2rem;
+  background-color: #d9d9d9;
+  padding: 0.5rem; */
+
+  padding: 0.4rem;
+  background-color: #E4E9F7;
+  border-radius: 0.3rem;
+  font-weight: 500;
+}
+
+.common_list_content table td {
+  padding: 0.3rem;
+  text-align: center;
+}
+.common-table {
+  width: 90%;
+}
+ /* notify */
+ .notify{
+  text-align: center;
+  height: 20px;
+  width: 20px;
+  color: white;
+  position: fixed;
+  font-size: small;
+  z-index: 9;
+  margin-left: 15px;
+  margin-bottom: 12px;
+  background-color: rgb(201, 39, 39);
+  border-radius: 10px;
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.notifybar{
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  background-color: rgb(207, 198, 198);
+  right: 95px;
+}
+.notifypopup{
+  display: none;
+  flex-direction: column;
+  margin-top: 45px;
+  margin-right: 10px;
+  
+
+}
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgb(207, 198, 198);
+  position: fixed;
+  right: 95px;
+  z-index: 3;
+  top: 25px;
+}
+
+.status2.delivered {
+  background-color: #86e49d;
+  color: #006b21;
+}
+
+.status2.cancelled {
+  background-color: #d82929;
+  color: #ffffff;
 }

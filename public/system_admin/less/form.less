@@ -1,0 +1,144 @@
+@import "main.less";
+
+input,
+select,
+textarea {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid @color-input-border;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    outline: 0;
+    border-color: @color-input-focus-border;
+    box-shadow: 0 0 0 3px @color-input-focus-shadow;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.form td {
+  &:nth-child(1) {
+    width: 20%;
+  }
+  &:not(:last-child) {
+    padding: 0 50px 10px 0;
+  }
+
+  &:nth-child(2) {
+    padding: 0 0 10px 0;
+  }
+}
+
+.form .btn-group {
+  margin-top: 10px;
+}
+
+.disabled {
+  width: 500px;
+  cursor: not-allowed;
+  color: @color-input-disabled-font;
+  background-color: @color-input-disabled;
+}
+
+.currency {
+  display: flex;
+}
+
+.currency-symbol {
+  width: 30px;
+  cursor: auto;
+  text-align: center;
+  padding: 3px 5px 3px 5px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid @color-input-border;
+  border-right: 0;
+}
+
+.currency-input {
+  border-radius: 0 4px 4px 0;
+}
+
+.form {
+  #name {
+    width: 300px;
+  }
+
+  #email {
+    width: 400px;
+  }
+
+  .alert {
+    margin-left: 20px;
+  }
+}
+
+.form-law {
+  #act {
+    width: 100%;
+  }
+
+  #part_number {
+    width: 100px;
+  }
+
+  #chapter_number {
+    width: 100px;
+  }
+
+  #section_number {
+    width: 100px;
+  }
+
+  #title {
+    width: 100%;
+  }
+
+  #law_text {
+    width: 100%;
+  }
+
+  #fine_amount {
+    width: 150px;
+  }
+
+  #points_deducted {
+    width: 100px;
+  }
+}
+
+.select {
+  background-image: url("../img/arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 16px 12px;
+}
+
+datalist {
+  position: absolute;
+  max-height: 160px;
+  overflow-y: auto;
+  background-color: @color4;
+  border-radius: 4px;
+  border: 1px solid @color-input-border;
+}
+
+option {
+  padding: 0.125rem 2.25rem 0.125rem 0.75rem;
+
+  &:hover {
+    color: @color4;
+    background-color: @color-datalist-hover;
+  }
+}

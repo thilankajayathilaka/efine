@@ -1,6 +1,6 @@
 <?php include('config.php'); ?>
 <?php
-$email = $_SESSION['Email'];
+$email = $_SESSION['email'];
 
 $sql = "SELECT * FROM driver WHERE  Email='$email'";
 
@@ -11,29 +11,26 @@ if ($res == TRUE) {
 
   $row = mysqli_fetch_assoc($res);
 
-  $id = $row['Nic_No'];
+  $id = $row['nic'];
+  $lic_no = $row['licence_no'];
+  $name = $row['name'];
 
-  $mobile = $row['Mobile_No'];
+  $mobile = $row['mobile_no'];
+  $_SESSION['licenceno'] = $lic_no;
 } else {
   echo "error1";
 }
 
-$sql1 = "SELECT * FROM rmv_database WHERE  nic='$id'";
-$res1 = mysqli_query($con, $sql1);
-if ($res == TRUE) {
 
-  $row1 = mysqli_fetch_assoc($res1);
-
-  $name = $row1['fname'];
-} else {
-  echo "error1";
-}
 
 
 ?>
-
+<head>
+<link rel="stylesheet" href="../../public/driver/css/style.css">
+</head>
 
 <body>
+
   <div class="sidebar close">
     <div class="logo-details">
       <a href="dashboard.php"><i class='bx bx-taxi'></a></i>
@@ -107,26 +104,20 @@ if ($res == TRUE) {
         </ul>
       </li>
 
-      <!--    <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
+      <li>
+        <a href="court_case.php">
+          <i class='bx bx-history'></i>
+          <span class="link_name">Court Cases</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="court_case.php">Court Cases</a></li>
         </ul>
       </li>
 
 
 
 
-
+<!-- 
       <li>
         <a href="#">
           <i class='bx bx-line-chart' ></i>
@@ -194,7 +185,7 @@ if ($res == TRUE) {
             <img src="image/profile.jpg" alt="profileImg">
           </div>
           <div class="name-job">
-            <div class="profile_name"><?php echo  $name  ?> </div>
+            <div class="job"><?php echo  $name  ?> </div>
             <div class="job"><?php echo  $id  ?></div>
           </div>
           <a href="../../include/driver/logout.php"> <i class='bx bx-log-out'></i></a>
@@ -211,6 +202,13 @@ if ($res == TRUE) {
       <i class='bx bx-menu'></i>
       <div class="right-side-items">
         <i class='bx bx-bell'></i>
+        <div class="notify" id="myDiv">2</div>
+        <div class="notifypopup">
+          <div class="triangle-down"></div>
+          <div class="notifybar"></div>
+        </div>
+        
+        
         <div class="profile">
           <img src="image/1.jpg" alt="">
 
@@ -219,3 +217,33 @@ if ($res == TRUE) {
 
 
     </div>
+    <script>
+    
+
+
+
+
+      let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+ let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+ arrowParent.classList.toggle("showMenu");
+  });
+}
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+console.log(sidebarBtn);
+sidebarBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("close");
+});
+
+// Get the div element
+var divElement = document.getElementById("myDiv");
+
+// Add a click event listener to the div element
+divElement.addEventListener("click", function() {
+  // Set the value of the div element to zero
+  divElement.innerHTML = "0";
+});
+    </script>

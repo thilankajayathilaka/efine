@@ -27,13 +27,14 @@
                 <form action="" method="post">
                     <label>Search By</label>
                     <select name="search_criteria" style="margin-left: 15px;">
-                        <option value="Fine_ID">Fine ID</option>
+                        <option value="licence_no">Licence No</option>
                         <option value="name">Name</option>
-                        <option value="date">Date</option>
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/driver_payment_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
+                    </select>
+
                     </select>
 
                 </form>
@@ -45,44 +46,49 @@
         <div class="board">
             <table class="overview-table" width="100%">
                 <thead>
-                    <td>Fine ID</td>
-                    <td>Vialation</td>
-                    <td>Payment status</td>
-                    <td>Points</td>
-                    <td>Amount <br>(Rs)</td>
+                    <td>Payment ID</td>
+                    <td>Driver Name</td>
+                    <td>Licence No</td>
+                    <td>Violation</td>
+                    <td>Reduce Points</td>
+                    <td>Payment Amount <br>(Rs)</td>
+                    <td>Payment Date</td>
+
                 </thead>
                 <tbody>
                     <?php
                     if (isset($_POST['search_value'])) {
-
-
                         // Execute the query
-                        $result = mysqli_query($con, driverPaymentSearch());
+                        $result = mysqli_query($con, driverPaymentSearch($police_station));
 
                         // Display the results
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                             <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['receipt_id']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['licence_no']; ?></td>
+                                <td><?php echo $row['violation']; ?></td>
+                                <td><?php echo $row['points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
+                                <td><?php echo $row['date']; ?></td>
                             </tr>
                         <?php
                         }
                         mysqli_free_result($result);
                     } else {
                         // If no search value is provided, display all the data
-                        $result = mysqli_query($con, readDriverPaymentDetails());
+                        $result = mysqli_query($con, readDriverPaymentDetails($police_station));
                         while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                             <tr>
-                                <td><?php echo $row['Fine ID']; ?></td>
-                                <td><?php echo $row['Vialation']; ?></td>
-                                <td><?php echo $row['Payment_status']; ?></td>
-                                <td><?php echo $row['Points']; ?></td>
+                                <td><?php echo $row['receipt_id']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['licence_no']; ?></td>
+                                <td><?php echo $row['violation']; ?></td>
+                                <td><?php echo $row['points']; ?></td>
                                 <td><?php echo $row['amount']; ?></td>
+                                <td><?php echo $row['date']; ?></td>
                             </tr>
                     <?php
                         }

@@ -37,20 +37,6 @@
                 <li><a class="link_name" href="./driver_payment.php">Driver Payment</a></li>
             </ul>
         </li>
-
-        <li>
-            <div class="iocn-link">
-                <a href="total_fines.php">
-                    <i class='bx bx-receipt' style='color:#ffffff'></i>
-
-                    <span class="link_name">Total Fines</span>
-                </a>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="total_fines.php">Total Fines</a></li>
-
-            </ul>
-        </li>
         <li>
             <div class="iocn-link">
                 <a href="./ongoing_fine.php">
@@ -66,19 +52,6 @@
         </li>
         <li>
             <div class="iocn-link">
-                <a href="./overdue_fine.php">
-                    <i class='bx bxs-time-five' style='color:#ffffff'></i>
-
-                    <span class="link_name">Overdue Fines</span>
-                </a>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="./overdue_fine.php">Overdue Fines</a></li>
-
-            </ul>
-        </li>
-        <li>
-            <div class="iocn-link">
                 <a href="./court_fine.php">
                     <i class='bx bxs-shopping-bag-alt' style='color:#ffffff'></i>
                     <span class="link_name">Court Cases</span>
@@ -86,6 +59,18 @@
             </div>
             <ul class="sub-menu">
                 <li><a class="link_name" href="./court_fine.php">Court Cases</a></li>
+
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="./stat.php">
+                    <i class='bx bx-stats' style='color:#ffffff'></i>
+                    <span class="link_name">Statistics</span>
+                </a>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="./stat.php">Statistics</a></li>
 
             </ul>
         </li>
@@ -119,12 +104,12 @@
         </li>
 
         <li class="logout">
-            <a href="../includes/logout.php">
+            <a href="../../include/driver/logout.php">
                 <i class='bx bx-log-out' style='color:#ffffff'></i>
                 <span class="link_name">Logout</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="../../include/logout.php">Logout</a></li>
+                <li><a class="link_name" href="../../include/driver/logout.php">Logout</a></li>
             </ul>
 
         </li>

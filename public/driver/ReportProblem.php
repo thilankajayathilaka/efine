@@ -13,8 +13,8 @@ if (isset($_POST['submit_btn'])) {
 
   // Insert the problem
 
-  $sql = "insert into `report` ( description ,Licence_No) 
-  			  values( '$description','$licence')";
+  $sql = "insert into `report` (user_id, description, status ) 
+  			  values( '$licence','$description',0 )";
   $result = mysqli_query($con, $sql);
   if ($result) {
     ?>
@@ -35,9 +35,9 @@ if (isset($_POST['submit_btn'])) {
 
 
     <?php
-    $email = $_SESSION['Email'];
+    $email = $_SESSION['email'];
 
-    $sql = "SELECT * FROM driver WHERE  Email='$email'";
+    $sql = "SELECT * FROM driver WHERE  email='$email'";
 
     $res = mysqli_query($con, $sql);
 
@@ -45,11 +45,11 @@ if (isset($_POST['submit_btn'])) {
 
       $row = mysqli_fetch_assoc($res);
 
-      $id = $row['Nic_No'];
-      $licence_no = $row['Licence_No'];
-      $name = $row['Name'];
+      $id = $row['nic'];
+      $licence_no = $row['licence_no'];
+      $name = $row['name'];
       
-      $mobile = $row['Mobile_No'];
+      $mobile = $row['mobile_no'];
     } 
 
     ?>
@@ -72,7 +72,7 @@ if (isset($_POST['submit_btn'])) {
         <div class="input-row">
           <div class="input-requestform">
             <label for="">Email</label>
-            <input type="email" value="<?php echo $_SESSION['Email'] ?>" placeholder="email" name="email" readonly>
+            <input type="email" value="<?php echo $_SESSION['email'] ?>" placeholder="email" name="email" readonly>
           </div>
           <div class="input-requestform">
             <label for="">Mobile No</label>

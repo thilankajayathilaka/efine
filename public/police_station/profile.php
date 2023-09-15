@@ -1,4 +1,7 @@
-<?php include './require.php' ?>
+<?php include './require.php';
+$sql = mysqli_query($con, "SELECT * FROM police_station_admin WHERE email='$email'");
+$row = mysqli_fetch_assoc($sql);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -38,7 +41,7 @@
                             </td>
                             <td>
                                 <div class="tdata">
-                                    Gampaha police staion
+                                    <?php echo $row['name']; ?>
                                 </div>
                             </td>
 
@@ -49,7 +52,7 @@
                             </td>
                             <td>
                                 <div class="tdata">
-                                    Gampaha
+                                    <?php echo $row['district']; ?>
                                 </div>
                             </td>
 
@@ -60,25 +63,16 @@
                             </td>
                             <td>
                                 <div class="tdata">
-                                    gampolice@gmail.com
+                                    <?php echo $row['email']; ?>
                                 </div>
                             </td>
 
                         </tr>
                         <tr>
-                            <td>
-                                <div class="profile_border">Password</div>
-                            </td>
-                            <td>
-                                <div class="tdata">
-                                    ********
-                                </div>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="border: none;text-align:right"><Button style="width: 150px;height:30px;background-color:#236adb;border:none;color:white;border-radius:3px">Change
-                                    Password</Button></td>
+                            <td colspan="2" style="border: none;text-align:right"><Button
+                                    class="profile_change_password"><a
+                                        href="./change_password.php?email=<?php echo $row['email']; ?>">Change
+                                        Password</a> </Button></td>
 
                         </tr>
                     </table>

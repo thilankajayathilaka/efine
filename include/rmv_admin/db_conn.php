@@ -5,9 +5,9 @@
     $pass = '';
     $db = 'efine';
     
-    $conn = mysqli_connect($host, $user, $pass, $db);
+    $con = mysqli_connect($host, $user, $pass, $db);
 
-    if (!$conn) {
+    if (!$con) {
         echo 'Connection error: '.mysqli_connect_error();
     }
     date_default_timezone_set("Asia/Colombo");

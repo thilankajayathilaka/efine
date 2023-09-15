@@ -9,7 +9,7 @@
 </head>
 
 <body>
- <div class="sidebar close">
+  <div class="sidebar close">
     <div class="logo-details">
       <a href="po_dashboard.php"><i class='bx bx-taxi'></a></i>
       <span class="logo_name">E-Fine</span>
@@ -30,6 +30,17 @@
         </li>
       </div>
 
+      <li>
+        <a href="officer_history.php">
+          <i class='bx bx-history'></i>
+          <span class="link_name">History</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="officer_history.php">History</a></li>
+        </ul>
+      </li>
+
+      
       <li>
         <a href="report_problem.php">
           <i class='bx bx-error'></i>
@@ -58,7 +69,7 @@
         </ul>
       </li>
 
-     
+
 
       <li>
         <div class="profile-details">
@@ -67,15 +78,35 @@
           </div>
           <div class="name-job">
             <div class="profile_name">Priyasha </div>
-            <div class="job">Police Constable(PC-2296)</div>
+            <div class="job">(PC-2296)</div>
           </div>
-          <a href="login2.php"> <i class='bx bx-log-out'></i></a>
+          <a href="../../index.php"> <i class='bx bx-log-out'></i></a>
         </div>
       </li>
+
+
+
+      <li>
+        <a id="toggle-mode" onclick="toggleDarkMode()">
+          <i class='bx bx-moon'></i>
+          <span class="link_name" id="mode-name">Dark Mode</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" id="mode-name-mobile">Dark Mode</a></li>
+        </ul>
+      </li>
+      
+       <script src="./js/color-mode.js"></script>
+      
+
+
+
+
+
     </ul>
   </div>
 
-  
+
 
 </body>
 

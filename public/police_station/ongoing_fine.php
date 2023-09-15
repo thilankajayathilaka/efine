@@ -1,31 +1,5 @@
 <?php include './require.php';
-include '../../include/police_station/remaing_date.php';
-CalculateRemaingDate($con);
-// create an array to store the fine information
-$fines = array();
-$result = mysqli_query($con, readOverdueFineDetails());
-while ($row = mysqli_fetch_assoc($result)) {
-    // calculate the due date by adding 14 days to the payment date
-    $due_date = date('Y-m-d', strtotime($row['date'] . ' +14 days'));
-
-    // calculate the remaining days by subtracting the due date from today's date
-    $today = date('Y-m-d');
-    $remaining_days = (strtotime($due_date) - strtotime($today)) / 86400;
-
-    // store the fine information in the array
-    $fine = array(
-        'id' => $row['Fine ID'],
-        'violation' => $row['Vialation'],
-        'Payment_status' => $row['Payment_status'],
-        'Points' => $row['Points'],
-        'amount' => $row['amount'],
-        'remaining_days' => $remaining_days
-    );
-    array_push($fines, $fine);
-}
-
-
-
+include_once '../../include/police_station/court_fine_insert.php';
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +7,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Overdue fine</title>
+    <title>ongoing_fine</title>
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +22,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         <?php include './navbar.php' ?>
         <h3 class="i-name">
-            Overdue Fine Details
+            Ongoing_fine Fine Details
         </h3>
         <div class="paymentsearch">
             <div class="search">
@@ -57,12 +31,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <label>Search By</label>
                     <select name="search_criteria" style="margin-left: 15px;">
                         <option value="Fine_ID">Fine ID</option>
+                        <option value="licence_no">Licence No</option>
                         <option value="name">Name</option>
-                        <option value="date">Date</option>
                     </select>
                     <input type="text" name="search_value" class="serchinput">
                     <input type="submit" value="Search" class="searchbtn">
-                    <button class="pdf">Download PDF</button>
+                    <button class="pdf" name="download_pdf"> <a href="../../include/police_station/ongoing_fine_pdf.php" style="text-decoration:none; color:white"> Download PDF</a></button>
                     </select>
 
                 </form>
@@ -74,30 +48,68 @@ while ($row = mysqli_fetch_assoc($result)) {
             <table class="overview-table" width="100%">
 
                 <thead>
-                    <td>Fine ID</td>
-                    <td>Violation</td>
-                    <td>Payment status</td>
-                    <td>Points</td>
-                    <td>Amount <br>(Rs)</td>
-                    <td>Overdue date</td>
+                    <tr>
+                        <td>Fine ID</td>
+                        <td>Driver Name</td>
+                        <td>Licence No</td>
+                        <td>Violation</td>
+                        <td>Points</td>
+                        <td>Amount</td>
+                        <td>Remaining Days</td>
+                    </tr>
                 </thead>
                 <tbody>
 
+
                     <?php
-                    foreach ($fines as $fine) :
+                    if (isset($_POST['search_value'])) {
 
+
+                        // Execute the query
+
+                        $result = mysqli_query($con, ongoinPaymentSearch($police_station));
+
+
+                        // Display the results
+                        while ($row = mysqli_fetch_assoc($result)) {
                     ?>
+                            <tr>
+                                <td><?php echo $row["fine_id"] ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['licence_no'] ?></td>
+                                <td><?php echo $row["violation"] ?></td>
+                                <td><?php echo $row["points"] ?></td>
+                                <td><?php echo $row["amount"] ?></td>
+                                <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
 
-                        <tr>
-                            <td><?php echo $fine['id']; ?></td>
-                            <td><?php echo $fine['violation']; ?></td>
-                            <td><?php echo $fine['Payment_status']; ?></td>
-                            <td><?php echo $fine['Points']; ?></td>
-                            <td><?php echo $fine['amount']; ?></td>
-                            <td id="data"><?php echo $fine['remaining_days']; ?> Days Remaining</td>
+                            </tr>
+                        <?php
+                        }
+                        mysqli_free_result($result);
+                    } else {
+                        // If no search value is provided, display all the data
+                        $result = mysqli_query($con, readOngoinFineDetails($police_station));
+                        while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                            <tr>
 
-                        </tr>
-                    <?php endforeach; ?>
+                                <td><?php echo $row["fine_id"] ?></td>
+                                <td><?php echo $row['name'] ?></td>
+                                <td><?php echo $row['licence_no'] ?></td>
+                                <td><?php echo $row["violation"] ?></td>
+                                <td><?php echo $row["points"] ?></td>
+                                <td><?php echo $row["amount"] ?></td>
+                                <td><?php echo $row['remaining_days'] . ' Days Remaining' ?></td>
+
+                            </tr>
+                    <?php
+                            
+                        }
+                        mysqli_free_result($result);
+                    }
+
+                    mysqli_close($con);
+                    ?>
 
                 </tbody>
             </table>

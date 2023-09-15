@@ -1,103 +1,3 @@
-<?php
-include('../../include/driver/config.php');
-$id = $_GET['id'];
-
-$sql = "SELECT * FROM rmv_database WHERE  nic='$id'";
-
-$res = mysqli_query($con, $sql);
-
-if ($res == TRUE) {
-
-  $row = mysqli_fetch_assoc($res);
-
-  $id = $row['nic'];
-  $licence_no = $row['licence_no'];
-  $fname = $row['fname'];
-  $uname = $row['uname'];
-  $dob = $row['dob'];
-  $address = $row['address'];
-  $fullname = $fname . ' ' . $uname;
-} else {
-  header('location: http://localhost/efinen/public');
-}
-
-?>
-
-<?php
-
-if (isset($_POST["register"])) {
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  $mobile = $_POST["mobile"];
-
-
-  $check_query = mysqli_query($con, "SELECT * FROM driver where Email ='$email'");
-  $rowCount = mysqli_num_rows($check_query);
-
-
-
-  if (!empty($email) && !empty($password)) {
-    if ($rowCount > 0) {
-?>
-      <script>
-        alert("User with email already exist!");
-      </script>
-      <?php
-    } else {
-      $password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-      $result = mysqli_query($con, "INSERT INTO driver (Nic_No, Licence_No, `Name` , Email, `Password` , `Address`,  Mobile_No ,Point_Balance, `status`) VALUES ('$id','$licence_no','$fullname','$email', '$password_hash','$address', '$mobile',15,0)");
-
-      if ($result) {
-
-        $otp = rand(100000, 999999);
-        $_SESSION['otp'] = $otp;
-        $_SESSION['mail'] = $email;
-        require "Mail/phpmailer/PHPMailerAutoload.php";
-        $mail = new PHPMailer;
-
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 587;
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'tls';
-
-        $mail->Username = 'gproject029@gmail.com';
-        $mail->Password = 'pzqbifwyzcnntoqr';
-
-        $mail->setFrom('gproject029@gmail.com', 'OTP Verification');
-        $mail->addAddress($_POST["email"]);
-
-        $mail->isHTML(true);
-        $mail->Subject = "Your verify code";
-        $mail->Body = "<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
-                    <br><br>
-                    <p>With regrads,</p>
-                    <b>Efine</b>
-                    https://www.Efine.lk";
-
-        if (!$mail->send()) {
-      ?>
-          <script>
-            alert(" <?php echo "Register Failed, Invalid Email " ?> ");
-          </script>
-        <?php
-        } else {
-        ?>
-          <script>
-            alert("<?php echo "Register Successfully, OTP sent to " . $email ?>");
-            window.location.replace('otp-conf.php');
-          </script>
-<?php
-        }
-      }
-    }
-  }
-}
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -107,10 +7,105 @@ if (isset($_POST["register"])) {
   <title>Registration</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
+
+
+<?php
+
+
+$id = $_GET['id'];
+
+include("../../include/driver/config.php");
+$sql = "SELECT * FROM driver WHERE  nic='$id'";
+
+$res = mysqli_query($con, $sql);
+
+if ($res == TRUE) {
+
+  $row = mysqli_fetch_assoc($res);
+
+  $id = $row['nic'];
+  $licence_no = $row['licence_no'];
+  $name = $row['name'];
+  $address = $row['address'];
+  $mobile = $row['mobile_no'];
+
+  
+} else {
+  header('location: http://localhost/efine-merged');
+}
+
+?>
+
+<?php
+
+$_SESSION['id'] = $id;
+$_SESSION['licence_no'] = $licence_no;
+$otp = rand(100000, 999999);
+$_SESSION['mobile'] = $mobile;
+ 
+  $_SESSION['otp'] = $otp;
+
+if (isset($_POST["next"])) {
+ 
+/*
+  
+  require_once(__DIR__ . '/vendor/autoload.php');
+
+
+$api_instance = new NotifyLk\Api\SmsApi();
+$user_id = "24877"; // string | API User ID - Can be found in your settings page.
+$api_key = "58zF8KMwWAjUTZQvsaOn"; // string | API Key - Can be found in your settings page.
+$message = "$otp";
+// string | Text of the message. 320 chars max.
+$to = "$mobile"; // string | Number to send the SMS. Better to use 9471XXXXXXX format.
+$sender_id = "NotifyDEMO"; // string | This is the from name recipient will see as the sender of the SMS. Use \\\"NotifyDemo\\\" if you have not ordered your own sender ID yet.
+$contact_fname = ""; // string | Contact First Name - This will be used while saving the phone number in your Notify contacts (optional).
+$contact_lname = ""; // string | Contact Last Name - This will be used while saving the phone number in your Notify contacts (optional).
+$contact_email = ""; // string | Contact Email Address - This will be used while saving the phone number in your Notify contacts (optional).
+$contact_address = ""; // string | Contact Physical Address - This will be used while saving the phone number in your Notify contacts (optional).
+$contact_group = 0; // int | A group ID to associate the saving contact with (optional).
+$type = null; // string | Message type. Provide as unicode to support unicode (optional).
+
+try {
+    $api_instance->sendSMS($user_id, $api_key, $message, $to, $sender_id, $contact_fname, $contact_lname, $contact_email, $contact_address, $contact_group, $type);
+} catch (Exception $e) {
+    echo 'Exception when calling SmsApi->sendSMS: ', $e->getMessage(), PHP_EOL;
+    
+} 
+$mobile = $_SESSION["mobile"];
+$otp = $_SESSION["otp"];
+$id = $_SESSION["id"];
+
+*/
+echo " <script>Swal.fire({
+  icon: 'success',
+  title: 'Please verify your mobile number ',
+  confirmButtonColor: '#3085d6',
+  text: 'OTP sent is sent to your mobile',
+  });
+</script>";
+
+      // Delay in seconds
+      $delay = 3;
+  
+      // Redirect URL
+      $redirectURL = "otp-conf.php";
+  
+      // Delayed redirection
+      header("refresh:{$delay};url={$redirectURL}");
+   
+
+
+
+ 
+}
+?>
+
 
   <div class="hero">
     <div class="dropdown">
@@ -153,30 +148,7 @@ if (isset($_POST["register"])) {
             </div>
           </td>
         </tr>
-        <tr>
-          <td>First name</td>
-          <td>
-            <div class="tdata">
-              <?php echo  $fname; ?>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Last name</td>
-          <td>
-            <div class="tdata">
-              <?php echo $uname; ?>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Date of birth</td>
-          <td>
-            <div class="tdata">
-              <?php echo $dob; ?>
-            </div>
-          </td>
-        </tr>
+       
         <tr>
           <td>Address</td>
           <td>
@@ -185,67 +157,27 @@ if (isset($_POST["register"])) {
             </div>
           </td>
         </tr>
+        <tr>
+          <td>
+            <div class="tdata1">Mobile Number</div>
+          </td>
+          <td>
+            <div class="tdata">
+              <?php echo $mobile; ?>
+            </div>
+          </td>
+        </tr>
       </table>
       <div class="text-box">
-        <h1> Please Enter below Details to Complete Registration </h1>
+        <h2> Please click on next button to send otp to your mobile </h2>
+        <form action="" method="POST">
+        <button name="next" type="submit" class="buttonClass">Next</button>
 
+        </form>
+       
       </div>
-      <div class="wrapper">
-
-        <div class="form">
-          <form action="" method="POST" name="register">
-            <div class="inputfield">
-              <label>Email <span style="color:red;">*</span></label>
-              <input type="text" class="input" name="email" id="email">
-
-
-
-
-            </div>
-            <p id="email-error" class="hide required-color error-message">Invalid Email</p>
-
-
-            <p id="empty-email" class="hide required-color error-message">Empty Field</p>
-
-            <div class="inputfield">
-              <label>Mobile Number <span style="color:red;">*</span></label>
-              <input type="text" class="input" name="mobile" id="phone">
-
-            </div>
-            <p id="phone-error" class="hide required-color error-message">Phone Number Should Have 10 Digits</p>
-            <p id="empty-phone" class="hide required-color error-message">
-              Empty Field
-            </p>
-            <div class="inputfield">
-              <label>Password <span style="color:red;">*</span></label>
-              <input type="password" class="input" id="password">
-              <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
-
-
-            </div>
-
-
-            <p id="empty-password" class="hide required-color error-message">
-              Password Cannot Be Empty
-            </p>
-            <p id="password-error" class="hide required-color error-message">
-              Passwords Should Have Letter, Special symbols, Numbers And Length >=
-              8
-            </p>
-            <div class="inputfield">
-              <label>Confirm Password <span style="color:red;">*</span></label>
-              <input type="password" class="input" name="password" id="verify-password">
-              <i class="fa fa-eye" aria-hidden="true" id="eye" onclick="toggle()"></i>
-            </div>
-
-
-
-            <p id="verify-password-error" class="hide required-color error-message">Should Be Same As Previous Password</p>
-            <p id="empty-verify-password" class="hide required-color error-message">Password Cannot Be Empty</p>
-            <button type="submit" class="confirm-btn" name="register" id="submit-button">Confirm</button>
-          </form>
-        </div>
-      </div>
+     
+      
     </div>
   </div>
 
@@ -259,151 +191,7 @@ if (isset($_POST["register"])) {
 
 
   </div>
-  <script>
-    //Email
-    let emailInput = document.getElementById("email");
-    let emailError = document.getElementById("email-error");
-    let emptyEmailError = document.getElementById("empty-email");
-
-
-    //Phone
-    let phoneInput = document.getElementById("phone");
-    let phoneError = document.getElementById("phone-error");
-    let emptyPhoneError = document.getElementById("empty-phone");
-
-    //Password
-    let passwordInput = document.getElementById("password");
-    let passwordError = document.getElementById("password-error");
-    let emptyPasswordError = document.getElementById("empty-password");
-
-    //Verify Password
-    let verifyPasswordInput = document.getElementById("verify-password");
-    let verifyPasswordError = document.getElementById("verify-password-error");
-    let emptyVerifyPasswordError = document.getElementById("empty-verify-password");
-
-
-    //Submit
-    let submitButton = document.getElementById("submit-button");
-
-    //Valid
-    let validClasses = document.getElementsByClassName("valid");
-    let invalidClasses = document.getElementsByClassName("error");
-
-    //Password Verification
-    const passwordVerify = (password) => {
-      const regex =
-        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
-      return regex.test(password) && password.length >= 8;
-    };
-
-    //Email verification
-    const emailVerify = (input) => {
-      const regex = /^[a-z0-9_]+@[a-z]{3,}\.[a-z\.]{3,}$/;
-      return regex.test(input);
-    };
-    //Phone number verification
-    const phoneVerify = (number) => {
-      const regex = /^[0-9]{10}$/;
-      return regex.test(number);
-    };
-    //For empty input - accepts(input,empty error for that input and other errors)
-    const emptyUpdate = (
-      inputReference,
-      emptyErrorReference,
-      otherErrorReference
-    ) => {
-      if (!inputReference.value) {
-        //input is null/empty
-        emptyErrorReference.classList.remove("hide");
-        otherErrorReference.classList.add("hide");
-        inputReference.classList.add("error");
-      } else {
-        //input has some content
-        emptyErrorReference.classList.add("hide");
-      }
-    };
-
-    //For error styling and displaying error message
-    const errorUpdate = (inputReference, errorReference) => {
-      errorReference.classList.remove("hide");
-      inputReference.classList.remove("valid");
-      inputReference.classList.add("error");
-    };
-
-    //For no errors
-    const validInput = (inputReference) => {
-      inputReference.classList.remove("error");
-      inputReference.classList.add("valid");
-    };
-
-    //Password
-    passwordInput.addEventListener("input", () => {
-      if (passwordVerify(passwordInput.value)) {
-        passwordError.classList.add("hide");
-        validInput(passwordInput);
-      } else {
-        errorUpdate(passwordInput, passwordError);
-        emptyUpdate(passwordInput, emptyPasswordError, passwordError);
-      }
-    });
-
-    //Verify password
-    verifyPasswordInput.addEventListener("input", () => {
-      if (verifyPasswordInput.value === passwordInput.value) {
-        verifyPasswordError.classList.add("hide");
-        validInput(verifyPasswordInput);
-      } else {
-        errorUpdate(verifyPasswordInput, verifyPasswordError);
-        emptyUpdate(passwordInput, emptyVerifyPasswordError, verifyPasswordError);
-      }
-    });
-
-    //Email
-    emailInput.addEventListener("input", () => {
-      if (emailVerify(emailInput.value)) {
-        emailError.classList.add("hide");
-        validInput(emailInput);
-      } else {
-        errorUpdate(emailInput, emailError);
-        emptyUpdate(emailInput, emptyEmailError, emailError);
-      }
-    });
-
-    //Phone
-    phoneInput.addEventListener("input", () => {
-      if (phoneVerify(phoneInput.value)) {
-        phoneError.classList.add("hide");
-        validInput(phoneInput);
-      } else {
-        errorUpdate(phoneInput, phoneError);
-        emptyUpdate(phoneInput, emptyPhoneError, phoneError);
-      }
-    });
-
-    //Submit button
-    submitButton.addEventListener("click", () => {
-      if (validClasses.length == 4 && invalidClasses.length == 0) {
-        alert("Success");
-      } else {
-        alert("Error");
-      }
-    });
-  </script>
-  <script>
-    var state = false;
-
-    function toggle() {
-      if (state) {
-        document.getElementById("password").setAttribute("type", "password");
-        document.getElementById("eye").style.color = '#7a797e';
-        state = false;
-      } else {
-        document.getElementById("password").setAttribute("type", "text");
-        document.getElementById("eye").style.color = '#5887ef';
-        state = true;
-      }
-    }
-  </script>
+  
   <?php include('../../include/driver/footer.php'); ?>
 
 </body>
